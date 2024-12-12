@@ -66,20 +66,20 @@ class TransactionController(BaseController):
             * Search by card group
             * Search by fuel only transactions
             * Search by product
-          
+
          This API fetches transactions for a period based on the below
-         parameters and priority order:
-        1.	InvoiceNumber
-         2.	InvoiceDate
-         3.	FromDate, ToDate
-        4.	PostingFromDate, PostingToDate (Can be used only when IncludeFees =
-        false)
-         5.	InvoiceDateFrom, InvoiceDateTo
-         6.	Period
+        parameters and priority order:
+        1.    InvoiceNumber
+         2.    InvoiceDate
+         3.    FromDate, ToDate
+        4.    PostingFromDate, PostingToDate (Can be used only when
+        IncludeFees = false)
+         5.    InvoiceDateFrom, InvoiceDateTo
+         6.    Period
          This API considers only one of the above set of parameters at a time.
-         For example, if InvoiceNumber and Period are provided in the input
-         then Period is ignored and transactions associated to the given
-         invoice number are returned.
+        For example, if InvoiceNumber and Period are provided in the input
+        then Period is ignored and transactions associated to the given
+        invoice number are returned.
         If none of the above parameters are provided then last 7 days
         transactions will be fetched.
         This operation can fetch transactions that are old up to 24
@@ -132,10 +132,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PricedTransactionResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def priced_transactions_summary(self,
@@ -165,20 +165,20 @@ class TransactionController(BaseController):
             * Search by card group
             * Search by fuel only transactions
             * Search by product
-          
+
          This API fetches transactions for a period based on the below
-         parameters and priority order:
-         1.	InvoiceNumber
-         2.	InvoiceDate
-         3.	FromDate, ToDate
-         4.	PostingFromDate, PostingToDate (Can be used only when IncludeFees
-         = false)
-         5.	InvoiceDateFrom, InvoiceDateTo
-         6.	Period
+        parameters and priority order:
+         1.    InvoiceNumber
+         2.    InvoiceDate
+         3.    FromDate, ToDate
+         4.    PostingFromDate, PostingToDate (Can be used only when
+        IncludeFees = false)
+         5.    InvoiceDateFrom, InvoiceDateTo
+         6.    Period
          This API considers only one of the above set of parameters at a time.
-         For example, if InvoiceNumber and Period are provided in the input
-         then Period is ignored and transactions associated to the given
-         invoice number are returned.
+        For example, if InvoiceNumber and Period are provided in the input
+        then Period is ignored and transactions associated to the given
+        invoice number are returned.
         If none of the above parameters are provided then last 7 days
         transactions will be fetched.
 
@@ -227,10 +227,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PricedTransSummaryResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def multipriced_transactions(self,
@@ -257,20 +257,20 @@ class TransactionController(BaseController):
             * Search by transaction posting date
             * Search by invoice number or date
             * Search by fuel only transactions
-         
+
          This API fetches transactions for a period based on the below
-         parameters and priority order:
-         1.	InvoiceNumber
-         2.	InvoiceDate
-         3.	FromDate, ToDate
-         4.	PostingFromDate, PostingToDate (Can be used only when IncludeFees
-         = false)
-         5.	InvoiceDateFrom, InvoiceDateTo
-         6.	Period
+        parameters and priority order:
+         1.    InvoiceNumber
+         2.    InvoiceDate
+         3.    FromDate, ToDate
+         4.    PostingFromDate, PostingToDate (Can be used only when
+        IncludeFees = false)
+         5.    InvoiceDateFrom, InvoiceDateTo
+         6.    Period
          This API considers only one of the above set of parameters at a time.
-         For example, if InvoiceNumber and Period are provided in the input
-         then Period is ignored and transactions associated to the given
-         invoice number are returned.
+        For example, if InvoiceNumber and Period are provided in the input
+        then Period is ignored and transactions associated to the given
+        invoice number are returned.
         If none of the above parameters are provided then last 7 days
         transactions will be fetched.
 
@@ -319,10 +319,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MultiPricedTransactionResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def card_usage_summary(self,
@@ -382,10 +382,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CardUsageSummaryResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def volume_based_bonus(self,
@@ -446,10 +446,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(VolumeBasedBonusResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def volume_based_pricing(self,
@@ -509,10 +509,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(VolumeBasedPricingResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def fees(self,
@@ -581,10 +581,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransactionFeesResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def fee_summary_response(self,
@@ -652,10 +652,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FeeSummaryResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def fuel_consumption(self,
@@ -716,10 +716,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FuelConsumptionResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def update_odometer(self,
@@ -739,8 +739,7 @@ class TransactionController(BaseController):
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (UpdateOdometerRequest, optional): updateOdometer
-                RequestBody
+            body (UpdateOdometerRequest, optional): updateOdometer RequestBody
 
         Returns:
             UpdateOdometerResponse: Response from the API. OK
@@ -778,10 +777,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(UpdateOdometerResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def transaction_exceptions(self,
@@ -841,10 +840,10 @@ class TransactionController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransactionExceptionsResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def recent_transactions_new(self,
@@ -906,11 +905,11 @@ class TransactionController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RecentTransactionsResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def priced_transactions_v_2(self,
@@ -992,9 +991,9 @@ class TransactionController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PricedTransactionResponseV2.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()

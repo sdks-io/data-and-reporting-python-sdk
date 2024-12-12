@@ -24,8 +24,7 @@ class DeliveryAddresses(object):
         company_name (str): Account Name
         contact_fore_name (str): Contact fore name of the delivery address.
         contact_last_name (str): Contact last name of the delivery address.
-        contact_middle_name (str): Contact middle name of the delivery
-            address.
+        contact_middle_name (str): Contact middle name of the delivery address.
         contact_title (str): ContactTitle
         country (str): Country
         country_id (int): Country Id
@@ -35,8 +34,8 @@ class DeliveryAddresses(object):
         region_id (int): Region Id of the address.
         telephone (str): Telephone number of the address contact
         zip_code (str): Delivery Zip code
-        address_type (int): Delivery address type.  Possible Values:  1 – Card
-            and PIN delivery address  2 – Card delivery address  3 – PIN
+        address_type (int): Delivery address type. Possible Values: 1 – Card
+            and PIN delivery address 2 – Card delivery address 3 – PIN
             delivery address
 
     """
@@ -185,7 +184,7 @@ class DeliveryAddresses(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -24,41 +24,39 @@ class PriceTransSummaryRequest(object):
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
-        payer_id (int): Payer Id  of the selected payer.  Optional if
+        payer_id (int): Payer Id  of the selected payer. Optional if
             PayerNumber is passed else Mandatory
         payer_number (str): Payer Number (Ex: GB000000123) of the selected
-            payer.  Optional if PayerId is passed else Mandatory  Example:
+            payer. Optional if PayerId is passed else Mandatory Example:
             GB000000123
         accounts (Accounts): TODO: type description here.
-        card_id (int): Card Id (i.e. Unique Card Id in GFN)  Optional  When
-            both Card Id and Card PAN are not present on request, the response
-            will have transactions of all cards under the selected payer or
-            account
-        card_pan (str): Full Card PAN  Optional  When both Card Id and Card
-            PAN are not present on request, the response will have
-            transactions of all cards under the selected payer or account.
-        driver_name (str): Driver Name (of Card record)  Optional  Minimum of
-            4 characters should be provided else not considered  Transactions
-            of the card having the entered value at any part of the Driver
-            Name will be returned
+        card_id (int): Card Id (i.e. Unique Card Id in GFN) Optional When both
+            Card Id and Card PAN are not present on request, the response will
+            have transactions of all cards under the selected payer or account
+        card_pan (str): Full Card PAN Optional When both Card Id and Card PAN
+            are not present on request, the response will have transactions of
+            all cards under the selected payer or account.
+        driver_name (str): Driver Name (of Card record) Optional Minimum of 4
+            characters should be provided else not considered Transactions of
+            the card having the entered value at any part of the Driver Name
+            will be returned
         vehicle_registration_number (str): Vehicle Registration (of Card
-            record)  Optional  Minimum of 4 characters should be provided else
-            not considered  Transactions of the card having the entered value
+            record) Optional Minimum of 4 characters should be provided else
+            not considered Transactions of the card having the entered value
             at any part of the VRN will be returned
-        invoice_status (str): Invoice status of the transactions.  Mandatory 
-            Possible options:  I - Invoiced  U – Un-Invoiced  A – All
-        product_id (int): Product Id  Example:   21 Unleaded - High octane  22
-            Unleaded - Medium octane  23 Unleaded - Low octane  24 Unleaded
-            Environmental
+        invoice_status (str): Invoice status of the transactions. Mandatory
+            Possible options: I - Invoiced U – Un-Invoiced A – All
+        product_id (int): Product Id  Example:   21    Unleaded - High octane 
+            22    Unleaded - Medium octane  23    Unleaded - Low octane  24   
+            Unleaded Environmental
         product_code (str): Product Code – Global as per GFN configuration 
-            Optional  Max Length: 8  Example:   10 TMF Charges  11
-            Tunnel/Bridges  12 Motorway toll  13 Ferries
-        purchased_in_country (str): ISO Country Code (ex: UK, FR)    Note: If
+            Optional  Max Length: 8  Example:   10    TMF Charges  11   
+            Tunnel/Bridges  12    Motorway toll  13    Ferries
+        purchased_in_country (str): ISO Country Code (ex: UK, FR)   Note: If
             IncludeFees is true then this filter will be ignored
         card_group_id (int): Card Group Id in GFN
         from_date (str): Transactions from Date/Time.   Optional – When
-            provided, it should be with in last 24 months.     Format:
-            yyyyMMdd
+            provided, it should be with in last 24 months.     Format: yyyyMMdd
         to_date (str): Transactions to Date/Time.  Optional- Refer
             introduction section of this operation for the priority and
             sequence of different date and invoice number filters that are
@@ -67,23 +65,23 @@ class PriceTransSummaryRequest(object):
             210(Configurable) days after the given FromDate is returned.   2)
             Difference between FromDate and ToDate cannot be more than 210
             (Configurable) days.    Format: yyyyMMdd
-        period (int): Transactions Period.   Possible values are:  1. Last 7
-            Days  2. Last 30 Days  3. Last 90 Days  Optional - Refer
+        period (int): Transactions Period.   Possible values are:  1.    Last
+            7 Days  2.    Last 30 Days  3.    Last 90 Days  Optional - Refer
             introduction section of this operation for the priority and
             sequence of different date and invoice number filters that are
             conditionally applied.
-        site_code (str): Site Code as configured in GFN  Example:  050001 -
-            CHARNOCK RICHARD NTHBOUND MWSA 0755  050002 - CHARNOCK RICHARD
-            STHBOUND MWSA 0755  050005 - HARTSHEAD MOOR EASTBOUND MWSA 0761. 
-            050006 - HARTSHEAD MOOR WESTBOUND MWSA.  Note: If IncludeFees is
+        site_code (str): Site Code as configured in GFN Example: 050001 -   
+            CHARNOCK RICHARD NTHBOUND MWSA 0755 050002 -    CHARNOCK RICHARD
+            STHBOUND MWSA 0755 050005 -    HARTSHEAD MOOR EASTBOUND MWSA 0761.
+            050006 -    HARTSHEAD MOOR WESTBOUND MWSA. Note: If IncludeFees is
             true then this filter will be ignored
-        site_group_id (int): Site Group Id in GFN  Optional  Example: 202 
-            Note: If IncludeFees is true then this filter will be ignored
+        site_group_id (int): Site Group Id in GFN Optional Example: 202 Note:
+            If IncludeFees is true then this filter will be ignored
         posting_date_from (str): Transaction Posting Date/time in the Cards
-            Platform - From Date/time.    Note:  1) When the value of both
+            Platform - From Date/time.   Note: 1) When the value of both
             PostingDateFrom and PostingDateTo are present in the request then
-            the value of PostingDateFrom must be less than PostingDateTo.  2)
-            If IncludeFees is true then this filter will be ignored  Format:
+            the value of PostingDateFrom must be less than PostingDateTo. 2)
+            If IncludeFees is true then this filter will be ignored Format:
             yyyyMMdd HH:mm:ss
         posting_date_to (str): Transaction Posting Date/time in the Cards
             Platform – To Date/time.    Note:   1) If IncludeFees is true then
@@ -91,10 +89,10 @@ class PriceTransSummaryRequest(object):
             PostingDateFrom and PostingDateTo are present in the request then
             the value of PostingDateFrom must be less than PostingDateTo. 
             Format: yyyyMMdd HH:mm:ss
-        sales_item_id (str): Unique SalesItemId (Either Billed on Unbilled) 
-            Optional  Note: If IncludeFees is true then this filter will be
+        sales_item_id (str): Unique SalesItemId (Either Billed on Unbilled)
+            Optional Note: If IncludeFees is true then this filter will be
             ignored
-        transaction_id (str): Unique Transaction Id  Optional  Note: If
+        transaction_id (str): Unique Transaction Id Optional Note: If
             IncludeFees is true then this filter will be ignored
         invoice_date (str): Invoice Date.  Optional  Note:   1) If value is
             not blank then the system will ignore the InvoiceStatus parameter
@@ -121,7 +119,7 @@ class PriceTransSummaryRequest(object):
         fuel_only (bool): True/False  Optional  Default value: False.   When
             passed as ‘True’ Only returned records with Fuel transactions. 
             When passed as ‘False’ the above condition will not be checked.
-        include_fees (bool): True/False  Optional  Default value: False  When
+        include_fees (bool): True/False Optional Default value: False When
             passed as ‘True’ then  ignore few filters, all sales items along
             with fees included on the same response
 
@@ -304,7 +302,7 @@ class PriceTransSummaryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

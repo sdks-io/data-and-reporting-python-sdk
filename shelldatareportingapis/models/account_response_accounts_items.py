@@ -26,38 +26,32 @@ class AccountResponseAccountsItems(object):
             customer/account configured.
         billing_frequency_type (str): Billing/Invoice frequency. The frequency
             in which the transactions will be considered for invoicing in a
-            bulling run  E.g.:   1 Daily (all days)  2 Daily (only working
-            days)  3 Weekly - Monday  4 Weekly – Tuesday  Etc.
+            bulling run  E.g.:   1    Daily (all days)  2    Daily (only
+            working days)  3    Weekly - Monday  4    Weekly – Tuesday  Etc.
         billing_frequency_type_id (int): Billing/Invoice frequency Identifier.
             Indicates the frequency in which the transactions will be
             considered for invoicing in a bulling run
         billing_run_frequency (str): Frequency at which the billing process is
-            triggered. E.g.:   1 Daily (all days)  2 Daily (only working days)
-            3 Weekly - Monday  4 Weekly – Tuesday  Etc.
+            triggered. E.g.:   1    Daily (all days)  2    Daily (only working
+            days)  3    Weekly - Monday  4    Weekly – Tuesday  Etc.
         billing_run_frequency_type_id (int): Frequency at which the billing
-            process is triggered.  E.g.: 1, 2, 3, etc.
+            process is triggered. E.g.: 1, 2, 3, etc.
         col_co_country_code (str): The 2-character ISO Code for the customer
             and card owning country.
         currency_code (str): ISO code of customer currency.
         currency_symbol (str): €
         day_1_run (int): The first day in a month when the billing should run
-            in case of multiple billing runs configured with in a single
-            month
+            in case of multiple billing runs configured with in a single month
         day_2_run (int): The second day in a month when the billing should run
-            in case of multiple billing runs configured with in a single
-            month
+            in case of multiple billing runs configured with in a single month
         day_3_run (int): The third day in a month when the billing should run
-            in case of multiple billing runs configured with in a single
-            month
+            in case of multiple billing runs configured with in a single month
         day_4_run (int): The fourth day in a month when the billing should run
-            in case of multiple billing runs configured with in a single
-            month
-        frequency_type (str): Frequency type unit id & description  E.g.:  1 -
-            Daily  2 - Weekly  3 - Monthly  4 - Invoicing  6 - Calendar
-            quarter
+            in case of multiple billing runs configured with in a single month
+        frequency_type (str): Frequency type unit id & description E.g.: 1 -
+            Daily 2 - Weekly 3 - Monthly 4 - Invoicing 6 - Calendar quarter
         gross_amount (float): Gross amount in customer currency.
-        international_pos_language_code (str): POS international language
-            code
+        international_pos_language_code (str): POS international language code
         international_pos_language_id (int): POS international language ID
         invoice_account_id (int): The Account ID of the account on which the
             invoice is generated.
@@ -75,8 +69,7 @@ class AccountResponseAccountsItems(object):
         local_pos_language_code (str): POS local language code
         local_pos_language_id (int): POS local language ID
         net_amount (float): Net amount in customer currency.
-        outstanding_balance (float): Outstanding balance in customer
-            currency.
+        outstanding_balance (float): Outstanding balance in customer currency.
         paid_amount (float): Amount paid in customer currency.
         status (str): Account Status
         status_reason (str): Account status change reason id-description for
@@ -104,13 +97,11 @@ class AccountResponseAccountsItems(object):
             under the account that are temporarily blocked by Shell.
         vat_amount (float): VAT amount in customer currency.
         is_partner_card (int): The account / sub-account is partner card
-            account or not.  Possible values (1= Non-PC account, 2= PC
-            account, 3= PC Payer with Card Types, 4= PC Payer)  Note: A
-            partner card account is assumed to have only partner card
-            card-types associated
+            account or not. Possible values (1= Non-PC account, 2= PC account,
+            3= PC Payer with Card Types, 4= PC Payer) Note: A partner card
+            account is assumed to have only partner card card-types associated
         tolls_customer_id (str): Customer id in e-TM system
-        tolls_colco_country_type_id (str): Colco country type id in e-TM
-            system
+        tolls_colco_country_type_id (str): Colco country type id in e-TM system
         contracts (List[CustomerContract]): TODO: type description here.
         is_consortium_member (str): true
 
@@ -467,7 +458,7 @@ class AccountResponseAccountsItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -91,11 +91,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(InvoiceSearchResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def invoice_summary(self,
@@ -121,8 +121,7 @@ class InvoiceController(BaseController):
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (InvoiceSummaryRequest, optional): Invoice Search
-                RequestBody
+            body (InvoiceSummaryRequest, optional): Invoice Search RequestBody
 
         Returns:
             InvoiceSummaryResponse: Response from the API. OK
@@ -156,11 +155,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(InvoiceSummaryResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def statement_of_account(self,
@@ -175,7 +174,7 @@ class InvoiceController(BaseController):
         #### Supported operations
           * Search invoice SOA by payer and account
           * Search invoice SOA including monthly trend (last 13 months invocie
-          trend summary)
+        trend summary)
           * Search invoice SOA including past SOAs
           * Search invoice SOA including due/overdue documents
           * Search invoice SOA including invoice summary
@@ -219,11 +218,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(StatementOfAccountResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def dates(self,
@@ -274,11 +273,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(InvoiceDatesResponseData.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def search_statement_of_account(self,
@@ -327,11 +326,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SearchStatementOfAccountResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def search_documents(self,
@@ -382,11 +381,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SearchDocumentsResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def eid_search(self,
@@ -436,11 +435,11 @@ class InvoiceController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EIDDocumentResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def download(self,
@@ -486,11 +485,11 @@ class InvoiceController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).endpoint_configuration(
             EndpointConfiguration()
             .has_binary_response(True)
@@ -542,11 +541,11 @@ class InvoiceController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
             .local_error('403', 'Forbidden', ErrorObjectException)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
-            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).endpoint_configuration(
             EndpointConfiguration()
             .has_binary_response(True)

@@ -24,10 +24,9 @@ class PricingCurrentVolume(object):
             is associated to the payer.
         price_rule_description (str): Pricing current period pricing rule
             description that is associated to the payer
-        total_volume (float): Total volume consumption for the current
-            period.
+        total_volume (float): Total volume consumption for the current period.
         next_fee_creation_date (str): Next Fee Rule Creation Date for that is
-            associated to the payer.  Format: YYYYMMDD
+            associated to the payer. Format: YYYYMMDD
 
     """
 
@@ -97,7 +96,7 @@ class PricingCurrentVolume(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

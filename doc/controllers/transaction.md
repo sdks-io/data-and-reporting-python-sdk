@@ -77,7 +77,7 @@ def priced_transactions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`PriceTransactionRequest`](../../doc/models/price-transaction-request.md) | Body, Optional | Priced Transaction Request Body |
 
 ## Response Type
@@ -107,7 +107,6 @@ result = transaction_controller.priced_transactions(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -319,7 +318,7 @@ def priced_transactions_summary(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`PriceTransSummaryRequest`](../../doc/models/price-trans-summary-request.md) | Body, Optional | PricedSummary RequestBody |
 
 ## Response Type
@@ -370,7 +369,6 @@ result = transaction_controller.priced_transactions_summary(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -459,7 +457,7 @@ def multipriced_transactions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`MultiPricedTransactionRequest`](../../doc/models/multi-priced-transaction-request.md) | Body, Optional | MultiPayer RequestBody |
 
 ## Response Type
@@ -508,7 +506,6 @@ result = transaction_controller.multipriced_transactions(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -687,7 +684,7 @@ def card_usage_summary(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`CardUsageSummaryRequest`](../../doc/models/card-usage-summary-request.md) | Body, Optional | Card Usage Summary RequestBody |
 
 ## Response Type
@@ -705,7 +702,6 @@ result = transaction_controller.card_usage_summary(
     apikey,
     request_id
 )
-print(result)
 ```
 
 ## Errors
@@ -736,7 +732,7 @@ def volume_based_bonus(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`VolumeBasedBonusRequest`](../../doc/models/volume-based-bonus-request.md) | Body, Optional | VolumeBasedBonus RequestBody |
 
 ## Response Type
@@ -754,7 +750,6 @@ result = transaction_controller.volume_based_bonus(
     apikey,
     request_id
 )
-print(result)
 ```
 
 ## Errors
@@ -785,7 +780,7 @@ def volume_based_pricing(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`VolumeBasedPricingRequest`](../../doc/models/volume-based-pricing-request.md) | Body, Optional | VolumeBasedPricing RequestBody |
 
 ## Response Type
@@ -803,7 +798,6 @@ result = transaction_controller.volume_based_pricing(
     apikey,
     request_id
 )
-print(result)
 ```
 
 ## Errors
@@ -846,7 +840,7 @@ def fees(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`TransactionFeesRequest`](../../doc/models/transaction-fees-request.md) | Body, Optional | Transaction Fees RequestBody |
 
 ## Response Type
@@ -887,7 +881,6 @@ result = transaction_controller.fees(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1033,7 +1026,7 @@ def fee_summary_response(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`TransactionFeesRequest`](../../doc/models/transaction-fees-request.md) | Body, Optional | FeeSummary RequestBody |
 
 ## Response Type
@@ -1072,7 +1065,6 @@ result = transaction_controller.fee_summary_response(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1128,7 +1120,7 @@ def fuel_consumption(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`FuelConsumptionRequest`](../../doc/models/fuel-consumption-request.md) | Body, Optional | FuelConsumption RequestBody |
 
 ## Response Type
@@ -1152,7 +1144,6 @@ result = transaction_controller.fuel_consumption(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1219,7 +1210,7 @@ def update_odometer(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`UpdateOdometerRequest`](../../doc/models/update-odometer-request.md) | Body, Optional | updateOdometer RequestBody |
 
 ## Response Type
@@ -1253,7 +1244,6 @@ result = transaction_controller.update_odometer(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1303,7 +1293,7 @@ def transaction_exceptions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`TransactionExceptionsRequest`](../../doc/models/transaction-exceptions-request.md) | Body, Optional | Transaction Exceptions RequestBody |
 
 ## Response Type
@@ -1333,7 +1323,6 @@ result = transaction_controller.transaction_exceptions(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1391,12 +1380,19 @@ This endpoint allows querying last 48 hours of transaction data of Shell Card (i
 #### Supported operations
 
     * Search by Date and Time range (within the last 48 hours only)
+    
     * Search by Payer and/or Account number
+    
     * Search by Card
+    
     * Search by Purchased Country
+    
     * Search by Transaction posting date
+    
     * Search by Driver Name or Vehicle registration number
+    
     * Search by Fuel only transactions
+    
     * Search by Product and/or Product group
 
 ```python
@@ -1409,7 +1405,7 @@ def recent_transactions_new(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`RecentTransactionRequest`](../../doc/models/recent-transaction-request.md) | Body, Optional | New Recent Transaction RequestBody |
 
 ## Response Type
@@ -1447,7 +1443,6 @@ result = transaction_controller.recent_transactions_new(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1594,7 +1589,7 @@ def priced_transactions_v_2(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`PricedTransactionRequestV2`](../../doc/models/priced-transaction-request-v2.md) | Body, Optional | Priced TransactionV2 RequestBody |
 
 ## Response Type
@@ -1609,7 +1604,7 @@ request_id = '2b0cbe11-f109-4c43-9201-49af0370df1c'
 body = PricedTransactionRequestV2(
     filters=PricedRequestData(
         col_co_code='032',
-        invoice_status=PricedTransactionReqV2InvoiceStatusEnum.A,
+        invoice_status=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
         payer_number='DE26685263',
         account_id=29484,
         account_number='DE26667080',
@@ -1656,7 +1651,6 @@ result = transaction_controller.priced_transactions_v_2(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1680,7 +1674,7 @@ print(result)
       "TransactionStatus": "Y",
       "DriverName": "SATTY BHAMRA",
       "CardExpiryPeriod": 2204,
-      "CardExpiry": "2022-01-01",
+      "CardExpiry": "20220101",
       "CardGroupId": 40000,
       "CardGroupName": "006240 FIRE BRIGHT SOLUTIONS",
       "IssuerCode": 7002,
@@ -1732,8 +1726,8 @@ print(result)
       "IsShellSite": false,
       "FleetIdInput": "YG67OUM",
       "IncomingProductCode": 23,
-      "PostingDate": "2021-08-02",
-      "PostingTime": "0001-01-01T14:15:22Z",
+      "PostingDate": "20210802",
+      "PostingTime": "14:15:22",
       "ProductCode": 30,
       "ProductName": "Unleaded - Medium octane",
       "ProductGroupId": 22,
@@ -1744,7 +1738,7 @@ print(result)
       "SiteCode": 32,
       "IncomingSiteNumber": 15,
       "InvoiceCurrencyCode": "GBP",
-      "InvoiceDate": "2021-08-02",
+      "InvoiceDate": "20210802",
       "InvoiceNumber": 3201016193,
       "FuelProduct": true,
       "VATApplicable": "Y",
@@ -1785,8 +1779,8 @@ print(result)
       "IsInvoiced": false,
       "TransactionCurrencyCode": "GBP",
       "CreditDebitCode": "D or C",
-      "TransactionDate": "2021-08-01",
-      "TransactionTime": "0001-01-01T12:16:58Z",
+      "TransactionDate": "20210801",
+      "TransactionTime": "12:16:58",
       "TransactionItemId": "H305908971030",
       "TrnIdentifier": "H305908971030",
       "Type": "SALE",
@@ -1805,14 +1799,14 @@ print(result)
       "OriginalVATAmount": 0,
       "EmbossText": "PARKLANE PROPERTIES LTD",
       "OriginalExchangeRate": 0,
-      "OriginalTransactionItemInvoiceDate": "2022-02-02",
+      "OriginalTransactionItemInvoiceDate": "20220202",
       "FeeTypeId": 1,
       "LineItemDescription": true,
       "FeeRuleDescription": "Simple Fee",
       "Frequency": 1,
       "FeeRuleId": 1,
-      "SystemEntryDate": "2021-08-28",
-      "SystemEntryTime": "0001-01-01T20:21:08Z",
+      "SystemEntryDate": "20210828",
+      "SystemEntryTime": "20:21:08",
       "IsManual": "Y",
       "OriginalTransactionItemId": "Y",
       "OriginalTransactionItemInvoiceNumber": 6750802,
@@ -1831,9 +1825,9 @@ print(result)
       "EVChargePointConnectorTypeDescription": "DC 50 kW",
       "EVChargeDuration": "PT3205S",
       "EVChargeStartDate": "2021-08-01",
-      "EVChargeStartTime": "0001-01-01T20:08:01Z",
+      "EVChargeStartTime": "20:08:01",
       "EVChargeEndDate": "2022-08-01",
-      "EVChargeEndTime": "0001-01-01T20:08:01Z",
+      "EVChargeEndTime": "20:08:01",
       "HostingCollectingCompanyNumber": 0,
       "TransactionId": 0,
       "FuelOnly": true

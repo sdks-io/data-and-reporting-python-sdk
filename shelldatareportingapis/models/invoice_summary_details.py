@@ -27,9 +27,8 @@ class InvoiceSummaryDetails(object):
         total_vat_amount_customer_currency (float): Total VAT amount in
             customer currency combined from all the invoices matching with the
             given search criteria.
-        customer_currency_code (str): Customer currency ISO code.  Example:
-            EUR
-        customer_currency_symbol (str): Customer currency code.  Example: €
+        customer_currency_code (str): Customer currency ISO code. Example: EUR
+        customer_currency_symbol (str): Customer currency code. Example: €
 
     """
 
@@ -99,7 +98,7 @@ class InvoiceSummaryDetails(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -17,12 +17,11 @@ class PricingHistory(object):
 
     Attributes:
         from_date (str): Pricing History Period Start date and should be the
-            first date of the month.  Format: YYYYMMDD
+            first date of the month. Format: YYYYMMDD
         to_date (str): Pricing History Period end date and should be the last
-            date of the period month.  Format: YYYYMMDD
+            date of the period month. Format: YYYYMMDD
         fees_rule_id (int): Pricing History Period Fees Rule ID that is
-            associated to the period of that associated payer.    Example:
-            8101
+            associated to the period of that associated payer.    Example: 8101
         fees_rule_description (str): Pricing History Period Fees Rule
             Description that is associated to the period of that associated
             payer.
@@ -91,7 +90,7 @@ class PricingHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

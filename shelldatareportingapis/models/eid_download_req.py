@@ -19,7 +19,7 @@ class EIDDownloadReq(object):
             Mandatory
         eid_list (List[str]): TODO: type description here.
         account_group_country (int): ColCo code associated with the Account
-            Group IDs of the given EID/EDI files.  Mandatory
+            Group IDs of the given EID/EDI files. Mandatory
         account_group_id_list (List[str]): TODO: type description here.
 
     """
@@ -65,7 +65,7 @@ class EIDDownloadReq(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

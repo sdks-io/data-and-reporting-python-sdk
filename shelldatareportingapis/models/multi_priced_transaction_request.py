@@ -25,32 +25,31 @@ class MultiPricedTransactionRequest(object):
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
         accounts (List[MultiPricedTransactionRequestAccountsItems]): List of
-            Payers/Accounts entity.  Mandatory.  • Max number of payers
+            Payers/Accounts entity.  Mandatory.  •    Max number of payers
             allowed in the input is 10, if it exceeds in the input it will
-            throw an error.  • This value is configurable. Initial
+            throw an error.  •    This value is configurable. Initial
             configuration will be 100 and will change to 10 once SFH changes
-            are integrated.  Note:   1. At least one payer should be present. 
-            Accounts information are optional.
-        invoice_status (str): Invoice status of the transactions  Mandatory 
-            Possible options:  I - Invoiced  U – Un-Invoiced  A – All  Max
-            Length: 1
-        purchased_in_country (str): ISO Country Code (ex: UK, FR)  Optional   
+            are integrated.  Note:   1.    At least one payer should be
+            present.  Accounts information are optional.
+        invoice_status (str): Invoice status of the transactions Mandatory
+            Possible options: I - Invoiced U – Un-Invoiced A – All Max Length:
+            1
+        purchased_in_country (str): ISO Country Code (ex: UK, FR) Optional  
             Note: If IncludeFees is true then this filter will be ignored
         from_date (str): Transactions from Date/Time.   Optional – When
-            provided, it should be with in last 24 months.     Format:
-            yyyyMMdd
+            provided, it should be with in last 24 months.     Format: yyyyMMdd
         to_date (str): Transactions to Date/Time.    1) When the value is
             blank and FromDate is provided on the input, all transactions took
             place 210(Configurable) days after the given FromDate is returned.
             2) Difference between FromDate and ToDate cannot be more than 210
             (Configurable) days.    Format: yyyyMMdd
-        period (int): Transactions Period.   Possible values are:  1. Last 7
-            Days  2. Last 30 Days  3. Last 90 Days
+        period (int): Transactions Period.   Possible values are:  1.    Last
+            7 Days  2.    Last 30 Days  3.    Last 90 Days
         posting_date_from (str): Transaction Posting Date/time in the Cards
-            Platform - From Date/time.      Note:  1) When the value of both
+            Platform - From Date/time.     Note: 1) When the value of both
             PostingDateFrom and PostingDateTo are present in the request then
-            the value of PostingDateFrom must be less than PostingDateTo.  2)
-            If IncludeFees is true then this filter will be ignored    Format:
+            the value of PostingDateFrom must be less than PostingDateTo. 2)
+            If IncludeFees is true then this filter will be ignored   Format:
             yyyyMMdd HH:mm:ss
         posting_date_to (str): Transaction Posting Date/time in the Cards
             Platform – To Date/time.    Note:   1) If IncludeFees is true then
@@ -86,20 +85,20 @@ class MultiPricedTransactionRequest(object):
             passed as ‘True’ Only returned records with Fuel transactions. 
             When passed as ‘False’ the above condition will not be checked. 
             Note: If IncludeFees is ‘True’ then this filter will be ignored
-        include_fees (bool): True/False  Optional  Default value: False  When
+        include_fees (bool): True/False Optional Default value: False When
             passed as ‘True’ then  ignore complex filters, all sales items
             along with fees included on the same response
-        sort_order (str): Allowed Sorting Options:  1.
-            TransactionDateAscending  2. TransactionDateDescending  3.
-            GrossAmountDescending  4. GrossAmountAscending  5.
-            NetAmountAscending  6. NetAmountDescensding  Example value to be
-            passed: 1,3  Note: If IncludeFees is ‘True’ then sorting is not
+        sort_order (str): Allowed Sorting Options: 1.   
+            TransactionDateAscending 2.    TransactionDateDescending 3.   
+            GrossAmountDescending 4.    GrossAmountAscending 5.   
+            NetAmountAscending 6.    NetAmountDescensding Example value to be
+            passed: 1,3 Note: If IncludeFees is ‘True’ then sorting is not
             allowed. This parameter will be ignored.
-        current_page (int): Page Number (as shown to the users)  Optional 
-            Default value 1  Note: If IncludeFees is ‘True’ then pagination is
+        current_page (int): Page Number (as shown to the users) Optional
+            Default value 1 Note: If IncludeFees is ‘True’ then pagination is
             not allowed. This parameter will be ignored.
-        page_size (int): Page Size – Number of records to show on a page 
-            Optional  Default value 50    Note: If IncludeFees is ‘True’ then
+        page_size (int): Page Size – Number of records to show on a page
+            Optional Default value 50   Note: If IncludeFees is ‘True’ then
             pagination is not allowed. This parameter will be ignored.
 
     """
@@ -227,7 +226,7 @@ class MultiPricedTransactionRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

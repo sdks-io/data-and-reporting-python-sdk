@@ -23,9 +23,9 @@ class VolumeBasedPricingRequest(object):
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
         include_history (bool): The API will return the details of the
             previously calculated/paid bonus and fuel consumption (Volume) in
@@ -85,7 +85,7 @@ class VolumeBasedPricingRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

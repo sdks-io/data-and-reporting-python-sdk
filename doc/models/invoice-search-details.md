@@ -15,10 +15,10 @@
 | `account_short_name` | `str` | Optional | Account Short Name<br>Example: AT Earth Movers-SN |
 | `col_co_id` | `int` | Optional | ColCo Id.<br>Example: 18 |
 | `col_co_op_co_id` | `str` | Optional | ColCo’s OpCo Id.<br>Example: 018 |
-| `current_billing_frequency` | `str` | Optional | Current billing frequency of the account.<br>A few of the possible IDs and Description are below:<br>1	Daily (all days)<br>2	Daily (only working days)<br>3	Weekly - Monday<br>4	Weekly - Tuesday<br>5	Weekly - Wednesday<br>6	Weekly - Thursday<br>7	Weekly - Friday<br>8	Weekly - Saturday<br>9	Weekly - Sunday<br>10	Monthly - 1st<br>Example: Weekly – Wednesday |
-| `current_billing_frequency_id` | `int` | Optional | Current billing frequency id of the account.<br>A few of the possible IDs and Description are below:<br>1	Daily (all days)<br>2	Daily (only working days)<br>3	Weekly - Monday<br>4	Weekly - Tuesday<br>5	Weekly - Wednesday<br>6	Weekly - Thursday<br>7	Weekly - Friday<br>8	Weekly - Saturday<br>9	Weekly - Sunday<br>10	Monthly - 1st<br>Example: 5 |
-| `current_distribution_method` | `str` | Optional | Current distribution method name of the account.<br>Example : Id & Description<br>1	e-mail<br>2	Fax<br>3	Courier to Customer<br>4	Courier to Client<br>5	Print<br>6	FTP<br>7	SMS |
-| `current_distribution_method_id` | `int` | Optional | Current distribution method id of the account.<br>Example : Id & Description<br>1	e-mail<br>2	Fax<br>3	Courier to Customer<br>4	Courier to Client<br>5	Print<br>6	FTP<br>7	SMS |
+| `current_billing_frequency` | `str` | Optional | Current billing frequency of the account.<br>A few of the possible IDs and Description are below:<br>1    Daily (all days)<br>2    Daily (only working days)<br>3    Weekly - Monday<br>4    Weekly - Tuesday<br>5    Weekly - Wednesday<br>6    Weekly - Thursday<br>7    Weekly - Friday<br>8    Weekly - Saturday<br>9    Weekly - Sunday<br>10    Monthly - 1st<br>Example: Weekly – Wednesday |
+| `current_billing_frequency_id` | `int` | Optional | Current billing frequency id of the account.<br>A few of the possible IDs and Description are below:<br>1    Daily (all days)<br>2    Daily (only working days)<br>3    Weekly - Monday<br>4    Weekly - Tuesday<br>5    Weekly - Wednesday<br>6    Weekly - Thursday<br>7    Weekly - Friday<br>8    Weekly - Saturday<br>9    Weekly - Sunday<br>10    Monthly - 1st<br>Example: 5 |
+| `current_distribution_method` | `str` | Optional | Current distribution method name of the account.<br>Example : Id & Description<br>1    e-mail<br>2    Fax<br>3    Courier to Customer<br>4    Courier to Client<br>5    Print<br>6    FTP<br>7    SMS |
+| `current_distribution_method_id` | `int` | Optional | Current distribution method id of the account.<br>Example : Id & Description<br>1    e-mail<br>2    Fax<br>3    Courier to Customer<br>4    Courier to Client<br>5    Print<br>6    FTP<br>7    SMS |
 | `customer_currency_code` | `str` | Optional | Customer currency ISO code.<br>Example: EUR |
 | `customer_currency_symbol` | `str` | Optional | Customer currency code.<br>Example: € |
 | `del_co_client_number` | `str` | Optional | DelCo’s client company number.<br>Example: 132 |
@@ -40,13 +40,13 @@
 | `net_amount_transaction_currency` | `float` | Optional | Net amount in transaction currency in the document. |
 | `payer_id` | `int` | Optional | Payment customer id of the customer.<br>Example: 123456 |
 | `payer_number` | `str` | Optional | Payment customer number.<br>Example: GB000000123 |
-| `payment_terms` | `str` | Optional | A few of the possible IDs and Descriptions are below:<br>1	14 days after Invoice<br>2	15 days after Invoice<br>3	21 days after Invoice<br>4	30 days after Invoice<br>5	45 days after Invoice |
-| `payment_terms_id` | `int` | Optional | Payment terms id of the payment customer.<br>A few of the possible IDs and Descriptions are below:<br>1	14 days after Invoice<br>2	15 days after Invoice<br>3	21 days after Invoice<br>4	30 days after Invoice<br>5	45 days after Invoice |
+| `payment_terms` | `str` | Optional | A few of the possible IDs and Descriptions are below:<br>1    14 days after Invoice<br>2    15 days after Invoice<br>3    21 days after Invoice<br>4    30 days after Invoice<br>5    45 days after Invoice |
+| `payment_terms_id` | `int` | Optional | Payment terms id of the payment customer.<br>A few of the possible IDs and Descriptions are below:<br>1    14 days after Invoice<br>2    15 days after Invoice<br>3    21 days after Invoice<br>4    30 days after Invoice<br>5    45 days after Invoice |
 | `replacement_invoice_id` | `int` | Optional | Replaced document id.<br>Example: 2 |
 | `reversal_invoice_id` | `int` | Optional | Reversed document id.<br>Example: 3 |
-| `status` | `str` | Optional | Status of the document. Valid values –<br>•	[Empty] – For all document types except for Invoice and Statement.<br>•	Due – Invoices/Statements due for payment and is within the due date.<br>•	Paid – Fully paid Invoices/Statements.<br>Overdue – Invoices/Statements due of payment and has crossed the due date. |
-| `summary_document_billing_type` | `str` | Optional | Billing type description.<br>Example: Id & Description<br>-3	Guarantee History<br>-1	Initial Balance<br>0	Standard Invoice<br>1	Immediate Invoice<br>2	Guarantee<br>4	Advanced DD Invoice |
-| `summary_document_billing_type_id` | `int` | Optional | Billing type id.<br>Example: Id & Description<br>-3	Guarantee History<br>-1	Initial Balance<br>0	Standard Invoice<br>1	Immediate Invoice<br>2	Guarantee<br>4	Advanced DD Invoice |
+| `status` | `str` | Optional | Status of the document. Valid values –<br>•    [Empty] – For all document types except for Invoice and Statement.<br>•    Due – Invoices/Statements due for payment and is within the due date.<br>•    Paid – Fully paid Invoices/Statements.<br>Overdue – Invoices/Statements due of payment and has crossed the due date. |
+| `summary_document_billing_type` | `str` | Optional | Billing type description.<br>Example: Id & Description<br>-3    Guarantee History<br>-1    Initial Balance<br>0    Standard Invoice<br>1    Immediate Invoice<br>2    Guarantee<br>4    Advanced DD Invoice |
+| `summary_document_billing_type_id` | `int` | Optional | Billing type id.<br>Example: Id & Description<br>-3    Guarantee History<br>-1    Initial Balance<br>0    Standard Invoice<br>1    Immediate Invoice<br>2    Guarantee<br>4    Advanced DD Invoice |
 | `summary_document_date` | `str` | Optional | Document generated date. Format: yyyyMMdd<br>Example: 20170101 |
 | `summary_document_dd_amount` | `float` | Optional | DD amount. |
 | `summary_document_due_date` | `str` | Optional | Due date for document. Format: yyyyMMdd<br>Example: 20170115 |
@@ -58,8 +58,8 @@
 | `summary_document_statement_of_account_id` | `int` | Optional | Statement of Account Id of the payment customer. |
 | `transaction_currency_code` | `str` | Optional | Transaction currency ISO code.<br>Example: EUR |
 | `transaction_currency_symbol` | `str` | Optional | Transaction currency symbol.<br>Example: € |
-| `mtype` | `str` | Optional | Invoice type description.<br>A few of the possible IDs and Description are below:<br>1	Original<br>2	Reversal<br>3	Replacement<br>Example: Original |
-| `type_id` | `int` | Optional | Invoice type id.<br>A few of the possible IDs and Descriptions are below:<br>1	Original<br>2	Reversal<br>3	Replacement<br>Example: 1 |
+| `mtype` | `str` | Optional | Invoice type description.<br>A few of the possible IDs and Description are below:<br>1    Original<br>2    Reversal<br>3    Replacement<br>Example: Original |
+| `type_id` | `int` | Optional | Invoice type id.<br>A few of the possible IDs and Descriptions are below:<br>1    Original<br>2    Reversal<br>3    Replacement<br>Example: 1 |
 | `vat_amount_customer_currency` | `float` | Optional | VAT amount in customer currency in the document |
 | `vat_amount_transaction_currency` | `float` | Optional | VAT amount in transaction currency in the document |
 | `vat_country` | `str` | Optional | Country name of the VAT country.<br>Example: France, Germany |

@@ -25,12 +25,10 @@ class FeeItemSummaryAllOf0(object):
         product_group_id (int): Product Group Id
         product_group_name (str): Product Group Name
         total_quantity (float): Total Quantity
-        total_invoice_net_amount (float): Total Net amount in invoice
-            currency
+        total_invoice_net_amount (float): Total Net amount in invoice currency
         total_invoice_gross_amount (float): Total Gross amount in invoice
             currency
-        total_invoice_vat_amount (float): Total VAT amount in invoice
-            currency
+        total_invoice_vat_amount (float): Total VAT amount in invoice currency
         invoice_currency_code (str): ISO 4217 currency code of the country
         invoice_currency_symbol (str): Currency symbol of the Invoice Currency
             Code
@@ -145,7 +143,7 @@ class FeeItemSummaryAllOf0(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

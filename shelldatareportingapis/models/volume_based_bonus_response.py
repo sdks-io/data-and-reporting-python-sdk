@@ -20,8 +20,7 @@ class VolumeBasedBonusResponse(object):
     TODO: type model description here.
 
     Attributes:
-        configuration (List[BonusConfiguration]): TODO: type description
-            here.
+        configuration (List[BonusConfiguration]): TODO: type description here.
         current_period_consumption (List[CurrentVolume]): TODO: type
             description here.
         historical_bonus_paid (List[BonusHistory]): TODO: type description
@@ -83,7 +82,7 @@ class VolumeBasedBonusResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -23,10 +23,10 @@ class InvoicesSummaries(object):
             documents.
         amount_paid (float): Total amount paid in billing currency.
         billing_currency_code (str): Billing currency ISO code.
-        billing_currency_symbol (str): Billing currency symbol.  Example: €
+        billing_currency_symbol (str): Billing currency symbol. Example: €
         outstanding_balance (float): Current outstanding balance amount
-        payment_due_date (str): Payment due date.  Format: YYYYMMDD
-        summary_document_date (str): Summary document date.  Format: YYYYMMDD
+        payment_due_date (str): Payment due date. Format: YYYYMMDD
+        summary_document_date (str): Summary document date. Format: YYYYMMDD
         total_billing_documents (int): Total number of invoices generated on
             this date.
         total_gross_amount_billing_currency (float): Total gross amount in
@@ -154,7 +154,7 @@ class InvoicesSummaries(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

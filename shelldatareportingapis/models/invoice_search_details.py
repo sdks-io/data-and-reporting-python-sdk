@@ -17,122 +17,120 @@ class InvoiceSearchDetails(object):
     TODO: type model description here.
 
     Attributes:
-        account_full_name (str): Account Full Name  Example: AT_reversal
+        account_full_name (str): Account Full Name Example: AT_reversal
             customer_FN
-        account_id (int): Account ID  Example: 29484
-        account_number (str): Account Number  Example: GB99215176
-        account_short_name (str): Account Short Name  Example: AT Earth
+        account_id (int): Account ID Example: 29484
+        account_number (str): Account Number Example: GB99215176
+        account_short_name (str): Account Short Name Example: AT Earth
             Movers-SN
-        col_co_id (int): ColCo Id.  Example: 18
-        col_co_op_co_id (str): ColCo’s OpCo Id.  Example: 018
+        col_co_id (int): ColCo Id. Example: 18
+        col_co_op_co_id (str): ColCo’s OpCo Id. Example: 018
         current_billing_frequency (str): Current billing frequency of the
-            account.  A few of the possible IDs and Description are below:  1
-            Daily (all days)  2 Daily (only working days)  3 Weekly - Monday 
-            4 Weekly - Tuesday  5 Weekly - Wednesday  6 Weekly - Thursday  7
-            Weekly - Friday  8 Weekly - Saturday  9 Weekly - Sunday  10
-            Monthly - 1st  Example: Weekly – Wednesday
+            account. A few of the possible IDs and Description are below: 1   
+            Daily (all days) 2    Daily (only working days) 3    Weekly -
+            Monday 4    Weekly - Tuesday 5    Weekly - Wednesday 6    Weekly -
+            Thursday 7    Weekly - Friday 8    Weekly - Saturday 9    Weekly -
+            Sunday 10    Monthly - 1st Example: Weekly – Wednesday
         current_billing_frequency_id (int): Current billing frequency id of
-            the account.  A few of the possible IDs and Description are below:
-            1 Daily (all days)  2 Daily (only working days)  3 Weekly - Monday
-            4 Weekly - Tuesday  5 Weekly - Wednesday  6 Weekly - Thursday  7
-            Weekly - Friday  8 Weekly - Saturday  9 Weekly - Sunday  10
-            Monthly - 1st  Example: 5
+            the account. A few of the possible IDs and Description are below:
+            1    Daily (all days) 2    Daily (only working days) 3    Weekly -
+            Monday 4    Weekly - Tuesday 5    Weekly - Wednesday 6    Weekly -
+            Thursday 7    Weekly - Friday 8    Weekly - Saturday 9    Weekly -
+            Sunday 10    Monthly - 1st Example: 5
         current_distribution_method (str): Current distribution method name of
-            the account.  Example : Id & Description  1 e-mail  2 Fax  3
-            Courier to Customer  4 Courier to Client  5 Print  6 FTP  7 SMS
+            the account. Example : Id & Description 1    e-mail 2    Fax 3   
+            Courier to Customer 4    Courier to Client 5    Print 6    FTP 7  
+            SMS
         current_distribution_method_id (int): Current distribution method id
-            of the account.  Example : Id & Description  1 e-mail  2 Fax  3
-            Courier to Customer  4 Courier to Client  5 Print  6 FTP  7 SMS
-        customer_currency_code (str): Customer currency ISO code.  Example:
-            EUR
-        customer_currency_symbol (str): Customer currency code.  Example: €
-        del_co_client_number (str): DelCo’s client company number.  Example:
-            132
-        del_co_id (int): DelCo Id.  Example: 132
-        del_co_op_co_id (str): DelCo’s OpCo Id.  Example: 032
+            of the account. Example : Id & Description 1    e-mail 2    Fax 3 
+            Courier to Customer 4    Courier to Client 5    Print 6    FTP 7  
+            SMS
+        customer_currency_code (str): Customer currency ISO code. Example: EUR
+        customer_currency_symbol (str): Customer currency code. Example: €
+        del_co_client_number (str): DelCo’s client company number. Example: 132
+        del_co_id (int): DelCo Id. Example: 132
+        del_co_op_co_id (str): DelCo’s OpCo Id. Example: 032
         document_type (str): Document type Id description.
         document_type_id (int): Document type Id.
-        due_date (str): Due date. Format: yyyyMMdd.  Example: 20170115
+        due_date (str): Due date. Format: yyyyMMdd. Example: 20170115
         gross_amount_customer_currency (float): Gross amount in customer
             currency in the document.
         gross_amount_transaction_currency (float): Gross amount in transaction
             currency in the document
-        invoice_date (str): Invoicing date. Format: yyyyMMdd  Example:
-            20170101
+        invoice_date (str): Invoicing date. Format: yyyyMMdd Example: 20170101
         invoiced_by (str): Company name.
-        invoiced_on_behalf_of (str): Country Name.  Example: Czech Republic
-        invoice_id (int): Invoice id.  Example: 1
-        invoice_number (str): Invoice number.  Example: 0123456789
-        is_international (bool): True/False.  True if this is an International
+        invoiced_on_behalf_of (str): Country Name. Example: Czech Republic
+        invoice_id (int): Invoice id. Example: 1
+        invoice_number (str): Invoice number. Example: 0123456789
+        is_international (bool): True/False. True if this is an International
             invoice, else false.
-        is_national (bool): True/False.  True if this is a National invoice,
+        is_national (bool): True/False. True if this is a National invoice,
             else false.
         net_amount_customer_currency (float): Net amount in customer currency
             in the document.
         net_amount_transaction_currency (float): Net amount in transaction
             currency in the document.
-        payer_id (int): Payment customer id of the customer.  Example: 123456
-        payer_number (str): Payment customer number.  Example: GB000000123
+        payer_id (int): Payment customer id of the customer. Example: 123456
+        payer_number (str): Payment customer number. Example: GB000000123
         payment_terms (str): A few of the possible IDs and Descriptions are
-            below:  1 14 days after Invoice  2 15 days after Invoice  3 21
-            days after Invoice  4 30 days after Invoice  5 45 days after
-            Invoice
-        payment_terms_id (int): Payment terms id of the payment customer.  A
-            few of the possible IDs and Descriptions are below:  1 14 days
-            after Invoice  2 15 days after Invoice  3 21 days after Invoice  4
-            30 days after Invoice  5 45 days after Invoice
-        replacement_invoice_id (int): Replaced document id.  Example: 2
+            below: 1    14 days after Invoice 2    15 days after Invoice 3   
+            21 days after Invoice 4    30 days after Invoice 5    45 days
+            after Invoice
+        payment_terms_id (int): Payment terms id of the payment customer. A
+            few of the possible IDs and Descriptions are below: 1    14 days
+            after Invoice 2    15 days after Invoice 3    21 days after
+            Invoice 4    30 days after Invoice 5    45 days after Invoice
+        replacement_invoice_id (int): Replaced document id. Example: 2
         reversal_invoice_id (int): Reversed document id.   Example: 3
-        status (str): Status of the document. Valid values –  • [Empty] – For
-            all document types except for Invoice and Statement.  • Due –
-            Invoices/Statements due for payment and is within the due date.  •
-            Paid – Fully paid Invoices/Statements.  Overdue –
+        status (str): Status of the document. Valid values – •    [Empty] –
+            For all document types except for Invoice and Statement. •    Due
+            – Invoices/Statements due for payment and is within the due date.
+            •    Paid – Fully paid Invoices/Statements. Overdue –
             Invoices/Statements due of payment and has crossed the due date.
-        summary_document_billing_type (str): Billing type description. 
-            Example: Id & Description  -3 Guarantee History  -1 Initial
-            Balance  0 Standard Invoice  1 Immediate Invoice  2 Guarantee  4
+        summary_document_billing_type (str): Billing type description.
+            Example: Id & Description -3    Guarantee History -1    Initial
+            Balance 0    Standard Invoice 1    Immediate Invoice 2   
+            Guarantee 4    Advanced DD Invoice
+        summary_document_billing_type_id (int): Billing type id. Example: Id &
+            Description -3    Guarantee History -1    Initial Balance 0   
+            Standard Invoice 1    Immediate Invoice 2    Guarantee 4   
             Advanced DD Invoice
-        summary_document_billing_type_id (int): Billing type id.  Example: Id
-            & Description  -3 Guarantee History  -1 Initial Balance  0
-            Standard Invoice  1 Immediate Invoice  2 Guarantee  4 Advanced DD
-            Invoice
         summary_document_date (str): Document generated date. Format: yyyyMMdd
             Example: 20170101
         summary_document_dd_amount (float): DD amount.
         summary_document_due_date (str): Due date for document. Format:
-            yyyyMMdd  Example: 20170115
-        summary_document_id (int): Summary document identifier  Example: 1
-        summary_document_is_fully_paid (bool): True/False  True if invoice
+            yyyyMMdd Example: 20170115
+        summary_document_id (int): Summary document identifier Example: 1
+        summary_document_is_fully_paid (bool): True/False True if invoice
             amount is fully paid, else false
-        summary_document_number (str): Summary document number  Example:
+        summary_document_number (str): Summary document number Example:
             ‘0/CZ0000000123456/2017’
         summary_document_paid_amount (float): Total amount paid.
         summary_document_so_a_reference_number (str): Statement of Account
             reference number of the payment customer.
         summary_document_statement_of_account_id (int): Statement of Account
             Id of the payment customer.
-        transaction_currency_code (str): Transaction currency ISO code. 
+        transaction_currency_code (str): Transaction currency ISO code.
             Example: EUR
-        transaction_currency_symbol (str): Transaction currency symbol. 
+        transaction_currency_symbol (str): Transaction currency symbol.
             Example: €
-        mtype (str): Invoice type description.  A few of the possible IDs and
-            Description are below:  1 Original  2 Reversal  3 Replacement 
-            Example: Original
-        type_id (int): Invoice type id.  A few of the possible IDs and
-            Descriptions are below:  1 Original  2 Reversal  3 Replacement 
-            Example: 1
+        mtype (str): Invoice type description. A few of the possible IDs and
+            Description are below: 1    Original 2    Reversal 3   
+            Replacement Example: Original
+        type_id (int): Invoice type id. A few of the possible IDs and
+            Descriptions are below: 1    Original 2    Reversal 3   
+            Replacement Example: 1
         vat_amount_customer_currency (float): VAT amount in customer currency
             in the document
         vat_amount_transaction_currency (float): VAT amount in transaction
             currency in the document
-        vat_country (str): Country name of the VAT country.  Example: France,
+        vat_country (str): Country name of the VAT country. Example: France,
             Germany
-        vat_country_id (int): Country Id of the VAT country.  Example: 1,2
-        vat_country_iso_code (str): Country ISO code of the VAT country. 
+        vat_country_id (int): Country Id of the VAT country. Example: 1,2
+        vat_country_iso_code (str): Country ISO code of the VAT country.
             Example : CZ, SK, UK, etc.,
-        vat_country_op_co_id (str): VAT country’s OpCo Id.  Example: 032
-        document_reference (str): document reference number of the Invoice
-            file
+        vat_country_op_co_id (str): VAT country’s OpCo Id. Example: 032
+        document_reference (str): document reference number of the Invoice file
         additional_documents (List[InvoiceSearchAdditionalDocument]): TODO:
             type description here.
 
@@ -521,7 +519,7 @@ class InvoiceSearchDetails(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -25,22 +25,22 @@ class TransactionFeesRequest(object):
             Latvia, Lithuania, Estonia, Ukraine etc. It is optional for other
             countries if ColCoID is provided.  Example:  86 for Philippines  5
             for UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
-            PayerNumber is passed else Mandatory  Example: 123456
+        payer_id (int): Payer Id of the selected payer. Optional if
+            PayerNumber is passed else Mandatory Example: 123456
         payer_number (str): Payer Number (Ex: GB000000123) of the selected
-            payer.  Optional if PayerId is passed else Mandatory
+            payer. Optional if PayerId is passed else Mandatory
         accounts (List[Accounts]): TODO: type description here.
         card_id (int): Card Id   Optional  When both Card Id and Card PAN are
             not present on request, the response will have all the fee items
             under the selected payer or account.  Example: 275549
-        card_pan (str): Full Card PAN  Optional  When both Card Id and Card
-            PAN are not present on request, the response will have all the fee
+        card_pan (str): Full Card PAN Optional When both Card Id and Card PAN
+            are not present on request, the response will have all the fee
             items under the selected payer or account or card group.
-        invoice_status (str): Invoice status of the fee items  Mandatory 
-            Possible options:  I - Invoiced  U – Un-Invoiced  A – All
+        invoice_status (str): Invoice status of the fee items Mandatory
+            Possible options: I - Invoiced U – Un-Invoiced A – All
         fee_type_group (str): Fee type group in under which the Fee item is
-            generated.  Optional.  Allowed values:  - Account Charges  - Card
-            Charges  - Others Charges
+            generated. Optional. Allowed values: - Account Charges - Card
+            Charges - Others Charges
         fee_type_id (int): Fee Type Id.  Optional.  Example:   1. Simple Fee 
             2. Card Event Fee  3. Customer Event Fee
         from_date (str): Fee Item FromDate/Time   Should be with in last 24
@@ -53,25 +53,25 @@ class TransactionFeesRequest(object):
             older than 60 days from current date then the fee items for 60
             days from FromDate will be returned.   Format: yyyyMMdd
         period (int): Fee items Period. This is ignored when FromDate/Todate
-            is supplied on the request.   1. Last 7 Days  2. Last 30 Days  3.
-            Last 90 Days  4. Last 180 Days  Example : Pass 1 for Last 7 days
-            fee items
+            is supplied on the request.   1.    Last 7 Days  2.    Last 30
+            Days  3.    Last 90 Days  4.    Last 180 Days  Example : Pass 1
+            for Last 7 days fee items
         include_cancelled_items (bool): True or False. When True, cancelled
             fee items are included on API response
-        product_id (int): Product Id  Optional  Example: Sample list of
-            product ids and description.  100 Service fee  102 Invoice
-            production fee  103 Account fee  104 Transaction fee  105 Card
+        product_id (int): Product Id Optional Example: Sample list of product
+            ids and description. 100    Service fee 102    Invoice production
+            fee 103    Account fee 104    Transaction fee 105    Card
             membership fee
         product_code (str): Product Code   Optional  Example:   1. Service fee
             2. Invoice production fee  3. Account fee  4. Transaction fee  5.
             Card membership fee
-        line_item_description (str): Line item description.  Optional  Minimum
-            of 4 characters should be provided else not considered  Those fee
+        line_item_description (str): Line item description. Optional Minimum
+            of 4 characters should be provided else not considered Those fee
             items that have the entered value at any part of the line item
             description will be returned.
-        sort_order (str): Allowed Sorting Options:  • FeeDateAscending  •
-            FeeDateDescending  • NetAmountAscending  • NetAmountDescending 
-            Optional.  Default: 1
+        sort_order (str): Allowed Sorting Options: •    FeeDateAscending •   
+            FeeDateDescending •    NetAmountAscending •    NetAmountDescending
+            Optional. Default: 1
         current_page (int): Page Number
         page_size (int): Page Size – Number of records to show on a page
 
@@ -226,7 +226,7 @@ class TransactionFeesRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

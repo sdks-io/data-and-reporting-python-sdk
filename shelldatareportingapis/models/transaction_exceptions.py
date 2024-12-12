@@ -22,17 +22,17 @@ class TransactionExceptions(object):
         product_id (int): Product Id
         transaction_guid (str): Transaction Unique Identifier
         transaction_date (str): Local Transaction Date  of where the
-            transaction took place  Format: yyyyMMdd
+            transaction took place Format: yyyyMMdd
         customer_invoice_value_total_gross (float): Total Gross Amount for the
             Invoice Customer
-        card_pan (str): Card PAN number  Returns masked PAN number when
-            masking is enabled at the Microservices configuration (Mask all
-            digits except the last 6 digits of the PAN)
-        card_expiry (str): Card Expiry Date  Format: yyyyMMdd
+        card_pan (str): Card PAN number Returns masked PAN number when masking
+            is enabled at the Microservices configuration (Mask all digits
+            except the last 6 digits of the PAN)
+        card_expiry (str): Card Expiry Date Format: yyyyMMdd
         transaction_time (str): Local Transaction Time of where the
-            transaction took place  Format: HH:mm:ss (24 hours format)
+            transaction took place Format: HH:mm:ss (24 hours format)
         utc_offset (str): UTC Offset extracted from GFN Sales Date time. Note:
-            This may not be accurate for all TPN transactions  Format:
+            This may not be accurate for all TPN transactions Format:
             +/-HH:mm:ss (24 hours format)
         fleet_id_input (str): Fleet Id Input as entered by the drivers at the
             time of transaction
@@ -85,8 +85,7 @@ class TransactionExceptions(object):
         product_name (str): Product Name
         product_group_id (int): Product Group Id
         product_group_name (str): Product Group Name
-        del_co_exchange_rate (float): DelCo Exchange Rate (Site exchange
-            rate)
+        del_co_exchange_rate (float): DelCo Exchange Rate (Site exchange rate)
         col_co_exchange_rate (float): ColCo Exchange Rate (Customer exchange
             rate)
         is_shell_site (bool): True when transaction occurred at a Shell site
@@ -109,27 +108,26 @@ class TransactionExceptions(object):
         fleet_id_description (str): FleetId/CRN description in Card Platform
             configured at the account level
         vat_rate (float): VAT Percentage
-        vat_category (str): VAT Category Id-Description  1-Zero Rated  2-A1
-            PH-O 12% Sales Domestic  3-VAT exempt
+        vat_category (str): VAT Category Id-Description 1-Zero Rated 2-A1 PH-O
+            12% Sales Domestic 3-VAT exempt
         effective_discount_in_trx_currency (str): Effective Discount
             (excluding VAT, in transaction currency)  4 digits
         transaction_type (str): Transaction Type
         pin_indicator (str): Pin Indicator (Indicates whether PIN used or not
             used at the time of transaction)
-        vat_applicable (str): Is VAT Applicable for this transaction  “Y” or
-            “N”
+        vat_applicable (str): Is VAT Applicable for this transaction “Y” or “N”
         net_invoice_indicator (str): Net Invoice Indicator, Will the customer
-            receive an invoice without VAT?  Example: “Y” or “N”
+            receive an invoice without VAT? Example: “Y” or “N”
         customer_currency_code (str): Customer currency code
         customer_currency_symbol (str): Customer currency Symbol
         effective_unit_discount_in_customer_currency (float): Effective Unit
             Discount
         effective_discount_in_customer_currency (float): Effective Discount
         va_ton_net_amount_in_customer_currency (float): VAT on Net Amount
-        discount_type (str): Discount Type  Example: 1-None  2-Pence per unit 
+        discount_type (str): Discount Type Example: 1-None 2-Pence per unit
             3-Percentage
-        transaction_status (str): Transaction status  "U" or "I"  “U” stands
-            for Uninvoiced  “I” stands for Invoiced
+        transaction_status (str): Transaction status  "U" or "I" “U” stands
+            for Uninvoiced “I” stands for Invoiced
         payer_group (str): Payer Group applicable for the Large Customer NL+8
             digit code
         refund_flag (str): Refund Flag “N” for Not Refunded and “Y” for
@@ -147,11 +145,12 @@ class TransactionExceptions(object):
             one or more salesitems
         transaction_line (str): Transaction line item number
         allow_clearing (str): Is the Sales Item allowed for clearing? i.e. not
-            written off  Example: “Y” or “N”
+            written off Example: “Y” or “N”
         crm_number (str): CRM Case number if the sales item is in dispute
-        dispute_status (str): Sales Item Dispute Status if disputed  0 No
-            Dispute  1 In Dispute  2 Re-Instated  3 Adjusted  4 Written Off by
-            Colco  5 Written Off by Delco  6 Charged Back to Site
+        dispute_status (str): Sales Item Dispute Status if disputed 0    No
+            Dispute 1    In Dispute 2    Re-Instated 3    Adjusted 4   
+            Written Off by Colco 5    Written Off by Delco 6    Charged Back
+            to Site
         rebate_rate (float): Unit discount in customer currency
         del_co_to_col_co_exchange_rate (float): Exchange rate from transaction
             currency to customer currency.
@@ -794,7 +793,7 @@ class TransactionExceptions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

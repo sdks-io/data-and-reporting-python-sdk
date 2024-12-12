@@ -15,7 +15,7 @@ class UpdateOdometer(object):
     TODO: type model description here.
 
     Attributes:
-        sales_item_id (str): Unique SalesItemId (Either Billed on Unbilled) 
+        sales_item_id (str): Unique SalesItemId (Either Billed on Unbilled)
             Mandatory
         new_odometer_value (int): NewOdometerValue that needs to be updated
 
@@ -56,7 +56,7 @@ class UpdateOdometer(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

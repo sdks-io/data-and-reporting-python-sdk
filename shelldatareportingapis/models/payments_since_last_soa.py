@@ -23,9 +23,9 @@ class PaymentsSinceLastSOA(object):
             Example: 12345
         account_number (str): Account number for which payment is made.  
             Example: GB000000123
-        account_short_name (str): Account Short Name  Example: GB Earth
+        account_short_name (str): Account Short Name Example: GB Earth
             Movers-SN
-        summary_document_id (int): Summary billing document reference id. 
+        summary_document_id (int): Summary billing document reference id.
             Example: 2
         summary_document_number (str): Summary billing document reference
             number.
@@ -39,26 +39,24 @@ class PaymentsSinceLastSOA(object):
             document.
         summary_document_dd_amount (float): Total DD amount in the Summary
             billing document.
-        payment_date (str): Date of payment.  Format: YYYYMMDD
+        payment_date (str): Date of payment. Format: YYYYMMDD
         payment_reference (str): Reference text of the payment.
         payment_currency_code (str): ISO code of payment currency.   Example:
             EUR
-        payment_currency_symbol (str): Symbol of payment currency.   Example:
-            €
+        payment_currency_symbol (str): Symbol of payment currency.   Example: €
         amount_paid (float): Amount paid.
-        balance (float): Balance amount to be settled for the Summary
-            document.
+        balance (float): Balance amount to be settled for the Summary document.
         true_payment (str): True Payment.
         prepaid_balance (float): Balance in the pre-paid amount.
         local_currency_code (str): Currency ISO code of the local country. It
             is derived based on CountryCode from microservice configuration.
             This field is expected to have different value than the previously
-            mentioned field CurrencyCode, only in the case of serviced OUs. 
+            mentioned field CurrencyCode, only in the case of serviced OUs.
             Example: EUR
         local_currency_symbol (str): Currency Symbol of the local country. It
             is derived based on CountryCode from microservice configuration.
             This field is expected to have different value than the previously
-            mentioned field CurrencySymbol, only in the case of serviced OUs. 
+            mentioned field CurrencySymbol, only in the case of serviced OUs.
             Example: €
         local_currency_exchange_rate (str): Exchange rate from Payment
             currency to local currency.
@@ -221,7 +219,7 @@ class PaymentsSinceLastSOA(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

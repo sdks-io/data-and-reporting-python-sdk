@@ -17,48 +17,46 @@ class MultiPricedTransactionResponseTransactionsItems(object):
     TODO: type model description here.
 
     Attributes:
-        mtype (str): TransactionType is the type of transaction.  Example:
+        mtype (str): TransactionType is the type of transaction. Example:
             SalesItem /FeeItem
-        card_id (int): Unique Card Id in GFN  Example: 275549
-        card_pan (str): Card PAN  Mask PAN if enabled at Microservices
+        card_id (int): Unique Card Id in GFN Example: 275549
+        card_pan (str): Card PAN Mask PAN if enabled at Microservices
             configuration (Mask all digits except the Last 6 digits of the
-            PAN)  Example: 7002051006629890645
-        card_expiry (str): Card Expiry Date  Format: yyyyMMdd
+            PAN) Example: 7002051006629890645
+        card_expiry (str): Card Expiry Date Format: yyyyMMdd
         transaction_date (str): Local Transaction Date of where the
             transaction took place  Format: yyyyMMdd     Note: For a fee item,
             this parameter will be populated with fee date.
         transaction_time (str): Local Transaction Time of where the
-            transaction took place  Format: HH:mm:ss (24 hours format)   
-            Note: For a fee item, this parameter will be populated with fee
-            date.
+            transaction took place Format: HH:mm:ss (24 hours format)   Note:
+            For a fee item, this parameter will be populated with fee date.
         utc_offset (str): UTC Offset extracted from Sales Date time.   Note:
             This may not be accurate for all TPN transactions  Format:
             +/-HH:mm:ss (24 hours format)
         fleet_id_input (str): Fleet Id Input as entered by the drivers at the
-            time of transaction  Example: XYZ1234  Note: - The value could be
+            time of transaction Example: XYZ1234 Note: - The value could be
             null/blank for fees item.
         odometer_input (int): Odometer Input as entered by the drivers at the
-            time of transaction  Example: 12345  Note: - The value could be
+            time of transaction Example: 12345 Note: - The value could be
             null/blank for fees item.
-        driver_name (str): Driver Name embossed on the card  Example:  ANDREW
+        driver_name (str): Driver Name embossed on the card Example:  ANDREW
             GILBERRY
         vehicle_registration (str): Vehicle Registration Number embossed on
             the card
         invoice_currency_code (str): ISO currency code
         invoice_currency_symbol (str): Currency symbol of the Invoice Currency
             Code   Example: £, $
-        transaction_currency_code (str): ISO currency code  Example: GBP
+        transaction_currency_code (str): ISO currency code Example: GBP
         transaction_currency_symbol (str): Currency symbol of the Transaction
-            Currency Code  Example: £, $
+            Currency Code Example: £, $
         transaction_net_amount (int): Net Amount
         transaction_tax (int): Tax Amount
         transaction_gross_amount (int): Gross Amount
         invoice_net_amount (int): Invoiced Net Amount   Note: For a fee item,
             this parameter will be populated with fee InvoiceNetAmount.
         invoice_tax (int): Invoiced Tax Amount
-        invoice_gross_amount (int): Invoice Gross Amount  Note: For a fee
-            item, this parameter will be populated with fee
-            InvoiceGrossAmount.
+        invoice_gross_amount (int): Invoice Gross Amount Note: For a fee item,
+            this parameter will be populated with fee InvoiceGrossAmount.
         purchased_in_country (str): Country of Purchase   Example: France,
             Germany  Note: - The value could be null/blank for fees item.
         account_id (int): Account Id
@@ -69,198 +67,198 @@ class MultiPricedTransactionResponseTransactionsItems(object):
         fuel_product (bool): True if the product on transaction is listed as a
             fuel product else return false
         unit_price_in_transaction_currency (int): Product Unit Price in
-            transaction currency  Note: - The value could be null/blank for
+            transaction currency Note: - The value could be null/blank for
             fees item
         unit_price_in_invoice_currency (int): Product Unit Price in invoice
-            currency  Note: - The value could be null/blank for fees item
+            currency Note: - The value could be null/blank for fees item
         unit_discount_transaction_currency (int): Unit Discount in transaction
-            currency  Note: - The value could be null/blank for fees item
+            currency Note: - The value could be null/blank for fees item
         unit_discount_invoice_currency (int): Unit Discount in invoice
-            currency  Note: - The value could be null/blank for fees item.
+            currency Note: - The value could be null/blank for fees item.
         is_invoiced (bool): True when the transaction is already invoice, else
             return False
-        invoice_number (str): Invoice Number if invoiced  Example:  S04500493 
-            S04478304  S04490319
+        invoice_number (str): Invoice Number if invoiced Example: S04500493
+            S04478304 S04490319
         invoice_date (str): Invoice Date   Format: yyyyMMdd HH:mm:ss
-        site_code (str): Site Code  Example:  050001 - CHARNOCK RICHARD
+        site_code (str): Site Code Example: 050001 -    CHARNOCK RICHARD
             NTHBOUND MWSA 0755
-        site_name (str): Site Name  Example:  050001 - CHARNOCK RICHARD
+        site_name (str): Site Name Example: 050001 -    CHARNOCK RICHARD
             NTHBOUND MWSA 0755
-        site_country (str): Site Country  Example: France, Germany
+        site_country (str): Site Country Example: France, Germany
         location (List[SiteLocation]): TODO: type description here.
         card_group_name (str): Card Group Name
         receipt_number (str): ReceiptNumber
-        product_code (str): Product Code  10 TMF Charges  11 Tunnel/Bridges 
-            12 Motorway toll
-        product_name (str): Product Name  Example:    Unleaded - High octane 
-            Unleaded - Medium octane  Unleaded - Low octane  Unleaded
+        product_code (str): Product Code 10    TMF Charges 11   
+            Tunnel/Bridges 12    Motorway toll
+        product_name (str): Product Name Example:   Unleaded - High octane
+            Unleaded - Medium octane Unleaded - Low octane Unleaded
             Environmental
-        product_group_id (int): Product Group Id  Example:   1 Parent Product
-            Group  2 All Fuels  3 Motor gasoline  4 2 stroke  5 Autogas
-        product_group_name (str): Product Group Name  Example:   1 Parent
-            Product Group  2 All Fuels  3 Motor gasoline  4 2 stroke  5
-            Autogas
+        product_group_id (int): Product Group Id  Example:   1    Parent
+            Product Group  2    All Fuels  3    Motor gasoline  4    2 stroke 
+            5    Autogas
+        product_group_name (str): Product Group Name  Example:   1    Parent
+            Product Group  2    All Fuels  3    Motor gasoline  4    2 stroke 
+            5    Autogas
         del_co_exchange_rate (float): DelCo Exchange Rate (Site exchange rate)
             Note: - The value could be null/blank for fees item.
         col_co_exchange_rate (int): ColCo Exchange Rate (Customer exchange
             rate)
         is_shell_site (bool): True when transaction occurred at a Shell site
-            else return False  Note: - The value could be null/blank for fees
+            else return False Note: - The value could be null/blank for fees
             item.
-        network (str): Network  (Shell PH, ESSO, etc.,)  100013 STEINDORFER 
-            100015 S.A. BELGIAN SHELL N.V.  100016 ESSO BE  Note: - The value
+        network (str): Network  (Shell PH, ESSO, etc.,) 100013    STEINDORFER
+            100015    S.A. BELGIAN SHELL N.V. 100016    ESSO BE Note: - The
+            value could be null/blank for fees item.
+        site_group_id (int): Site Group Id Example: 202 Note: - The value
             could be null/blank for fees item.
-        site_group_id (int): Site Group Id  Example: 202  Note: - The value
-            could be null/blank for fees item.
-        site_group_name (str): Site GroupName  Example: CZ 9100 ECONOMY
-            NETWORK  Note: - The value could be null/blank for fees item.
-        posting_date (str): Transaction Posting Date  Format: yyyyMMdd HHmmss
+        site_group_name (str): Site GroupName Example: CZ 9100 ECONOMY NETWORK
+            Note: - The value could be null/blank for fees item.
+        posting_date (str): Transaction Posting Date Format: yyyyMMdd HHmmss
         issuer_code (str): First digits of the Card PAN   7002 = Fleet
         purchased_in_country_code (str): ISO code of the country where the
-            transaction took place  Example: “NL”  Note: - The value could be
+            transaction took place Example: “NL” Note: - The value could be
             null/blank for fees item.
-        customer_country_code (str): ISO code of the Customer Country 
-            Example: NL
-        customer_country (str): Name of the Customer Country  Example:
+        customer_country_code (str): ISO code of the Customer Country Example:
+            NL
+        customer_country (str): Name of the Customer Country Example:
             Netherlands
-        release_code (str): Release code, 7th Digit of the Card PAN  Example:
-            8 for 7021882
+        release_code (str): Release code, 7th Digit of the Card PAN Example: 8
+            for 7021882
         card_group_id (str): Card group ID
         card_sequence_number (str): 3 digits, Card sequence number and Check
             digit (Digit 16,17 and 18 on the card pan)
         check_digit (str): Check digit, Last number of the card pan
         fleet_id_description (str): FleetId/CRN description in Card Platform
             configured at the account level
-        vat_rate (float): VAT Percentage  0.20 for 20%  Note: This parameter
+        vat_rate (float): VAT Percentage 0.20 for 20% Note: This parameter
             will be populated in the response for both SalesItem and FeeItem
-        vat_category (str): VAT Category Id-Description  1-Zero Rated
-        vat_country (str): VAT Country  Example: Netherlands
+        vat_category (str): VAT Category Id-Description 1-Zero Rated
+        vat_country (str): VAT Country Example: Netherlands
         effective_discount_in_trx_currency (float): Effective Discount
-            (excluding VAT, in transaction currency) 4 digits  Example:
-            0.0000
-        transaction_type (str): Transaction Type  Example: Purchase when Card
-            is Present else Blank  Note: - The value could be null/blank for
+            (excluding VAT, in transaction currency) 4 digits Example: 0.0000
+        transaction_type (str): Transaction Type Example: Purchase when Card
+            is Present else Blank Note: - The value could be null/blank for
             fees item.
         pin_indicator (str): Pin Indicator (Indicates whether PIN used or not
             used at the time of transaction)  Example: “PIN Used'” or “No PIN”
-            or “Unknown”   Note: - The value could be null/blank for fees
-            item
-        vat_applicable (str): Is VAT Applicable for this transaction  Example:
+            or “Unknown”   Note: - The value could be null/blank for fees item
+        vat_applicable (str): Is VAT Applicable for this transaction Example:
             “Y” or “N”
         net_invoice_indicator (str): Net Invoice Indicator, Will the customer
-            receive an invoice without VAT?  Example: “Y” or “N”  Note: - The
+            receive an invoice without VAT? Example: “Y” or “N” Note: - The
             value could be null/blank for fees item.
-        customer_currency_code (str): Customer currency code  Example: GBP
+        customer_currency_code (str): Customer currency code Example: GBP
         customer_currency_symbol (str): Customer currency Symbol
         effective_unit_discount_in_customer_currency (int): Effective Unit
-            Discount (excluding VAT in Customer currency)  Note: - The value
+            Discount (excluding VAT in Customer currency) Note: - The value
             could be null/blank for fees item.
         effective_discount_in_customer_currency (int): Effective Discount
-            (excluding VAT in Customer currency)  Note: - The value could be
+            (excluding VAT in Customer currency) Note: - The value could be
             null/blank for fees item.
         va_ton_net_amount_in_customer_currency (int): VAT on Net Amount (in
             Customer currency)
-        discount_type (str): Discount Type  Example: 1-None  2-Pence per unit
-        transaction_status (str): Transaction status "U" or "I"  “U” stands
-            for Uninvoiced  “I” stands for Invoiced
-        sales_item_id (int): Unique Sales Item Identifier  Example:
-            18315958002  Note: For a fee item, this parameter will be
-            populated with SalesItemId.
+        discount_type (str): Discount Type Example: 1-None 2-Pence per unit
+        transaction_status (str): Transaction status "U" or "I" “U” stands for
+            Uninvoiced “I” stands for Invoiced
+        sales_item_id (int): Unique Sales Item Identifier Example: 18315958002
+            Note: For a fee item, this parameter will be populated with
+            SalesItemId.
         payer_group (str): Payer Group applicable for the Large Customer NL+8
             digit code
         payer_group_name (str): Payer Group Name
         refund_flag (str): Refund Flag “N” for Not Refunded and “Y” for
-            Refunded.  Note: - The value could be null/blank for fees item.
+            Refunded. Note: - The value could be null/blank for fees item.
         original_sales_item_id (str): Shows Sales Item Id of the original item
             that was refunded
-        delco_name (str): Delco Name  Example: SHELL NEDERLAND
+        delco_name (str): Delco Name Example: SHELL NEDERLAND
             VERKOOPMAATSCHAPPIJ BV
-        delco_code (str): Delco Code  014, 018, etc.,
-        payer_number (str): Payer number (Country code+8 digits)  Example:
+        delco_code (str): Delco Code 014, 018, etc.,
+        payer_number (str): Payer number (Country code+8 digits) Example:
             NL10042616
-        payer_name (str): Payer name  Example: V.M. LE COMTE
+        payer_name (str): Payer name Example: V.M. LE COMTE
         card_expiry_period (str): Year/Month of the Card Expiry captured on
-            the transaction  Example: 1901
-        authorisation_code (str): Authorisation code of the transaction 
-            Example: 011256  Note: - The value could be null/blank for fees
+            the transaction Example: 1901
+        authorisation_code (str): Authorisation code of the transaction
+            Example: 011256 Note: - The value could be null/blank for fees
             item.
         transaction_id (str): Unique id of the transaction that may include
-            one or more salesitems  Example: io9KVXk1UkW57XWKyeaHHg  Note: -
-            The value could be null/blank for fees item.
-        transaction_line (str): Transaction line item number  Example: 1 
-            Note: - The value could be null/blank for fees item.
+            one or more salesitems Example: io9KVXk1UkW57XWKyeaHHg Note: - The
+            value could be null/blank for fees item.
+        transaction_line (str): Transaction line item number Example: 1 Note:
+            - The value could be null/blank for fees item.
         allow_clearing (str): Is the Sales Item allowed for clearing? i.e. not
-            written off  Example: “Y” or “N”  Note: - The value could be
+            written off Example: “Y” or “N” Note: - The value could be
             null/blank for fees item.
-        crm_number (str): CRM Case number if the sales item is in dispute. 
+        crm_number (str): CRM Case number if the sales item is in dispute.
             Note: - The value could be null/blank for fees item.
-        dispute_status (str): Sales Item Dispute Status if disputed  0 No
-            Dispute  1 In Dispute  2 Re-Instated  3 Adjusted  4 Written Off by
-            Colco  5 Written Off by Delco  6 Charged Back to Site
-        rebate_rate (float): Unit discount in customer currency.  Example:
+        dispute_status (str): Sales Item Dispute Status if disputed 0    No
+            Dispute 1    In Dispute 2    Re-Instated 3    Adjusted 4   
+            Written Off by Colco 5    Written Off by Delco 6    Charged Back
+            to Site
+        rebate_rate (float): Unit discount in customer currency. Example:
             28.279000
         del_co_to_col_co_exchange_rate (int): Exchange rate from transaction
-            currency to customer currency.  Example: 1
-        net_euro_amount (float): Net euro amount.  Example: 37.93  Note: - The
+            currency to customer currency. Example: 1
+        net_euro_amount (float): Net euro amount. Example: 37.93 Note: - The
             value could be null/blank for fees item.
-        euro_rebate_amount (int): Euro rebate amount.  Example: 0  Note: - The
+        euro_rebate_amount (int): Euro rebate amount. Example: 0 Note: - The
             value could be null/blank for fees item.
-        euro_vat_amount (float): Euro VAT amount.  Example: 7.96  Note: - The
+        euro_vat_amount (float): Euro VAT amount. Example: 7.96 Note: - The
             value could be null/blank for fees item.
         parent_customer_number (str): Parent customer number
         parent_customer_name (str): Parent customer name.
         parent_customer_id (int): Parent customer id.
-        incoming_site_number (str): Incoming Site Number  Example: 100021 
-            Note: - The value could be null/blank for fees item.
-        incoming_site_description (str): Incoming Site Description  Example:
-            HN3 INTI_02-82.02  Note: - The value could be null/blank for fees
+        incoming_site_number (str): Incoming Site Number Example: 100021 Note:
+            - The value could be null/blank for fees item.
+        incoming_site_description (str): Incoming Site Description Example:
+            HN3 INTI_02-82.02 Note: - The value could be null/blank for fees
             item.
-        incoming_currency_code (str): Incoming Currency Code  Example: GBP 
+        incoming_currency_code (str): Incoming Currency Code Example: GBP
             Note: - The value could be null/blank for fees item.
-        incoming_product_code (str): Incoming Product Code  Example: 30
-        credit_debit_code (str): Credit Debit Code  Example: “D” or “C”  The
+        incoming_product_code (str): Incoming Product Code Example: 30
+        credit_debit_code (str): Credit Debit Code Example: “D” or “C” The
             value could be null/blank for fees item.
-        correction_flag (str): Correction Flag  Example: “Y” or “N”  Note: -
-            The value could be null/blank for fees item.
+        correction_flag (str): Correction Flag Example: “Y” or “N” Note: - The
+            value could be null/blank for fees item.
         additional_1 (str): Additional details
         additional_2 (str): Additional details
         additional_3 (str): Additional details
         additional_4 (str): Additional details
         rebateon_net_amount_in_customer_currency (float): Rebate on Net Amount
-            in Customer Currency  Example: -0.735000000000  Note: - The value
+            in Customer Currency Example: -0.735000000000 Note: - The value
             could be null/blank for fees item.
         rebateon_net_amount_in_transaction_currency (float): Rebate on Net
-            Amount in Transaction Currency  Example: -0.735000000000  Note: -
+            Amount in Transaction Currency Example: -0.735000000000 Note: -
             The value could be null/blank for fees item.
-        network_code (str): Network Code  Example: AVEE PTUAZONW CUBFAO COSFS 
+        network_code (str): Network Code Example: AVEE PTUAZONW CUBFAO COSFS
             Note: - The value could be null/blank for fees item.
         trn_identifier (str): Transaction Identifier
         card_type (str): Card Type
-        delco_list_price_unit_net (float): Delco List Price Unit Net  Example:
-            30.500000  Note: - The value could be null/blank for fees item
+        delco_list_price_unit_net (float): Delco List Price Unit Net Example:
+            30.500000 Note: - The value could be null/blank for fees item
         delco_retail_price_unit_net (float): Retail Net Price (or pump net
-            price) per Unit in transaction currency  Example: 1.921000  Note:
-            - The value could be null/blank for fees item
+            price) per Unit in transaction currency Example: 1.921000 Note: -
+            The value could be null/blank for fees item
         delco_retail_price_unit_gross (float): Retail gross price (or pump
-            gross price) per unit in transaction currency  Note: - The value
+            gross price) per unit in transaction currency Note: - The value
             could be null/blank for fees item
         delco_retail_value_total_net (float): Retail net price (or net pump
-            price) in transaction currency  Note: - The value could be
+            price) in transaction currency Note: - The value could be
             null/blank for fees item
         delco_retail_value_total_gross (float): Retail gross price (or gross
-            pump price) in transaction currency  Note: - The value could be
+            pump price) in transaction currency Note: - The value could be
             null/blank for fees item
         customer_retail_price_unit_gross (float): Retail gross price (or pump
-            gross price) per unit in customer currency  Note: - The value
-            could be null/blank for fees item
+            gross price) per unit in customer currency Note: - The value could
+            be null/blank for fees item
         customer_retail_value_total_gross (float): Retail gross price (or
-            gross pump price) in customer currency  Note: - The value could be
+            gross pump price) in customer currency Note: - The value could be
             null/blank for fees item
         customer_retail_value_total_net (float): Retail net price (or net pump
-            price) in customer currency  Note: - The value could be null/blank
+            price) in customer currency Note: - The value could be null/blank
             for fees item
-        transaction_type_description (str): Transaction Type Description 
-            Note: - The value could be null/blank for fees item
+        transaction_type_description (str): Transaction Type Description Note:
+            - The value could be null/blank for fees item
 
     """
 
@@ -1037,7 +1035,7 @@ class MultiPricedTransactionResponseTransactionsItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

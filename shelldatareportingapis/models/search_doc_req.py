@@ -16,11 +16,11 @@ class SearchDocReq(object):
     TODO: type model description here.
 
     Attributes:
-        payer_number (str): Payer Number of the selected payer.  Mandatory 
+        payer_number (str): Payer Number of the selected payer. Mandatory
             Example: GB000000123
-        account_number (str): Account Number of the customer.  Mandatory for
-            customer users else optional.  This input is a search criterion,
-            if given.  Example: GB000000123
+        account_number (str): Account Number of the customer. Mandatory for
+            customer users else optional. This input is a search criterion, if
+            given. Example: GB000000123
         account_number_list (List[str]): Account Number of the customers.
             optional. This input is a search criterion, if given. Example:
             [“GB00000123”, “GB00000225”]
@@ -30,27 +30,28 @@ class SearchDocReq(object):
         invoice_number_list (List[str]): List of Invoice number. Optional if
             InvoiceNumber is passed else Mandatory  Example: [“0123456789”,
             “0123459799”]
-        invoice_status (str): The status of the invoices  Optional  One of the
-            following values:  • NEW  • VIEWED  • DOWNLOADED  • RESTORED
-        issuing_date_from (str): Invoice Issuing Date Range/From  Optional 
+        invoice_status (str): The status of the invoices Optional One of the
+            following values: •    NEW •    VIEWED •    DOWNLOADED •   
+            RESTORED
+        issuing_date_from (str): Invoice Issuing Date Range/From Optional
             Format: yyyy/MM/dd
-        issuing_date_to (str): Invoice Issuing Date Range/To  Optional 
-            Format: yyyy/MM/dd
-        due_date_from (str): Invoice Due Date Range/From  Optional  Format:
+        issuing_date_to (str): Invoice Issuing Date Range/To Optional Format:
             yyyy/MM/dd
-        due_date_to (str): Invoice Due Date Range/To  Optional  Format:
+        due_date_from (str): Invoice Due Date Range/From Optional Format:
             yyyy/MM/dd
-        gross_amount (str): Gross amount of the bill.  Optional
+        due_date_to (str): Invoice Due Date Range/To Optional Format:
+            yyyy/MM/dd
+        gross_amount (str): Gross amount of the bill. Optional
         gross_amount_operator (str): Criteria on the gross amount, for
             instance use GT when to retrieve the invoices for that gross
             amount is greater than the given amount on GrossAmount parameter
-            above.  Optional    This parameter will be ignored if GrossAmount
-            parameter is not set.    One of the following values:  • LT (Less
-            Than)  • LE (Lesser or Equal)  • EQ (equal)  • GE (Greater or
-            equal)  • GT (Greater than)
-        document_type (str): Document Type  Optional  One of the following
-            values:  • NAT (National)  • INT (International)  • SOA (Statement
-            of Account)
+            above. Optional   This parameter will be ignored if GrossAmount
+            parameter is not set.   One of the following values: •    LT (Less
+            Than) •    LE (Lesser or Equal) •    EQ (equal) •    GE (Greater
+            or equal) •    GT (Greater than)
+        document_type (str): Document Type Optional One of the following
+            values: •    NAT (National) •    INT (International) •    SOA
+            (Statement of Account)
         vat_issuer_country (str): Two letter ISO country code.
         sorty_by (List[str]): Collecting Company Code of the selected payer. 
             Mandatory Example: 86-Philippines 5-UK
@@ -178,7 +179,7 @@ class SearchDocReq(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

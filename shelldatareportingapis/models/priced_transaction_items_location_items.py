@@ -16,10 +16,10 @@ class PricedTransactionItemsLocationItems(object):
     TODO: type model description here.
 
     Attributes:
-        latitude (str): Latitude for the Site Geographic Location  Example:
-            37.4224764  Note: - The value could be null/blank for fees item.
-        longitude (str): Longitude for the Site Geographic Location  Example:
-            122.0842499  Note: - The value could be null/blank for fees item.
+        latitude (str): Latitude for the Site Geographic Location Example:
+            37.4224764 Note: - The value could be null/blank for fees item.
+        longitude (str): Longitude for the Site Geographic Location Example:
+            122.0842499 Note: - The value could be null/blank for fees item.
 
     """
 
@@ -65,7 +65,7 @@ class PricedTransactionItemsLocationItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +74,25 @@ class PricedTransactionItemsLocationItems(object):
         # Return an object of this model
         return cls(latitude,
                    longitude)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validates dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True

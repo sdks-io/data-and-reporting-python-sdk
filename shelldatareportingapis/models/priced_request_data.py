@@ -20,9 +20,7 @@ class PricedRequestData(object):
     Attributes:
         col_co_code (str): Collecting Company Code (Shell Code) of the
             selected payer.
-        invoice_status (PricedTransactionReqV2InvoiceStatusEnum): Invoice
-            status of the transactions. Mandatory Possible options:I -
-            Invoiced, U – Un-Invoiced, A – All
+        invoice_status (object): TODO: type description here.
         payer_number (str): Payer Number of the selected payer.
         account_id (int): Account Id (GFN customer id)
         account_number (str): Account Number of the selected account.
@@ -47,11 +45,8 @@ class PricedRequestData(object):
         cards (List[int]): This entity accepts the list of CardId to filter in
             the response. Note: The number of cardId allowed to be passed in
             the request is configurable to a maximum of 500 cards.
-        sort_order (PricedTransactionReqV2SortOrderEnum): Allowed Sorting
-            Options 1.    TransactionDateAscending 2.   
-            TransactionDateDescending 3.    GrossAmountDescending 4.   
-            GrossAmountAscending 5.    NetAmountAscending 6.   
-            NetAmountDescensding
+        sort_order (PricedTransactionReqV2SortOrderEnum): TODO: type
+            description here.
         from_date (str): From transaction delivery date
         to_date (str): To transaction delivery date
         period (PricedTransactionReqV2PeriodEnum): Pass below one of the value
@@ -163,7 +158,6 @@ class PricedRequestData(object):
 
     _nullables = [
         'col_co_code',
-        'invoice_status',
         'payer_number',
         'account_id',
         'account_number',
@@ -322,7 +316,7 @@ class PricedRequestData(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

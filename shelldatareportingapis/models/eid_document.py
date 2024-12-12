@@ -21,14 +21,14 @@ class EIDDocument(object):
             over time.
         account_group_id (str): Account Group Id
         account_group_name (str): Account group name
-        document_type (str): Document type.  Possible values:  • NAT
-            (National)  • INT (International)
+        document_type (str): Document type. Possible values: •    NAT
+            (National) •    INT (International)
         document_format (str): Document format (CHORUS, DIFI etc.)
-        document_date (str): Document date.  Example: 20170101
+        document_date (str): Document date. Example: 20170101
         number_of_invoices (int): Number of invoices
         file_size (int): Document size
-        document_status (str): Document status.  Possible values:  • NEW  •
-            VIEWED  • DOWNLOADED  • RESTORED
+        document_status (str): Document status. Possible values: •    NEW •   
+            VIEWED •    DOWNLOADED •    RESTORED
         document_name (str): Document file name.
 
     """
@@ -123,7 +123,7 @@ class EIDDocument(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

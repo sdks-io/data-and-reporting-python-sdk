@@ -19,7 +19,10 @@
 {
   "Filters": {
     "ColCoCode": "ColCoCode8",
-    "InvoiceStatus": "U",
+    "InvoiceStatus": {
+      "key1": "val1",
+      "key2": "val2"
+    },
     "PayerNumber": "PayerNumber0",
     "AccountId": 108,
     "AccountNumber": "AccountNumber2",

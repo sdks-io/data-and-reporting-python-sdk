@@ -19,17 +19,17 @@ class EIDSearchReq(object):
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory
         account_group_country (int): Country code (colco code) of the account
-            group.  Mandatory
+            group. Mandatory
         account_group_id (List[str]): List of IDs of the account groups that
             user has access to. Mandatory
-        account_group_name (str): Account group name  Optional.  This input is
-            a search criterion, if given.
-        from_date (str): EID date searched from this date.  Optional.
-        to_date (str): Invoice date searched until this date.  Optional.
-        invoice_type (str): Invoice type.  Optional.  Possible values:  • NAT
-            (National)  • INT (International)
+        account_group_name (str): Account group name Optional. This input is a
+            search criterion, if given.
+        from_date (str): EID date searched from this date. Optional.
+        to_date (str): Invoice date searched until this date. Optional.
+        invoice_type (str): Invoice type. Optional. Possible values: •    NAT
+            (National) •    INT (International)
         invoice_status (str): Status of the document.   Optional.  Possible
-            values:  • NEW  • VIEWED  • DOWNLOADED  • RESTORED
+            values:  •    NEW  •    VIEWED  •    DOWNLOADED  •    RESTORED
         sort_by (List[str]): Sort option – •    InvoiceNumber ASC •   
             InvoiceDate ASC •    InvoiceNumber DESC •    InvoiceDate DESC
             Optional
@@ -112,7 +112,7 @@ class EIDSearchReq(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

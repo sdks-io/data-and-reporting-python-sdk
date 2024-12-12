@@ -20,8 +20,8 @@ class InvoiceSearchRequest(object):
         filters (InvoiceSearchRequestFilters): TODO: type description here.
         page_size (int): TODO: type description here.
         page (int): TODO: type description here.
-        sort_by (List[int]): Sort option –  1. InvoiceDate ASC  2. InvoiceDate
-            DESC  3. NetAmountCustomerCurrency ASC  4.
+        sort_by (List[int]): Sort option –  1.    InvoiceDate ASC  2.   
+            InvoiceDate DESC  3.    NetAmountCustomerCurrency ASC  4.   
             NetAmountCustomerCurrency DESC  Optional  Note:  This option uses
             a column name with a combination of “ASC or DESC” for sorting.  If
             only the column name is provided, it is sorted by ascending. 
@@ -77,7 +77,7 @@ class InvoiceSearchRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -33,10 +33,10 @@ class BonusConfiguration(object):
         fee_rule_description (str): Bonus or association bonus configuration
             description that is associated to the payer.
         fee_rule_date_effective (str): The bonus or association bonus
-            configuration becomes effective on the payer from this date. 
+            configuration becomes effective on the payer from this date.
             Format: YYYYMMDD
         fee_rule_date_terminated (str): The bonus or association bonus
-            configuration is terminated for the payer on this date.  Format:
+            configuration is terminated for the payer on this date. Format:
             YYYYMMDD
         bonus_paid_to (str): Configuration to specify how the bonus is paid. 
             Format: ID-Description  Example:   1-Pay to Payer  2-Pay to
@@ -50,32 +50,31 @@ class BonusConfiguration(object):
             account to which the bonus is paid back
         bonus_paid_to_account_full_name (str): Full name of the specific
             account to which the bonus is paid back
-        frequency (str): Frequency of the configuration.  Format:
-            ID-Description  Examples:  1-Daily (all days)  2-Daily (only
-            working days)  3-Weekly – Monday
+        frequency (str): Frequency of the configuration. Format:
+            ID-Description Examples: 1-Daily (all days) 2-Daily (only working
+            days) 3-Weekly – Monday
         next_calculation_date (str): The next bonus is calculated for the
-            payer on this date.  Format: YYYYMMDD
+            payer on this date. Format: YYYYMMDD
         previous_calculated_date (str): The previous bonus was calculated for
-            the payer on this date.  Format: YYYYMMDD
-        fee_rule_basis (str): Fee Rule Basis configured.  Format:
-            ID-Description  Example:  1-Currency Per Unit  2-Percentage of
-            Uplift  3-Lump Sum
+            the payer on this date. Format: YYYYMMDD
+        fee_rule_basis (str): Fee Rule Basis configured. Format:
+            ID-Description Example: 1-Currency Per Unit 2-Percentage of Uplift
+            3-Lump Sum
         fee_rule_currency_code (str): ISO currency code of the currency
             configured in the Bonus Configuration, if any.
         fee_rule_currency_symbol (str): Currency symbol of the currency
             configured in the Bonus Configuration, if any.
         fee_rule_available_from (str): This bonus or association bonus is
-            available from this date.  Format: YYYYMMDD
+            available from this date. Format: YYYYMMDD
         fee_rule_available_to (str): This bonus or association bonus
-            configuration will not be available from this date.  Format:
+            configuration will not be available from this date. Format:
             YYYYMMDD
         fee_rule_locations (List[FeeRuleLocation]): TODO: type description
             here.
         fee_rule_tiers (List[FeeRuleTier]): TODO: type description here.
         associated_accounts (List[AssociatedAccount]): TODO: type description
             here.
-        fee_rule_products (List[FeeRuleProduct]): TODO: type description
-            here.
+        fee_rule_products (List[FeeRuleProduct]): TODO: type description here.
 
     """
 
@@ -255,7 +254,7 @@ class BonusConfiguration(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

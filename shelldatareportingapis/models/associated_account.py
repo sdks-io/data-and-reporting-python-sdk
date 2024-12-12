@@ -20,8 +20,7 @@ class AssociatedAccount(object):
             Account associated with the Payer.
         associated_account_number (str): Account number of the Associated
             Account associated with the Payer.
-        associated_account_short_name (str): Account associated with the
-            Payer.
+        associated_account_short_name (str): Account associated with the Payer.
         associated_account_full_name (str): Full name of the Associated
             Account associated with the Payer.
 
@@ -81,7 +80,7 @@ class AssociatedAccount(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

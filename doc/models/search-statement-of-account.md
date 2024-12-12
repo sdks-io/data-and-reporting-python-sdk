@@ -18,7 +18,7 @@
 | `amount_overdue` | `float` | Optional | Invoiced amount and overdue for payment. |
 | `currency_code` | `str` | Optional | ISO code of SOA currency. |
 | `currency_symbol` | `str` | Optional | Symbol of SOA currency.<br>Example: € |
-| `due_date` | `str` | Optional | Due date for payment. Format: yyyyMMdd<br>Note:<br>•	Clients to convert this to appropriate DateTime type.<br>•	SoA due date is considered as the latest due date of the invoices within the SoA |
+| `due_date` | `str` | Optional | Due date for payment. Format: yyyyMMdd<br>Note:<br>•    Clients to convert this to appropriate DateTime type.<br>•    SoA due date is considered as the latest due date of the invoices within the SoA |
 | `invoiced_on_behalf_of` | `str` | Optional | ISO code of the country i.e., UK, DE, MY, etc.<br>This is the value of the first invoice within the SoA. It may not be same for all the invoices within the SoA. |
 | `status` | `str` | Optional | Status of the document. Valid values –<br><br>1. Paid – Fully paid all Invoices with in the SOA.<br>2. Overdue – At least one invoice payment due date is less than current date with in the SOA.<br>3. Due – At least one invoice is due for payment and is within the due date. There is no invoice overdue for payment. |
 | `gross_amount_customer_currency` | `float` | Optional | Total gross amount in customer currency. |

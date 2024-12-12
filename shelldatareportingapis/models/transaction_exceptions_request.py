@@ -25,14 +25,14 @@ class TransactionExceptionsRequest(object):
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
         accounts (List[Accounts]): TODO: type description here.
         transactions_from_date (str): Exceptions to be searched in
-            transactions from date.  Should be with in last 24 months from the
-            ToDate parameter.  Mandatory  Format: yyyyMMdd
+            transactions from date. Should be with in last 24 months from the
+            ToDate parameter. Mandatory Format: yyyyMMdd
         transactions_to_date (str): Exceptions to be searched in transactions
             until date.  Mandatory.   Format: yyyyMMdd
         value (float): Value to be used on the Filter Condition
@@ -40,26 +40,25 @@ class TransactionExceptionsRequest(object):
             VolumeGreaterThan  2. VolumeLessThan  3. UsageGreaterThan  4.
             UsageLessThan  5. ValueGreaterThan (in Customer Currency)  6.
             ValueLessThan  (in Customer Currency)  Note: -   When “OutputType”
-            = 1 is passed as input, above 3 and 4 Condition are not
-            applicable.
+            = 1 is passed as input, above 3 and 4 Condition are not applicable.
         products (List[ExceptionProduct]): TODO: type description here.
         exception_period (int): Period in which the Exceptions such as
             Monthly/Weekly or Daily volume, value or usage to be identified in
             the given transactions date range. It is only applied when the
-            Output Type is specified as "Cards".  Mandatory when Output Type
-            is Cards  1. Month  2. Week  3. Day  4. Date Range
-        output_type (int): Output Type for Exceptions.  Mandatory.  Possible
-            values:  1. Transactions  2. Cards
+            Output Type is specified as "Cards". Mandatory when Output Type is
+            Cards 1.    Month 2.    Week 3.    Day 4.    Date Range
+        output_type (int): Output Type for Exceptions. Mandatory. Possible
+            values: 1.    Transactions 2.    Cards
         fuel_only (bool): True/False  Optional  Default value: False.   When
             passed as ‘True’ Only returned records with Fuel transactions. 
             When passed as ‘False’ the above condition will not be checked.
         site_group_ids (List[int]): SiteGroupIds to be applied to the Filter
-            Condition.  Optional  When not passed, ignored.  When passed,
+            Condition. Optional When not passed, ignored. When passed,
             transactions that are matching with the provided list of site
             group id’s are only returned.
-        use_field_id (bool): True/False  Optional  Default value – False. 
-            When set to True, the property names in the output will be
-            replaced by Field IDs.
+        use_field_id (bool): True/False Optional Default value – False. When
+            set to True, the property names in the output will be replaced by
+            Field IDs.
 
     """
 
@@ -157,7 +156,7 @@ class TransactionExceptionsRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -17,20 +17,19 @@ class PricedTransSummaryResponseTransactionsSummaryItems(object):
 
     Attributes:
         product_id (int): Product Id
-        product_code (str): Product Code  Examples:   10 TMF Charges  11
-            Tunnel/Bridges  12 Motorway toll  13 Ferries
+        product_code (str): Product Code  Examples:   10    TMF Charges  11   
+            Tunnel/Bridges  12    Motorway toll  13    Ferries
         product_name (str): Product Name  Examples:   Unleaded - High octane 
             Unleaded - Medium octane  Unleaded - Low octane  Unleaded
             Environmental
-        product_group_id (int): Product Group Id  Example:   1 Parent Product
-            Group  2 All Fuels  3 Motor gasoline  4 2 stroke  5 Autogas  6
-            CNG
-        product_group_name (str): Product Group Name  Example:   1 Parent
-            Product Group  2 All Fuels  3 Motor gasoline  4 2 stroke  5
-            Autogas  6 CNG  7 Automotive Gas Oil
-        site_group_id (int): Site Group Id  Example: 202
-        site_group_name (str): Site Group Name  Example: CZ 9100 ECONOMY
-            NETWORK
+        product_group_id (int): Product Group Id  Example:   1    Parent
+            Product Group  2    All Fuels  3    Motor gasoline  4    2 stroke 
+            5    Autogas  6    CNG
+        product_group_name (str): Product Group Name  Example:   1    Parent
+            Product Group  2    All Fuels  3    Motor gasoline  4    2 stroke 
+            5    Autogas  6    CNG  7    Automotive Gas Oil
+        site_group_id (int): Site Group Id Example: 202
+        site_group_name (str): Site Group Name Example: CZ 9100 ECONOMY NETWORK
         total_fuel_quantity (int): Total Fuel Quantity
         total_net_amount (int): Total Net amount in invoice currency
         total_gross_amount (int): Total Gross amount in invoice currency
@@ -157,7 +156,7 @@ class PricedTransSummaryResponseTransactionsSummaryItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

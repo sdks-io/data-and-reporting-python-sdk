@@ -18,29 +18,28 @@ class CustomerPriceListRequest(object):
     Attributes:
         col_co_id (int): TODO: type description here.
         col_co_code (int): TODO: type description here.
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
-        account_id (int): Account Id of the customer.  Optional
-        account_number (str): Account Number of the customer.  Optional
+        account_id (int): Account Id of the customer. Optional
+        account_number (str): Account Number of the customer. Optional
         customer_specific_list (int): Whether customer specific price lists
             and customer specific discount values set on pump prices are to be
             returned or not.
         price_list_type (int): Specifies the type of price lists to be
-            included in the response.  Optional – default value is zero.   
-            Allowed values:  0 – All  1 – National Only  2 – International
-            Only
-        del_co_id (int): Delivering Company ID  Optional.
+            included in the response. Optional – default value is zero.  
+            Allowed values: 0 – All 1 – National Only 2 – International Only
+        del_co_id (int): Delivering Company ID Optional.
         from_date (str): Start date to fetch the price lists, discount values
             on pump prices and VAT rates.  Mandatory   Format: yyyyMMdd
         to_date (str): End date to fetch the price lists, discount values on
-            pump prices and VAT rates.  Mandatory and greater than or equal to
-            FromDate.  Maximum of 30 (configurable) day’s duration is allowed
-            between ‘From’ and ‘To’ dates.  Format: yyyyMMdd
-        include_pump_price_discounts (bool): True / False.  A flag to request
+            pump prices and VAT rates. Mandatory and greater than or equal to
+            FromDate. Maximum of 30 (configurable) day’s duration is allowed
+            between ‘From’ and ‘To’ dates. Format: yyyyMMdd
+        include_pump_price_discounts (bool): True / False. A flag to request
             the discount information set on pump prices for the customer to be
-            included in the response.  Optional  Default value: False
+            included in the response. Optional Default value: False
 
     """
 
@@ -142,7 +141,7 @@ class CustomerPriceListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

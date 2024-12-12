@@ -19,19 +19,18 @@ class InvoiceSummaryRequestFilters(object):
     Attributes:
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional.  Example:  1-Philippines  5-UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
-            PayerNumber is passed else Mandatory  Example: 123456
-        payer_number (str): Payer Number of the selected payer.  Optional if
-            PayerId is passed else Mandatory  Example: GB000000123
+        payer_id (int): Payer Id of the selected payer. Optional if
+            PayerNumber is passed else Mandatory Example: 123456
+        payer_number (str): Payer Number of the selected payer. Optional if
+            PayerId is passed else Mandatory Example: GB000000123
         invoice_id (int): Invoice id.  Optional.   This input is a search
             criterion, if given.  Example: 1
         invoice_number (str): Invoice number.  Optional.  This input is a
             search criterion, if given.   Example: 0123456789
-        from_date (str): Invoice date searched from this date.  Optional. 
-            This input is a search criterion, if given.  Date format: yyyyMMdd
-            Example: 20170830  Note: This criterion is ignored if ‘Period’ is
-            given.  Also, this criterion is ignored if ‘ToDate’ is not
-            provided.
+        from_date (str): Invoice date searched from this date. Optional. This
+            input is a search criterion, if given. Date format: yyyyMMdd
+            Example: 20170830 Note: This criterion is ignored if ‘Period’ is
+            given. Also, this criterion is ignored if ‘ToDate’ is not provided.
         to_date (str): Invoice date searched until this date.  Optional.  This
             input is a search criterion, if given.  Date format: yyyyMMdd 
             Example: 20170830   Note: This criterion is ignored if ‘Period’ is
@@ -40,10 +39,10 @@ class InvoiceSummaryRequestFilters(object):
         invoice_date (str): Date of invoicing.  Optional.  This input is a
             search criterion, if given.   Date format: yyyyMMdd  Example:
             20170830
-        summary_document_id (int): Summary document id  Optional.  This input
-            is a search criterion, if given.  Example: 1
-        summary_document_number (str): Summary document number  Optional. 
-            This input is a search criterion, if given.  Example:
+        summary_document_id (int): Summary document id Optional. This input is
+            a search criterion, if given. Example: 1
+        summary_document_number (str): Summary document number Optional. This
+            input is a search criterion, if given. Example:
             ‘0/CZ0000000123456/2017’
         statement_of_account_id (str): Statement of Account Id of the payment
             customer.   Optional.  This input is a search criterion, if given.
@@ -51,33 +50,33 @@ class InvoiceSummaryRequestFilters(object):
         so_a_reference_number (str): Statement of Account reference number of
             the payment customer.   Optional.  This input is a search
             criterion, if given.  Example: 123
-        period (int): Invoice date search period. Valid values –  1. Last 7
-            days – Issued in last 7 days.  2. Last 30 days – Issued in last 30
-            days.  3. Last 90 days – Issued in last 90 days.  Optional.  This
-            input is a search criterion, if given.  Example: 1
-        invoice_status (str): Status of the invoice. Valid values –  • Due –
-            Invoices due for payment and is within the due date.  • Paid –
-            Fully paid Invoices.  • Overdue – Invoices due of payment and has
-            crossed the due date.  • CreditNote – Credit notes  •
-            CreditStatement  Optional.  This input is a search criterion, if
+        period (int): Invoice date search period. Valid values – 1.    Last 7
+            days – Issued in last 7 days. 2.    Last 30 days – Issued in last
+            30 days. 3.    Last 90 days – Issued in last 90 days. Optional.
+            This input is a search criterion, if given. Example: 1
+        invoice_status (str): Status of the invoice. Valid values – •    Due –
+            Invoices due for payment and is within the due date. •    Paid –
+            Fully paid Invoices. •    Overdue – Invoices due of payment and
+            has crossed the due date. •    CreditNote – Credit notes •   
+            CreditStatement Optional. This input is a search criterion, if
             given.
         invoiced_on_behalf_of (str): ISO code of the country i.e., UK, DE, MY,
-            etc.  Optional
+            etc. Optional
         include_e_invoice_details (bool): Whether to include the additional
             invoice details in the API response.   Optional. Default value
-            “False”.  The parameters that are populated   • DocumentReference 
-            • AdditionalDocuments   The above fields will not be present in
-            the response when the respective data is not available in the
-            source system.
+            “False”.  The parameters that are populated   •   
+            DocumentReference  •    AdditionalDocuments   The above fields
+            will not be present in the response when the respective data is
+            not available in the source system.
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory - It is mandatory field to external source ATOS for
             E-invoicing.   Example:  86-Philippines  5-UK
         accounts (List[Accounts]): TODO: type description here.
-        mtype (str): Invoice type. Allowed values –  • Original – Original
-            document.  • Reversal – Reversed document.  • Replacement –
-            Replaced document.  Optional. (When not passed all invoice, types
-            are considered for search)  This input is a search criterion, if
-            given.  Example: Original
+        mtype (str): Invoice type. Allowed values – •    Original – Original
+            document. •    Reversal – Reversed document. •    Replacement –
+            Replaced document. Optional. (When not passed all invoice, types
+            are considered for search) This input is a search criterion, if
+            given. Example: Original
 
     """
 
@@ -224,7 +223,7 @@ class InvoiceSummaryRequestFilters(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

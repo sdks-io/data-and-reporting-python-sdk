@@ -20,8 +20,8 @@ class InvoiceSearchAdditionalDocument(object):
 
     Attributes:
         reference (str): Unique ID for the additional invoice document.
-        mtype (str): Type of the additional document.  Mandatory  Possible
-            values:  • KSeF - Applicable for Poland market.
+        mtype (str): Type of the additional document. Mandatory Possible
+            values: •    KSeF - Applicable for Poland market.
         is_applicable (str): True if a KSeF PDF will be produced for the
             customer.
 
@@ -75,7 +75,7 @@ class InvoiceSearchAdditionalDocument(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -25,22 +25,22 @@ class FuelConsumptionRequest(object):
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
-        payer_id (int): Payer Id  of the selected payer.  Optional if
+        payer_id (int): Payer Id  of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
         accounts (List[Accounts]): TODO: type description here.
-        card_group_id (int): Card Group Id in GFN  Optional  Example: 200
-        card_group_name (str): Card Group Name  Optional  This input is a
-            search criterion, if given.
+        card_group_id (int): Card Group Id in GFN Optional Example: 200
+        card_group_name (str): Card Group Name Optional This input is a search
+            criterion, if given.
         cards (List[FuelConsumptionCard]): TODO: type description here.
-        from_date (str): Transactions from Date  Optional – ‘Period’ will be
+        from_date (str): Transactions from Date Optional – ‘Period’ will be
             considered when this field is not provided.
-        to_date (str): Transactions to Date  Optional  Format: yyyyMMdd
+        to_date (str): Transactions to Date Optional Format: yyyyMMdd
         period (int): Transactions Period. This is ignored when FromDate is
-            supplied on the request   Allowed values :  1. Last 7 Days  2.
-            Last 30 Days  3. Last 90 Days  Optional - When FromDate/ToDate and
-            Period are not provided, ‘Last 7 Days’ value is considered as
+            supplied on the request   Allowed values :  1.    Last 7 Days  2. 
+            Last 30 Days  3.    Last 90 Days  Optional - When FromDate/ToDate
+            and Period are not provided, ‘Last 7 Days’ value is considered as
             default Period.
 
     """
@@ -127,7 +127,7 @@ class FuelConsumptionRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

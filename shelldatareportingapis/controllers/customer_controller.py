@@ -52,7 +52,8 @@ class CustomerController(BaseController):
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (LoggedInUserRequest, optional): Logged in user request body
+            body (FleetmanagementV1UserLoggedinuserRequest, optional): Logged
+                in user request body
 
         Returns:
             LoggedInUserResponse: Response from the API. The http status code
@@ -94,10 +95,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LoggedInUserResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def payers(self,
@@ -113,8 +114,7 @@ class CustomerController(BaseController):
         Paging is applicable only when all the
         payers passed in the input are from the same ColCo. 
         However, paging will
-        be ignored and the API will return all the matching data by merging
-        the
+        be ignored and the API will return all the matching data by merging the
         data queried from each ColCo when payers passed in the input are from
         multiple ColCos.
 
@@ -162,10 +162,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PayerResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def customer(self,
@@ -228,10 +228,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerDetailResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def customer_price_list(self,
@@ -303,10 +303,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerPriceListResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def accounts(self,
@@ -368,10 +368,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AccountResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def card_type(self,
@@ -431,10 +431,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CardTypeResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def card_groups(self,
@@ -503,10 +503,10 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CardGroupResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()
 
     def audit_report(self,
@@ -584,8 +584,8 @@ class CustomerController(BaseController):
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AuditResponse.from_dictionary)
             .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\r\n', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.\r\n', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\r\n', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.\r\n', DefaultErrorException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
+            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
+            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
         ).execute()

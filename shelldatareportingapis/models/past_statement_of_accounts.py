@@ -27,15 +27,15 @@ class PastStatementOfAccounts(object):
         amount_paid (float): Amount settled for this Statement.
         balance_on_this_statement (float): Balance amount to be settled on
             this SOA.
-        billing_currency_code (str): Billing currency ISO code.  Example: EUR
-        billing_currency_symbol (str): Billing currency symbol.  Example: €
+        billing_currency_code (str): Billing currency ISO code. Example: EUR
+        billing_currency_symbol (str): Billing currency symbol. Example: €
         credit_limit (float): Credit limit.
         credit_limit_currency_code (str): ISO code of the credit limit’s
-            currency.  Example: EUR
+            currency. Example: EUR
         credit_limit_currency_symbol (str): Symbol of the credit limit’s
-            currency.  Example: €
+            currency. Example: €
         credit_limit_in_customer_currency (float): Credit limit in Customer
-            currency.  Note: For currency details refer the parameters
+            currency. Note: For currency details refer the parameters
             CurrencyCode & CurrencySymbol in the SOADetail response.
         currency_code (str): ISO code of SOA currency.   Example: EUR
         currency_symbol (str): Symbol of SOA currency.   Example: €
@@ -55,7 +55,7 @@ class PastStatementOfAccounts(object):
         payer_number (str): Payment customer number.
         payment_due_date (str): Due date for payment. Format: yyyyMMdd
         so_a_reference_number (str): Statement of account reference number.
-        statement_date (str): Date on which the SOA was generated.  Format:
+        statement_date (str): Date on which the SOA was generated. Format:
             yyyyMMdd
         statement_of_account_id (int): Statement of account identifier,
         total_billing_documents (int): Total number of billing documents
@@ -71,15 +71,15 @@ class PastStatementOfAccounts(object):
         local_currency_code (str): Currency ISO code of the local country. It
             is derived based on CountryCode from microservice configuration.
             This field is expected to have different value than the previously
-            mentioned field CurrencyCode, only in the case of serviced OUs. 
+            mentioned field CurrencyCode, only in the case of serviced OUs.
             Example: EUR
         local_currency_symbol (str): Currency Symbol of the local country. It
             is derived based on CountryCode from microservice configuration.
             This field is expected to have different value than the previously
-            mentioned field CurrencySymbol, only in the case of serviced OUs. 
+            mentioned field CurrencySymbol, only in the case of serviced OUs.
             Example: €
         local_currency_exchange_rate (float): Exchange rate from Billing
-            currency to local currency.  Example: 1.2
+            currency to local currency. Example: 1.2
 
     """
 
@@ -317,7 +317,7 @@ class PastStatementOfAccounts(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

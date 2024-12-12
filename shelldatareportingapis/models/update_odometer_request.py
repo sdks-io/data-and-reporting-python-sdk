@@ -25,19 +25,19 @@ class UpdateOdometerRequest(object):
             Latvia, Lithuania, Estonia, Ukraine etc. It is optional for other
             countries if ColCoID is provided.
         payer_id (int): Payer Id (i.e. Customer Id of the Payment Customer in
-            Cards Platform) of the selected payer.  Optional if PayerNumber is
+            Cards Platform) of the selected payer. Optional if PayerNumber is
             passed else Mandatory
         account_id (int): Account Id (i.e. Customer Id of the Sub Account in
-            GFN) of the selected account.  Optional if AccountNumber is passed
+            GFN) of the selected account. Optional if AccountNumber is passed
             else Mandatory
         account_number (str): Account Number (ex: GB000000123) of the selected
-            account.  Optional if AccountId is passed else Mandatory
+            account. Optional if AccountId is passed else Mandatory
         update_odometers (List[UpdateOdometer]): TODO: type description here.
-        notify_caller (bool): True/False.  Optional.  Default: False  If true,
+        notify_caller (bool): True/False. Optional. Default: False If true,
             the caller would be notified back with the status as success or
             failure after the update odometer is processed.
         caller (str): The caller to be notified with the status of the update
-            odometer.  Mandatory, if NotifyCaller is true.
+            odometer. Mandatory, if NotifyCaller is true.
 
     """
 
@@ -108,7 +108,7 @@ class UpdateOdometerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -140,6 +140,7 @@ __all__ = [
     'invoice_summary_request_filters',
     'statement_of_account_request_filters',
     'invoice_dates_request_filters',
+    'fleetmanagement_v_1_user_loggedinuser_request',
     'o_auth_token',
     'priced_transaction_req_v_2_invoice_status_enum',
     'priced_transaction_req_v_2_sort_order_enum',

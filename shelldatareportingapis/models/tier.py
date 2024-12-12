@@ -17,15 +17,15 @@ class Tier(object):
 
     Attributes:
         tier_price_list_id (int): The price list if reference price is list
-            price.  Only used when the Price Rule category is set to.  ‘Tiered
+            price. Only used when the Price Rule category is set to. ‘Tiered
             Pricing’.
         price_list_description (str): Price list description of the tier.
-        tier_min (int): Minimum tier volume  E.g., 500
-        tier_max (int): Maximum tier volume  E.g., 1000
+        tier_min (int): Minimum tier volume E.g., 500
+        tier_max (int): Maximum tier volume E.g., 1000
         tiered_pricing_group_name (str): Pricing group name of tier
-        tiered_pricing_group_period (str): Tiered pricing group period. 
-            Possible Values  1. Monthly  2. Quarterly  3. Semi Annually  4.
-            Annual
+        tiered_pricing_group_period (str): Tiered pricing group period.
+            Possible Values 1.    Monthly 2.    Quarterly 3.    Semi Annually
+            4.    Annual
         discount_value (float): Discount value to be applied to the List price
             or pump price.
         price_per_unit (float): Price per unit after discount   Note: This
@@ -120,7 +120,7 @@ class Tier(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

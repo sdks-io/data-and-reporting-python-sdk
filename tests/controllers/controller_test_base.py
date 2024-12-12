@@ -29,13 +29,6 @@ class ControllerTestBase(unittest.TestCase):
         cls.config = ControllerTestBase.create_configuration()
         cls.client = ShelldatareportingapisClient(config=cls.config)
 
-        bearer_token_token = cls.client.bearer_token.fetch_token()
-        bearer_token_credentials = cls.config.bearer_token_credentials\
-            .clone_with(o_auth_token=bearer_token_token)
-        cls.config = cls.config.clone_with(bearer_token_credentials=bearer_token_credentials)
-
-        cls.client = ShelldatareportingapisClient(config=cls.config)
-
     @staticmethod
     def create_configuration():
         return Configuration(http_call_back=HttpResponseCatcher())

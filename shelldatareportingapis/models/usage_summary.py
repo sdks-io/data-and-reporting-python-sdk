@@ -16,8 +16,8 @@ class UsageSummary(object):
     TODO: type model description here.
 
     Attributes:
-        date (str): Transaction date.  The records will be sorted by this
-            field in ascending order.    Format: yyyyMMdd
+        date (str): Transaction date. The records will be sorted by this field
+            in ascending order.   Format: yyyyMMdd
         product_id (int): Product Id
         product_code (str): Client Product code
         product_name (str): Product name in English
@@ -148,7 +148,7 @@ class UsageSummary(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

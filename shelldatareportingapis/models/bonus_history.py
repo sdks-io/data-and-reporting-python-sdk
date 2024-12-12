@@ -29,23 +29,21 @@ class BonusHistory(object):
             payer.
         invoice_account_short_name (str): Invoice Account short name.
         invoice_account_full_name (str): Invoice Account full name.
-        fee_rule_id (str): Bonus or association bonus configuration
-            identifier
+        fee_rule_id (str): Bonus or association bonus configuration identifier
         fee_rule_description (str): Bonus or association bonus configuration
             description that is associated to the bonus fee item
-        from_date (str): Bonus was calculated from this date.  Format:
-            YYYYMMDD
-        to_date (str): Bonus was calculated till this date.  Format: YYYYMMDD
+        from_date (str): Bonus was calculated from this date. Format: YYYYMMDD
+        to_date (str): Bonus was calculated till this date. Format: YYYYMMDD
         bonus_paid_to (str): Specifies how the bonus was paid back.  Format:
             ID-Description  Example:   1-Pay to Payer  2-Pay to invoice levels
             before the payer  3-Pay to specific customer  4-Pay to Association
             Customer  5-Pay to Associated Customers
         fee_item_id (int): Bonus fee item identifier.
-        fee_rule_basis (str): Fee Rule Basis of the bonus fee item.  Format:
-            ID-Description  Example:  1-Currency Per Unit  2-Percentage of
-            Uplift  3-Lump Sum
+        fee_rule_basis (str): Fee Rule Basis of the bonus fee item. Format:
+            ID-Description Example: 1-Currency Per Unit 2-Percentage of Uplift
+            3-Lump Sum
         fee_item_currency_code (str): ISO currency code of the currency in
-            which Bonus is paid.  Example: GBP
+            which Bonus is paid. Example: GBP
         fee_item_currency_symbol (str): Currency symbol of the currency in
             which Bonus is paid.
         prorated_volume (float): Prorated volume considered under the account
@@ -53,7 +51,7 @@ class BonusHistory(object):
         total_volume (float): Total volume considered for calculating the
             bonus.
         fee_product (str): Product as shown in the invoice for the bonus paid.
-            Format: ID-Description  Example: 1562-Bonus diesel Shell
+            Format: ID-Description Example: 1562-Bonus diesel Shell
             Netherlands on agreed site(s)
         invoice_gross_amount (float): Gross Amount – Bonus Paid including VAT
             as shown on the Invoice
@@ -61,7 +59,7 @@ class BonusHistory(object):
             shown on the Invoice
         invoice_vat_amount (float): VAT calculated for the bonus paid as shown
             on the Invoice
-        is_fee_cancelled (bool): True/False  True if bonus is generated but
+        is_fee_cancelled (bool): True/False True if bonus is generated but
             cancelled. When true, consider this as not paid.
         fee_item_tier_prorated_volume (float): Prorated volume in the bonus
             fee item tier.
@@ -294,7 +292,7 @@ class BonusHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

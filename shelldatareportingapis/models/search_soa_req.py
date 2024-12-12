@@ -17,19 +17,19 @@ class SearchSOAReq(object):
 
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory.
-        invoice_number (str): Invoice number.  Optional.  This input is a
-            search criterion, if given.
-        from_date (str): SOA searched from this date.  Optional.  This input
-            is a search criterion, if given.  Date format: yyyy/MM/dd
-        to_date (str): Invoice date searched until this date.  Optional.  This
+        invoice_number (str): Invoice number. Optional. This input is a search
+            criterion, if given.
+        from_date (str): SOA searched from this date. Optional. This input is
+            a search criterion, if given. Date format: yyyy/MM/dd
+        to_date (str): Invoice date searched until this date. Optional. This
             input is a search criterion, if given.
-        period (int): Invoice date search period. Valid values -  Last 7 days
-            – Issued in last 7 days.  Last 30 days – Issued in last 30 days. 
-            Last 90 days – Issued in last 90 days.  Optional.  This input is a
-            search criterion, if given.
-        invoice_date (str): Date of invoicing.  Optional.  This input is a
+        period (int): Invoice date search period. Valid values - Last 7 days –
+            Issued in last 7 days. Last 30 days – Issued in last 30 days. Last
+            90 days – Issued in last 90 days. Optional. This input is a search
+            criterion, if given.
+        invoice_date (str): Date of invoicing. Optional. This input is a
             search criterion, if given.
         invoice_status (List[str]): Possible options are: 1.    StatementDate
             ASC 2.    StatementDate DESC Optional Note: This option uses a
@@ -144,7 +144,7 @@ class SearchSOAReq(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

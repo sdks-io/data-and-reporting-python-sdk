@@ -17,8 +17,7 @@ class FeeItem(object):
     TODO: type model description here.
 
     Attributes:
-        fee_item_id (int): Fee Item unique identifier in the H3 Cards
-            Platform
+        fee_item_id (int): Fee Item unique identifier in the H3 Cards Platform
         account_id (int): Account Id
         account_number (str): Account Number
         account_short_name (str): Account short Number
@@ -40,31 +39,31 @@ class FeeItem(object):
         fee_rule_description (str): Fee rule description
         fee_rule_tiers (List[FeesFeeRuleTiers]): TODO: type description here.
         fee_item_date (str): Local Fee Item Date of when the transaction took
-            place  Format: yyyyMMdd
+            place Format: yyyyMMdd
         fee_item_time (str): Local Fee Item Time of where the transaction took
-            place  Format: HH:mm:ss (24 hours format)
-        is_manual (bool): True/False.  Is manual
-        is_cancelled (bool): True/False.  Is cancelled
+            place Format: HH:mm:ss (24 hours format)
+        is_manual (bool): True/False. Is manual
+        is_cancelled (bool): True/False. Is cancelled
         customer_currency_code (str): ISO currency code   Example: GBP
         customer_currency_symbol (str): Currency symbol of the Currency Code  
             Example: £, $
-        product_id (int): Product Id  Example: Sample list of product ids and
-            description.  100 Service fee  102 Invoice production fee  103
-            Account fee  104 Transaction fee  105 Card membership fee
+        product_id (int): Product Id Example: Sample list of product ids and
+            description. 100 Service fee 102 Invoice production fee 103
+            Account fee 104 Transaction fee 105 Card membership fee
         product_code (str): Product Code – Global as per GFN configuration  
             Example:   2 Service fee  4 Invoice production fee  5 Account fee 
             6 Transaction fee  7 Card membership fee
-        product_name (str): Product Name  Example: Sample list of product ids
-            and description.  Service fee  Invoice production fee
-        product_group_id (int): Product Group Id  Example: Sample list  22
-            Card related fees  23 Monetary Adjustment
-        product_group_name (str): Product Group Name  Example: Sample list  22
-            Card related fees  23 Monetary Adjustment
+        product_name (str): Product Name Example: Sample list of product ids
+            and description. Service fee Invoice production fee
+        product_group_id (int): Product Group Id Example: Sample list 22   
+            Card related fees 23    Monetary Adjustment
+        product_group_name (str): Product Group Name Example: Sample list 22  
+            Card related fees 23    Monetary Adjustment
         line_item_description (str): Line Item Description generally the
             quantity as printed on Invoice or the manually keyed in
             description for manual fees
         quantity (int): Quantity
-        is_invoiced (bool): True/False.  Is fee item invoiced
+        is_invoiced (bool): True/False. Is fee item invoiced
         vat_country_code (str): VAT country ISO code
         vat_country_name (str): VAT country name
         vat_percentage (float): VAT percentage
@@ -86,7 +85,7 @@ class FeeItem(object):
         invoice_net_amount (float): Invoice net amount
         invoice_gross_amount (float): Invoice gross amount
         invoice_vat_amount (float): Invoice VAT amount
-        reverse_charge (bool): True/False.  Reverse charge.
+        reverse_charge (bool): True/False. Reverse charge.
         original_fee_item_id (int): Original Fee Item id.
         original_currency_code (str): Original FeeItem Currency ISO code.
         original_currency_symbol (str): Original FeeItem currency symbol
@@ -105,15 +104,15 @@ class FeeItem(object):
         fee_item_card_level_breakup (str): Fee breakup at card level for Fee
             Items where applicable.
         original_fee_item_invoice_id (int): Invoice Id/ Billing Document Id of
-            the original fee item (when not null).  Applicable only for fee
+            the original fee item (when not null). Applicable only for fee
             items that are refund to an original fee item that is already
             invoiced.
         original_fee_item_invoice_number (str): Invoice Number of the original
-            fee item (when not null).  Applicable only for fee items that are
+            fee item (when not null). Applicable only for fee items that are
             refund to an original fee item that is already invoiced.
         original_fee_item_invoice_date (str): Invoice Date of the original fee
-            item (when not null).  Applicable only for fee items that are
-            refund to an original fee item that is already invoiced.  Format:
+            item (when not null). Applicable only for fee items that are
+            refund to an original fee item that is already invoiced. Format:
             yyyyMMdd
         driver_name (str): Driver name embossed on the Card
         emboss_text (str): Text embossed on the Card
@@ -594,7 +593,7 @@ class FeeItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

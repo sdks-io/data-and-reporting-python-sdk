@@ -24,8 +24,7 @@ class RecentTransactions(object):
         card_issue_number (str): Card Issue Number
         collecting_company_currency_code (str): Collecting Company Currency
             IsoCode
-        cust_data_customer_entered (str): Customer entered data for
-            reference.
+        cust_data_customer_entered (str): Customer entered data for reference.
         cust_data_driver_id (str): Customer Data DriverId
         cust_data_fleet_description (str): Cust Data Fleet Description
         fleet_id_input (str): Fleet Id Input
@@ -36,8 +35,7 @@ class RecentTransactions(object):
         product_name (str): ProductName
         site_code (int): SiteCode
         hosting_collecting_company_name (str): HostingCollectingCompanyName
-        hosting_collecting_company_number (str):
-            HostingCollectingCompanyNumber
+        hosting_collecting_company_number (str): HostingCollectingCompanyNumber
         iccdata_tran_type_code (str): Transaction type code
         transaction_type (str): Transaction type description.
         latitude (str): Latitude of the Coordinate 3.11573
@@ -563,7 +561,7 @@ class RecentTransactions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

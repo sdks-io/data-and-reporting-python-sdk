@@ -19,7 +19,7 @@ class EIDSearchRequest(object):
     Attributes:
         filters (EIDSearchReq): TODO: type description here.
         page (int): Specify the page of results to be returned.
-        page_size (int): Specify the number of records to returned; Max 1000
+        page_size (int): Specify the number of records to returned; Max 100
 
     """
 
@@ -65,7 +65,7 @@ class EIDSearchRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

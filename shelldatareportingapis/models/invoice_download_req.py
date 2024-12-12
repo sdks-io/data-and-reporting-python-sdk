@@ -18,7 +18,7 @@ class InvoiceDownloadReq(object):
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory
-        payer_number (str): Payer Number of the selected payer.  Mandatory 
+        payer_number (str): Payer Number of the selected payer. Mandatory
             Example: GB000000123
         account_number (List[str]): List of Account Numbers of the invoices.
             Mandatory for customer users else optional.
@@ -84,7 +84,7 @@ class InvoiceDownloadReq(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

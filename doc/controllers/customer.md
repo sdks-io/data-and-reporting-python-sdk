@@ -40,8 +40,8 @@ def loggedin_user(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
-| `body` | [`LoggedInUserRequest`](../../doc/models/logged-in-user-request.md) | Body, Optional | Logged in user request body |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `body` | [`FleetmanagementV1UserLoggedinuserRequest`](../../doc/models/fleetmanagement-v1-user-loggedinuser-request.md) | Body, Optional | Logged in user request body |
 
 ## Response Type
 
@@ -54,7 +54,7 @@ apikey = 'apikey6'
 
 request_id = '2b0cbe11-f109-4c43-9201-49af0370df1c'
 
-body = LoggedInUserRequest(
+body = FleetmanagementV1UserLoggedinuserRequest(
     include_payer_group=False,
     include_eid_details=False,
     requested_api_name='Name of the API',
@@ -67,7 +67,6 @@ result = customer_controller.loggedin_user(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -187,7 +186,7 @@ def payers(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`PayerRequest`](../../doc/models/payer-request.md) | Body, Optional | Serach payers request body |
 
 ## Response Type
@@ -224,7 +223,6 @@ result = customer_controller.payers(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -451,7 +449,7 @@ def customer(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`CustomerDetailRequest`](../../doc/models/customer-detail-request.md) | Body, Optional | Customerdetails request body |
 
 ## Response Type
@@ -479,7 +477,6 @@ result = customer_controller.customer(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -608,7 +605,7 @@ def customer_price_list(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`CustomerPriceListRequest`](../../doc/models/customer-price-list-request.md) | Body, Optional | Customerdetails request body |
 
 ## Response Type
@@ -632,7 +629,6 @@ result = customer_controller.customer_price_list(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -749,7 +745,7 @@ def accounts(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`AccountRequest`](../../doc/models/account-request.md) | Body, Optional | - |
 
 ## Response Type
@@ -793,7 +789,6 @@ result = customer_controller.accounts(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -908,7 +903,7 @@ def card_type(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`CardTypeRequest`](../../doc/models/card-type-request.md) | Body, Optional | Get CardType Request Body |
 
 ## Response Type
@@ -938,7 +933,6 @@ result = customer_controller.card_type(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1064,7 +1058,7 @@ def card_groups(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`CardGroupRequest`](../../doc/models/card-group-request.md) | Body, Optional | Request Body |
 
 ## Response Type
@@ -1100,7 +1094,6 @@ result = customer_controller.card_groups(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1190,7 +1183,7 @@ def audit_report(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apikey` | `str` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`AuditRequest`](../../doc/models/audit-request.md) | Body, Optional | request body |
 
 ## Response Type
@@ -1231,7 +1224,6 @@ result = customer_controller.audit_report(
     request_id,
     body=body
 )
-print(result)
 ```
 
 ## Example Response *(as JSON)*

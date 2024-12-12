@@ -32,8 +32,7 @@ class CardTypeResponseCustomerCardTypesItems(object):
         emboss_account_name (str): Default Name to be embossed on the card
         expiry_period (int): Default Expiry period.
         is_crt (bool): True/False – Wether it is a CRT Card type or not.
-        is_fleet (bool): True/False – Whether it is it a Fleet Card typeor
-            not.
+        is_fleet (bool): True/False – Whether it is it a Fleet Card typeor not.
         is_international (bool): True/False – Whether it is an International
             Card type or not.
         is_national (bool): True/False – Whether it is a National Card type or
@@ -70,10 +69,10 @@ class CardTypeResponseCustomerCardTypesItems(object):
             accessing application API key exists in the
             “ApplicationsToShowNPIITokens” card type configuration else
             “False”.
-        medium_type_id (int): Id of the medium type identifier.  Example:
-            1,2,4    Full list below:  1 - Fuel Card  2 - Fuel Card with EV  3
-            - EV only  4 - Fuel Card and Key Fob  5 - Key Fob  6 - Virtual
-            Card  7 - NPII Token  8 – Smartpay Token
+        medium_type_id (int): Id of the medium type identifier. Example: 1,2,4
+            Full list below: 1 - Fuel Card 2 - Fuel Card with EV 3 - EV only 4
+            - Fuel Card and Key Fob 5 - Key Fob 6 - Virtual Card 7 - NPII
+            Token 8 – Smartpay Token
         medium_type (str): Name of the medium type identifier.  Example: Fuel
             Card, Fuel Card with EV, Key Fob      Full list below:  1 - Fuel
             Card  2 - Fuel Card with EV  3 - EV only  4 - Fuel Card and Key
@@ -302,7 +301,7 @@ class CardTypeResponseCustomerCardTypesItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

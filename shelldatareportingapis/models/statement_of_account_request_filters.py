@@ -19,25 +19,25 @@ class StatementOfAccountRequestFilters(object):
     Attributes:
         col_co_code (int): Collecting Company Code (Shell Code) of the
             selected payer.   Optional If ColCo Id is passed else Mandatory.
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory.
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory.
-        include_monthly_invoice_trend (bool): True/False.  Optional. Default
-            is False.  True if the past 13 monthly invoice trend to be
+        include_monthly_invoice_trend (bool): True/False. Optional. Default is
+            False. True if the past 13 monthly invoice trend to be included as
+            part of the response. Else false.
+        include_past_statement_of_accounts (bool): True/False. Optional.
+            Default is False. True if the past X SOA documents are to be
             included as part of the response. Else false.
-        include_past_statement_of_accounts (bool): True/False.  Optional.
-            Default is False.  True if the past X SOA documents are to be
-            included as part of the response. Else false.
-        due_or_over_due_soa_documents_only (bool): True/False  Optional
-            Default is False.  If true PastStatementOfAccounts entity on this
-            API output should contain the SOA documents that are due or
-            overdue only.
+        due_or_over_due_soa_documents_only (bool): True/False Optional Default
+            is False. If true PastStatementOfAccounts entity on this API
+            output should contain the SOA documents that are due or overdue
+            only.
         number_of_soa_documents (int): This parameter is only applicable when
             “IncludePastStatementOfAccounts” parameter is set to True.
-        include_account_invoices_summary (bool): True/False  Optional. 
-            Default value is false.  When true InvoicesSummaries list will be
-            returned in the API output.
+        include_account_invoices_summary (bool): True/False Optional. Default
+            value is false. When true InvoicesSummaries list will be returned
+            in the API output.
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional If ColCo Code is passed else Mandatory.
         accounts (List[Accounts]): TODO: type description here.
@@ -133,7 +133,7 @@ class StatementOfAccountRequestFilters(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

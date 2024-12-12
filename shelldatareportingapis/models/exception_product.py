@@ -16,9 +16,9 @@ class ExceptionProduct(object):
     TODO: type model description here.
 
     Attributes:
-        productid (int): Product Id  Optional if ProductCode is passed else
+        productid (int): Product Id Optional if ProductCode is passed else
             Mandatory.
-        product_code (str): Product Code  Optional if ProductId is passed else
+        product_code (str): Product Code Optional if ProductId is passed else
             Mandatory.
 
     """
@@ -65,7 +65,7 @@ class ExceptionProduct(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

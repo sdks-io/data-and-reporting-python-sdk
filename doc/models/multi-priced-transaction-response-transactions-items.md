@@ -44,20 +44,20 @@
 | `is_invoiced` | `bool` | Optional | True when the transaction is already invoice, else return False |
 | `invoice_number` | `str` | Optional | Invoice Number if invoiced<br>Example:<br>S04500493<br>S04478304<br>S04490319 |
 | `invoice_date` | `str` | Optional | Invoice Date<br>Format: yyyyMMdd HH:mm:ss |
-| `site_code` | `str` | Optional | Site Code<br>Example:<br>050001 -	CHARNOCK RICHARD NTHBOUND MWSA 0755 |
-| `site_name` | `str` | Optional | Site Name<br>Example:<br>050001 -	CHARNOCK RICHARD NTHBOUND MWSA 0755 |
+| `site_code` | `str` | Optional | Site Code<br>Example:<br>050001 -    CHARNOCK RICHARD NTHBOUND MWSA 0755 |
+| `site_name` | `str` | Optional | Site Name<br>Example:<br>050001 -    CHARNOCK RICHARD NTHBOUND MWSA 0755 |
 | `site_country` | `str` | Optional | Site Country<br>Example: France, Germany |
 | `location` | [`List[SiteLocation]`](../../doc/models/site-location.md) | Optional | - |
 | `card_group_name` | `str` | Optional | Card Group Name |
 | `receipt_number` | `str` | Optional | ReceiptNumber |
-| `product_code` | `str` | Optional | Product Code<br>10	TMF Charges<br>11	Tunnel/Bridges<br>12	Motorway toll |
+| `product_code` | `str` | Optional | Product Code<br>10    TMF Charges<br>11    Tunnel/Bridges<br>12    Motorway toll |
 | `product_name` | `str` | Optional | Product Name<br>Example:<br><br>Unleaded - High octane<br>Unleaded - Medium octane<br>Unleaded - Low octane<br>Unleaded Environmental |
-| `product_group_id` | `int` | Optional | Product Group Id<br>Example:<br>1	Parent Product Group<br>2	All Fuels<br>3	Motor gasoline<br>4	2 stroke<br>5	Autogas |
-| `product_group_name` | `str` | Optional | Product Group Name<br>Example:<br>1	Parent Product Group<br>2	All Fuels<br>3	Motor gasoline<br>4	2 stroke<br>5	Autogas |
+| `product_group_id` | `int` | Optional | Product Group Id<br>Example:<br>1    Parent Product Group<br>2    All Fuels<br>3    Motor gasoline<br>4    2 stroke<br>5    Autogas |
+| `product_group_name` | `str` | Optional | Product Group Name<br>Example:<br>1    Parent Product Group<br>2    All Fuels<br>3    Motor gasoline<br>4    2 stroke<br>5    Autogas |
 | `del_co_exchange_rate` | `float` | Optional | DelCo Exchange Rate (Site exchange rate)<br>Note: - The value could be null/blank for fees item. |
 | `col_co_exchange_rate` | `int` | Optional | ColCo Exchange Rate (Customer exchange rate) |
 | `is_shell_site` | `bool` | Optional | True when transaction occurred at a Shell site else return False<br>Note: - The value could be null/blank for fees item. |
-| `network` | `str` | Optional | Network  (Shell PH, ESSO, etc.,)<br>100013	STEINDORFER<br>100015	S.A. BELGIAN SHELL N.V.<br>100016	ESSO BE<br>Note: - The value could be null/blank for fees item. |
+| `network` | `str` | Optional | Network  (Shell PH, ESSO, etc.,)<br>100013    STEINDORFER<br>100015    S.A. BELGIAN SHELL N.V.<br>100016    ESSO BE<br>Note: - The value could be null/blank for fees item. |
 | `site_group_id` | `int` | Optional | Site Group Id<br>Example: 202<br>Note: - The value could be null/blank for fees item. |
 | `site_group_name` | `str` | Optional | Site GroupName<br>Example: CZ 9100 ECONOMY NETWORK<br>Note: - The value could be null/blank for fees item. |
 | `posting_date` | `str` | Optional | Transaction Posting Date<br>Format: yyyyMMdd HHmmss |
@@ -100,7 +100,7 @@
 | `transaction_line` | `str` | Optional | Transaction line item number<br>Example: 1<br>Note: - The value could be null/blank for fees item. |
 | `allow_clearing` | `str` | Optional | Is the Sales Item allowed for clearing? i.e. not written off<br>Example: “Y” or “N”<br>Note: - The value could be null/blank for fees item. |
 | `crm_number` | `str` | Optional | CRM Case number if the sales item is in dispute.<br>Note: - The value could be null/blank for fees item. |
-| `dispute_status` | `str` | Optional | Sales Item Dispute Status if disputed<br>0	No Dispute<br>1	In Dispute<br>2	Re-Instated<br>3	Adjusted<br>4	Written Off by Colco<br>5	Written Off by Delco<br>6	Charged Back to Site |
+| `dispute_status` | `str` | Optional | Sales Item Dispute Status if disputed<br>0    No Dispute<br>1    In Dispute<br>2    Re-Instated<br>3    Adjusted<br>4    Written Off by Colco<br>5    Written Off by Delco<br>6    Charged Back to Site |
 | `rebate_rate` | `float` | Optional | Unit discount in customer currency.<br>Example: 28.279000 |
 | `del_co_to_col_co_exchange_rate` | `int` | Optional | Exchange rate from transaction currency to customer currency.<br>Example: 1 |
 | `net_euro_amount` | `float` | Optional | Net euro amount.<br>Example: 37.93<br>Note: - The value could be null/blank for fees item. |

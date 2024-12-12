@@ -19,13 +19,13 @@ class SearchDocumentsInvoice(object):
         document_reference (int): Unique Invoice Reference id of the invoice
             for downloading the zip file containing PDF and proofing elements.
             Example: 123456
-        invoice_number (str): Payment customer number.  Example: GB000000123
+        invoice_number (str): Payment customer number. Example: GB000000123
         payer_name (str): Customer payer name
-        account_number (str): Account Number  Example: GB99215176
+        account_number (str): Account Number Example: GB99215176
         account_name (str): Invoice account name
-        document_type (str): Document type  String containing one of the
-            following values:  • NAT (National)  • INT (International)  • SOA
-            (Statement of Account)
+        document_type (str): Document type String containing one of the
+            following values: •    NAT (National) •    INT (International) •  
+            SOA (Statement of Account)
         gross_amount (float): Included tax amount in the invoice
         net_amount (float): TODO: type description here.
         tax_amount (float): TODO: type description here.
@@ -150,7 +150,7 @@ class SearchDocumentsInvoice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

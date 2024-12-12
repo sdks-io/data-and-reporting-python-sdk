@@ -17,35 +17,35 @@ class PriceList(object):
     TODO: type model description here.
 
     Attributes:
-        date (str): Date on which the price is applicable.  Format: yyyyMMdd 
+        date (str): Date on which the price is applicable. Format: yyyyMMdd
             E.g.: 20180131
-        day (str): Day on which the price is applicable.  E.g.: Sunday, Monday
+        day (str): Day on which the price is applicable. E.g.: Sunday, Monday
             etc.
-        mtype (str): Price list type.  E.g., List, Shell Standard
-            International List
+        mtype (str): Price list type. E.g., List, Shell Standard International
+            List
         price_list_id (int): Price list ID
-        price_list_description (str): Price list description  E.g., UK Fuels
+        price_list_description (str): Price list description E.g., UK Fuels
             CRT Reseller List Price
         price_rule_id (int): Price Rule Id
         price_rule_name (str): Price Rule Name
         del_co_id (int): DelCo Id
-        country_code (str): Country ISO Code  E.g., UK, NL, etc.,
-        country (str): Country  E.g., United Kingdom, Netherlands etc
+        country_code (str): Country ISO Code E.g., UK, NL, etc.,
+        country (str): Country E.g., United Kingdom, Netherlands etc
         product_group_id (int): Product Group Id
         product_group_name (str): Product Group name
         product_code (str): Client Product Code
         product_id (int): Product Id
         product_name (str): Product name in English
         price_per_unit (float): Price per unit
-        currency_code (str): Currency Code.  Format : 3 digit ISO code
-        currency_symbol (str): Currency Symbol  Example: £
-        price_type (str): Price Type  Possible Values are:  • Country– Price
+        currency_code (str): Currency Code. Format : 3 digit ISO code
+        currency_symbol (str): Currency Symbol Example: £
+        price_type (str): Price Type Possible Values are: •    Country– Price
             rule defined at country whereas Price Rule DelcoId same as
-            ColcoId.  • TPNDelcoPrice – Price rule defined in the TPN whereas
-            Price Rule DelcoId is different from ColcoId.  • NetworkPrice –
-            Price rule defined at Fuel Network level.  • Other – Price rule
-            defined at either Site or SiteGroup level.
-        site_group_id (int): Site-Group ID  E.g.: 100007
+            ColcoId. •    TPNDelcoPrice – Price rule defined in the TPN
+            whereas Price Rule DelcoId is different from ColcoId. •   
+            NetworkPrice – Price rule defined at Fuel Network level. •   
+            Other – Price rule defined at either Site or SiteGroup level.
+        site_group_id (int): Site-Group ID E.g.: 100007
         site_group_name (str): Site-Group name
         site_code (int): Site Code
         site_id (int): Site ID
@@ -54,10 +54,10 @@ class PriceList(object):
         network_name (str): Network Name
         price_rule_delco_id (int): PriceRuleDelcoId
         price_rule_delco_name (str): Company Name of the price rule DelCo.    
-            E.g.:   • Pilipinas Shell Petroleum Corp  • Shell U.K. Oil
-            Products Limited  • G & V SERVICE STATIONS NV
-        price_rule_country (str): PriceRuleCountry  E.g.: United Kingdom
-        price_rule_country_code (str): ISO Code of PriceRuleCountry  E.g.: UK,
+            E.g.:   •    Pilipinas Shell Petroleum Corp  •    Shell U.K. Oil
+            Products Limited  •    G & V SERVICE STATIONS NV
+        price_rule_country (str): PriceRuleCountry E.g.: United Kingdom
+        price_rule_country_code (str): ISO Code of PriceRuleCountry E.g.: UK,
             NL, etc.,
         price_rule_basis_id (int): PriceRuleBasisId
         discount_value (float): Discount value
@@ -313,7 +313,7 @@ class PriceList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

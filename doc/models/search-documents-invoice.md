@@ -14,7 +14,7 @@
 | `payer_name` | `str` | Optional | Customer payer name |
 | `account_number` | `str` | Optional | Account Number<br>Example: GB99215176 |
 | `account_name` | `str` | Optional | Invoice account name |
-| `document_type` | `str` | Optional | Document type<br>String containing one of the following values:<br>•	NAT (National)<br>•	INT (International)<br>•	SOA (Statement of Account) |
+| `document_type` | `str` | Optional | Document type<br>String containing one of the following values:<br>•    NAT (National)<br>•    INT (International)<br>•    SOA (Statement of Account) |
 | `gross_amount` | `float` | Optional | Included tax amount in the invoice |
 | `net_amount` | `float` | Optional | - |
 | `tax_amount` | `float` | Optional | - |

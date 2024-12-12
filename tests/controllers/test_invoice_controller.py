@@ -116,7 +116,7 @@ class InvoiceControllerTests(ControllerTestBase):
     #  * Search invoices including einvoices
     #  * Search invoices by summary document
     #  * Search invoices by statement of account
-    #  * Search invoices by fixed and custom date periods
+    #  * Search invoices by fixed and custom date periods
     def test_invoice_summary(self):
         # Parameters for the API call
         request_id = '2b0cbe11-f109-4c43-9201-49af0370df1c'

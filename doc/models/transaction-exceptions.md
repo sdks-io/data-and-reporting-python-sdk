@@ -100,7 +100,7 @@
 | `transaction_line` | `str` | Optional | Transaction line item number |
 | `allow_clearing` | `str` | Optional | Is the Sales Item allowed for clearing? i.e. not written off<br>Example: “Y” or “N” |
 | `crm_number` | `str` | Optional | CRM Case number if the sales item is in dispute |
-| `dispute_status` | `str` | Optional | Sales Item Dispute Status if disputed<br>0	No Dispute<br>1	In Dispute<br>2	Re-Instated<br>3	Adjusted<br>4	Written Off by Colco<br>5	Written Off by Delco<br>6	Charged Back to Site |
+| `dispute_status` | `str` | Optional | Sales Item Dispute Status if disputed<br>0    No Dispute<br>1    In Dispute<br>2    Re-Instated<br>3    Adjusted<br>4    Written Off by Colco<br>5    Written Off by Delco<br>6    Charged Back to Site |
 | `rebate_rate` | `float` | Optional | Unit discount in customer currency |
 | `del_co_to_col_co_exchange_rate` | `float` | Optional | Exchange rate from transaction currency to customer currency. |
 | `net_euro_amount` | `float` | Optional | Net euro amount. |

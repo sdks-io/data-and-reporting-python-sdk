@@ -18,7 +18,7 @@ class SearchStatementOfAccount(object):
     Attributes:
         statement_of_account_id (int): Statement of account identifier
         so_a_reference_number (str): Statement of account reference
-        statement_date (str): Date on which the SOA was generated.  Format:
+        statement_date (str): Date on which the SOA was generated. Format:
             yyyyMMdd
         payer_id (int): Payment customer id of the customer.
         payer_number (str): Payment customer number.
@@ -26,17 +26,17 @@ class SearchStatementOfAccount(object):
         amount_overdue (float): Invoiced amount and overdue for payment.
         currency_code (str): ISO code of SOA currency.
         currency_symbol (str): Symbol of SOA currency.   Example: €
-        due_date (str): Due date for payment. Format: yyyyMMdd  Note:   •
-            Clients to convert this to appropriate DateTime type.  • SoA due
-            date is considered as the latest due date of the invoices within
-            the SoA
+        due_date (str): Due date for payment. Format: yyyyMMdd  Note:   •   
+            Clients to convert this to appropriate DateTime type.  •    SoA
+            due date is considered as the latest due date of the invoices
+            within the SoA
         invoiced_on_behalf_of (str): ISO code of the country i.e., UK, DE, MY,
-            etc.  This is the value of the first invoice within the SoA. It
-            may not be same for all the invoices within the SoA.
-        status (str): Status of the document. Valid values –  1. Paid – Fully
-            paid all Invoices with in the SOA.  2. Overdue – At least one
-            invoice payment due date is less than current date with in the
-            SOA.  3. Due – At least one invoice is due for payment and is
+            etc. This is the value of the first invoice within the SoA. It may
+            not be same for all the invoices within the SoA.
+        status (str): Status of the document. Valid values – 1.    Paid –
+            Fully paid all Invoices with in the SOA. 2.    Overdue – At least
+            one invoice payment due date is less than current date with in the
+            SOA. 3.    Due – At least one invoice is due for payment and is
             within the due date. There is no invoice overdue for payment.
         gross_amount_customer_currency (float): Total gross amount in customer
             currency.
@@ -158,7 +158,7 @@ class SearchStatementOfAccount(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

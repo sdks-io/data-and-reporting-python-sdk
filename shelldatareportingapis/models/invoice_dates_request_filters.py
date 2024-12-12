@@ -24,15 +24,14 @@ class InvoiceDatesRequestFilters(object):
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example: 
             1-Philippines  5-UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
-        from_date (str): Invoice date searched from this date.  Optional. 
-            This input is a search criterion, if given.  Date format:
-            yyyyMMdd
-        to_date (str): Invoice date searched until this date.  Optional.  This
-            input is a search criterion, if given.  Date format: yyyyMMdd
+        from_date (str): Invoice date searched from this date. Optional. This
+            input is a search criterion, if given. Date format: yyyyMMdd
+        to_date (str): Invoice date searched until this date. Optional. This
+            input is a search criterion, if given. Date format: yyyyMMdd
         accounts (List[Accounts]): TODO: type description here.
 
     """
@@ -108,7 +107,7 @@ class InvoiceDatesRequestFilters(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

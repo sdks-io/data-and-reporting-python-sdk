@@ -16,10 +16,10 @@ class MultiPricedTransactionRequestAccountsItems(object):
     TODO: type model description here.
 
     Attributes:
-        payer_id (int): Payer Id of the selected payer.  Optional if
-            PayerNumber is passed else Mandatory  Example: 123456
+        payer_id (int): Payer Id of the selected payer. Optional if
+            PayerNumber is passed else Mandatory Example: 123456
         payer_number (str): Payer Number (Ex: GB000000123) of the selected
-            payer.  Optional if PayerId is passed else Mandatory  Example:
+            payer. Optional if PayerId is passed else Mandatory Example:
             GB000000123
         account_id (int): Account Id  of the selected account.
         account_number (str): Account Number (ex: GB000000123) of the selected
@@ -74,7 +74,7 @@ class MultiPricedTransactionRequestAccountsItems(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -23,21 +23,20 @@ class CardUsageSummaryRequest(object):
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
             Estonia, Ukraine etc. It is optional for other countries if
             ColCoID is provided.  Example:  86 for Philippines  5 for UK
-        payer_id (int): Payer Id of the selected payer.  Optional if
+        payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
-        payer_number (str): Payer Number of the selected payer.  Optional if
+        payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
-        account_id (int): Account ID of the customer.  Optional if account
+        account_id (int): Account ID of the customer. Optional if account
             number is passed else mandatory.
-        account_number (str): Account Number of the customer.  Optional if
+        account_number (str): Account Number of the customer. Optional if
             Account ID is passed else mandatory.
-        card_id (int): Card Id of the card.  Optional if PAN is passed, else
+        card_id (int): Card Id of the card. Optional if PAN is passed, else
             Mandatory.
-        pan (str): PAN of the card.  Optional if CardId is passed, else
+        pan (str): PAN of the card. Optional if CardId is passed, else
             Mandatory.
-        card_expiry_date (str): Expiry date of the card.  Mandatory if Card ID
-            is not provided, else optional.  Format: yyyyMMdd  Example:
-            20170930
+        card_expiry_date (str): Expiry date of the card. Mandatory if Card ID
+            is not provided, else optional. Format: yyyyMMdd Example: 20170930
 
     """
 
@@ -125,7 +124,7 @@ class CardUsageSummaryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

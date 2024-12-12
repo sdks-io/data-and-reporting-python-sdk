@@ -16,11 +16,10 @@ class FuelConsumptionCard(object):
     TODO: type model description here.
 
     Attributes:
-        card_id (int): Card Id   Optional, when PAN is provided else
+        card_id (int): Card Id   Optional, when PAN is provided else mandatory.
+        pan (str): Full Card PAN Optional, when CardId is provided else
             mandatory.
-        pan (str): Full Card PAN  Optional, when CardId is provided else
-            mandatory.
-        expiry_date (str): Card Expiry Date  Format: yyyyMMdd
+        expiry_date (str): Card Expiry Date Format: yyyyMMdd
 
     """
 
@@ -66,7 +65,7 @@ class FuelConsumptionCard(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary

@@ -22,11 +22,11 @@ class LastStatementOfAccount(object):
         amount_overdue (float): Invoiced amount and overdue for payment.
         credit_limit (int): Credit limit.
         credit_limit_currency_code (str): ISO code of the credit limit’s
-            currency.  Example: EUR
+            currency. Example: EUR
         credit_limit_currency_symbol (str): Symbol of the credit limit’s
-            currency.  Example: €
+            currency. Example: €
         credit_limit_in_customer_currency (float): Credit limit in Customer
-            currency.  **Note**: For currency details refer the parameters
+            currency. **Note**: For currency details refer the parameters
             CurrencyCode & CurrencySymbol in the StatementOfAccount response.
         currency_code (str): ISO code of SOA currency.   Example: EUR
         currency_symbol (str): Symbol of SOA currency.   Example: €
@@ -41,29 +41,29 @@ class LastStatementOfAccount(object):
         payer_number (str): Payment customer number.
         payment_due_date (str): Due date for payment. Format: yyyyMMdd
         payment_method (str): Payment method description of the Payer.  
-            Example: Id & Description  • Incoming - Direct Debit  • Incoming -
-            Cheque  • Incoming - Direct Debit A  • Incoming - Bank Transfer  •
-            Incoming - Cash
+            Example: Id & Description  •    Incoming - Direct Debit  •   
+            Incoming - Cheque  •    Incoming - Direct Debit A  •    Incoming -
+            Bank Transfer  •    Incoming - Cash
         payment_method_id (int): Payment method Id of the Payer.   Example: Id
-            & Description  • Incoming - Direct Debit  • Incoming - Cheque  •
-            Incoming - Direct Debit A  • Incoming - Bank Transfer  • Incoming
-            - Cash
-        payment_terms (str): Payment terms description of the Payer.  Example:
-            Id & Description  • 14 days after Invoice  • 15 days after Invoice
-            • 21 days after Invoice  • 30 days after Invoice  • 45 days after
-            Invoice  • 0 days after invoice  • days after invoice  • days
-            after invoice  • 7 days after invoice  • 10th of the following
-            month
-        payment_terms_id (int): Payment terms Id of the Payer.  Example: Id &
-            Description  • 14 days after Invoice  • 15 days after Invoice  •
-            21 days after Invoice  • 30 days after Invoice  • 45 days after
-            Invoice  • 0 days after invoice  • days after invoice  • days
-            after invoice  • 7 days after invoice  • 10th of the following
-            month
+            & Description  •    Incoming - Direct Debit  •    Incoming -
+            Cheque  •    Incoming - Direct Debit A  •    Incoming - Bank
+            Transfer  •    Incoming - Cash
+        payment_terms (str): Payment terms description of the Payer. Example:
+            Id & Description •    14 days after Invoice •    15 days after
+            Invoice •    21 days after Invoice •    30 days after Invoice •   
+            45 days after Invoice •    0 days after invoice •    days after
+            invoice •    days after invoice •    7 days after invoice •   
+            10th of the following month
+        payment_terms_id (int): Payment terms Id of the Payer. Example: Id &
+            Description •    14 days after Invoice •    15 days after Invoice
+            •    21 days after Invoice •    30 days after Invoice •    45 days
+            after Invoice •    0 days after invoice •    days after invoice • 
+            days after invoice •    7 days after invoice •    10th of the
+            following month
         so_a_reference_number (str): Statement of account reference number
-        statement_date (str): Date on which the SOA was generated.  Format:
+        statement_date (str): Date on which the SOA was generated. Format:
             yyyyMMdd
-        statement_of_account_id (int): Statement of account identifier, 
+        statement_of_account_id (int): Statement of account identifier,
             Example: 1
         total_billing_documents (int): Total number of billing documents for
             this Statement of Account
@@ -266,7 +266,7 @@ class LastStatementOfAccount(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
