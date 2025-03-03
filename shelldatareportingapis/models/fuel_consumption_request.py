@@ -15,8 +15,6 @@ class FuelConsumptionRequest(object):
 
     """Implementation of the 'FuelConsumptionRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id  of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
@@ -29,11 +27,12 @@ class FuelConsumptionRequest(object):
             PayerNumber is passed else Mandatory
         payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
         card_group_id (int): Card Group Id in GFN Optional Example: 200
         card_group_name (str): Card Group Name Optional This input is a search
             criterion, if given.
-        cards (List[FuelConsumptionCard]): TODO: type description here.
+        cards (List[FuelConsumptionCard]): The model property of type
+            List[FuelConsumptionCard].
         from_date (str): Transactions from Date Optional – ‘Period’ will be
             considered when this field is not provided.
         to_date (str): Transactions to Date Optional Format: yyyyMMdd
@@ -162,3 +161,31 @@ class FuelConsumptionRequest(object):
                    from_date,
                    to_date,
                    period)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!r}, '
+                f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!r}, '
+                f'cards={(self.cards if hasattr(self, "cards") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'period={(self.period if hasattr(self, "period") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!s}, '
+                f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!s}, '
+                f'cards={(self.cards if hasattr(self, "cards") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'period={(self.period if hasattr(self, "period") else None)!s})')

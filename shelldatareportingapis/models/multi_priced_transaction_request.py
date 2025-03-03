@@ -14,8 +14,6 @@ class MultiPricedTransactionRequest(object):
 
     """Implementation of the 'MultiPricedTransactionRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
@@ -273,3 +271,49 @@ class MultiPricedTransactionRequest(object):
                    sort_order,
                    current_page,
                    page_size)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={self.col_co_code!r}, '
+                f'accounts={self.accounts!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'period={(self.period if hasattr(self, "period") else None)!r}, '
+                f'posting_date_from={(self.posting_date_from if hasattr(self, "posting_date_from") else None)!r}, '
+                f'posting_date_to={(self.posting_date_to if hasattr(self, "posting_date_to") else None)!r}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'valid_invoice_date_only={(self.valid_invoice_date_only if hasattr(self, "valid_invoice_date_only") else None)!r}, '
+                f'invoice_from_date={(self.invoice_from_date if hasattr(self, "invoice_from_date") else None)!r}, '
+                f'invoice_to_date={(self.invoice_to_date if hasattr(self, "invoice_to_date") else None)!r}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!r}, '
+                f'include_fees={(self.include_fees if hasattr(self, "include_fees") else None)!r}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={self.col_co_code!s}, '
+                f'accounts={self.accounts!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'period={(self.period if hasattr(self, "period") else None)!s}, '
+                f'posting_date_from={(self.posting_date_from if hasattr(self, "posting_date_from") else None)!s}, '
+                f'posting_date_to={(self.posting_date_to if hasattr(self, "posting_date_to") else None)!s}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'valid_invoice_date_only={(self.valid_invoice_date_only if hasattr(self, "valid_invoice_date_only") else None)!s}, '
+                f'invoice_from_date={(self.invoice_from_date if hasattr(self, "invoice_from_date") else None)!s}, '
+                f'invoice_to_date={(self.invoice_to_date if hasattr(self, "invoice_to_date") else None)!s}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!s}, '
+                f'include_fees={(self.include_fees if hasattr(self, "include_fees") else None)!s}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')

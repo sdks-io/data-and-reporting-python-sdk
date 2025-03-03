@@ -14,8 +14,6 @@ class TransactionFeesRequest(object):
 
     """Implementation of the 'TransactionFeesRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id  of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
@@ -29,7 +27,7 @@ class TransactionFeesRequest(object):
             PayerNumber is passed else Mandatory Example: 123456
         payer_number (str): Payer Number (Ex: GB000000123) of the selected
             payer. Optional if PayerId is passed else Mandatory
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
         card_id (int): Card Id   Optional  When both Card Id and Card PAN are
             not present on request, the response will have all the fee items
             under the selected payer or account.  Example: 275549
@@ -275,3 +273,49 @@ class TransactionFeesRequest(object):
                    sort_order,
                    current_page,
                    page_size)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!r}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'fee_type_group={(self.fee_type_group if hasattr(self, "fee_type_group") else None)!r}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'period={(self.period if hasattr(self, "period") else None)!r}, '
+                f'include_cancelled_items={(self.include_cancelled_items if hasattr(self, "include_cancelled_items") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!r}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!s}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'fee_type_group={(self.fee_type_group if hasattr(self, "fee_type_group") else None)!s}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'period={(self.period if hasattr(self, "period") else None)!s}, '
+                f'include_cancelled_items={(self.include_cancelled_items if hasattr(self, "include_cancelled_items") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!s}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')

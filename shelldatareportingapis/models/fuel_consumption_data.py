@@ -13,8 +13,6 @@ class FuelConsumptionData(object):
 
     """Implementation of the 'FuelConsumptionData' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account Name
         account_number (str): Account Number
@@ -235,3 +233,49 @@ class FuelConsumptionData(object):
                    gross_non_fuel_expenses,
                    co_2_produced,
                    transaction_count)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'payer_name={(self.payer_name if hasattr(self, "payer_name") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'card_number={(self.card_number if hasattr(self, "card_number") else None)!r}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!r}, '
+                f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!r}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!r}, '
+                f'license_number={(self.license_number if hasattr(self, "license_number") else None)!r}, '
+                f'initial_odometer={(self.initial_odometer if hasattr(self, "initial_odometer") else None)!r}, '
+                f'last_odometer={(self.last_odometer if hasattr(self, "last_odometer") else None)!r}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!r}, '
+                f'fuel_consumption={(self.fuel_consumption if hasattr(self, "fuel_consumption") else None)!r}, '
+                f'fuel_net_amount={(self.fuel_net_amount if hasattr(self, "fuel_net_amount") else None)!r}, '
+                f'discount={(self.discount if hasattr(self, "discount") else None)!r}, '
+                f'fuel_tax={(self.fuel_tax if hasattr(self, "fuel_tax") else None)!r}, '
+                f'fuel_volume={(self.fuel_volume if hasattr(self, "fuel_volume") else None)!r}, '
+                f'gross_non_fuel_expenses={(self.gross_non_fuel_expenses if hasattr(self, "gross_non_fuel_expenses") else None)!r}, '
+                f'co_2_produced={(self.co_2_produced if hasattr(self, "co_2_produced") else None)!r}, '
+                f'transaction_count={(self.transaction_count if hasattr(self, "transaction_count") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'payer_name={(self.payer_name if hasattr(self, "payer_name") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'card_number={(self.card_number if hasattr(self, "card_number") else None)!s}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!s}, '
+                f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!s}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!s}, '
+                f'license_number={(self.license_number if hasattr(self, "license_number") else None)!s}, '
+                f'initial_odometer={(self.initial_odometer if hasattr(self, "initial_odometer") else None)!s}, '
+                f'last_odometer={(self.last_odometer if hasattr(self, "last_odometer") else None)!s}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!s}, '
+                f'fuel_consumption={(self.fuel_consumption if hasattr(self, "fuel_consumption") else None)!s}, '
+                f'fuel_net_amount={(self.fuel_net_amount if hasattr(self, "fuel_net_amount") else None)!s}, '
+                f'discount={(self.discount if hasattr(self, "discount") else None)!s}, '
+                f'fuel_tax={(self.fuel_tax if hasattr(self, "fuel_tax") else None)!s}, '
+                f'fuel_volume={(self.fuel_volume if hasattr(self, "fuel_volume") else None)!s}, '
+                f'gross_non_fuel_expenses={(self.gross_non_fuel_expenses if hasattr(self, "gross_non_fuel_expenses") else None)!s}, '
+                f'co_2_produced={(self.co_2_produced if hasattr(self, "co_2_produced") else None)!s}, '
+                f'transaction_count={(self.transaction_count if hasattr(self, "transaction_count") else None)!s})')

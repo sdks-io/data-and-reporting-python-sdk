@@ -13,8 +13,6 @@ class PricedTransSummaryResponseTransactionsSummaryItems(object):
 
     """Implementation of the 'PricedTransSummaryResponseTransactionsSummaryItems' model.
 
-    TODO: type model description here.
-
     Attributes:
         product_id (int): Product Id
         product_code (str): Product Code  Examples:   10    TMF Charges  11   
@@ -189,3 +187,37 @@ class PricedTransSummaryResponseTransactionsSummaryItems(object):
                    invoice_currency_symbol,
                    customer_retail_value_total_net,
                    customer_retail_value_total_gross)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!r}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!r}, '
+                f'total_fuel_quantity={(self.total_fuel_quantity if hasattr(self, "total_fuel_quantity") else None)!r}, '
+                f'total_net_amount={(self.total_net_amount if hasattr(self, "total_net_amount") else None)!r}, '
+                f'total_gross_amount={(self.total_gross_amount if hasattr(self, "total_gross_amount") else None)!r}, '
+                f'invoice_currency_code={(self.invoice_currency_code if hasattr(self, "invoice_currency_code") else None)!r}, '
+                f'invoice_currency_symbol={(self.invoice_currency_symbol if hasattr(self, "invoice_currency_symbol") else None)!r}, '
+                f'customer_retail_value_total_net={(self.customer_retail_value_total_net if hasattr(self, "customer_retail_value_total_net") else None)!r}, '
+                f'customer_retail_value_total_gross={(self.customer_retail_value_total_gross if hasattr(self, "customer_retail_value_total_gross") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!s}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!s}, '
+                f'total_fuel_quantity={(self.total_fuel_quantity if hasattr(self, "total_fuel_quantity") else None)!s}, '
+                f'total_net_amount={(self.total_net_amount if hasattr(self, "total_net_amount") else None)!s}, '
+                f'total_gross_amount={(self.total_gross_amount if hasattr(self, "total_gross_amount") else None)!s}, '
+                f'invoice_currency_code={(self.invoice_currency_code if hasattr(self, "invoice_currency_code") else None)!s}, '
+                f'invoice_currency_symbol={(self.invoice_currency_symbol if hasattr(self, "invoice_currency_symbol") else None)!s}, '
+                f'customer_retail_value_total_net={(self.customer_retail_value_total_net if hasattr(self, "customer_retail_value_total_net") else None)!s}, '
+                f'customer_retail_value_total_gross={(self.customer_retail_value_total_gross if hasattr(self, "customer_retail_value_total_gross") else None)!s})')

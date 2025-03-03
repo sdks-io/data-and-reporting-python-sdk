@@ -13,8 +13,6 @@ class CardExceptions(object):
 
     """Implementation of the 'CardExceptions' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_id (int): Account Id
         account_number (str): Account Number
@@ -241,3 +239,49 @@ class CardExceptions(object):
                    vrn,
                    week,
                    year)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!r}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'day={(self.day if hasattr(self, "day") else None)!r}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!r}, '
+                f'month={(self.month if hasattr(self, "month") else None)!r}, '
+                f'pan={(self.pan if hasattr(self, "pan") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'payer_short_name={(self.payer_short_name if hasattr(self, "payer_short_name") else None)!r}, '
+                f'total_amount={(self.total_amount if hasattr(self, "total_amount") else None)!r}, '
+                f'total_quantity={(self.total_quantity if hasattr(self, "total_quantity") else None)!r}, '
+                f'total_sales_items={(self.total_sales_items if hasattr(self, "total_sales_items") else None)!r}, '
+                f'total_transactions={(self.total_transactions if hasattr(self, "total_transactions") else None)!r}, '
+                f'vrn={(self.vrn if hasattr(self, "vrn") else None)!r}, '
+                f'week={(self.week if hasattr(self, "week") else None)!r}, '
+                f'year={(self.year if hasattr(self, "year") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!s}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'day={(self.day if hasattr(self, "day") else None)!s}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!s}, '
+                f'month={(self.month if hasattr(self, "month") else None)!s}, '
+                f'pan={(self.pan if hasattr(self, "pan") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'payer_short_name={(self.payer_short_name if hasattr(self, "payer_short_name") else None)!s}, '
+                f'total_amount={(self.total_amount if hasattr(self, "total_amount") else None)!s}, '
+                f'total_quantity={(self.total_quantity if hasattr(self, "total_quantity") else None)!s}, '
+                f'total_sales_items={(self.total_sales_items if hasattr(self, "total_sales_items") else None)!s}, '
+                f'total_transactions={(self.total_transactions if hasattr(self, "total_transactions") else None)!s}, '
+                f'vrn={(self.vrn if hasattr(self, "vrn") else None)!s}, '
+                f'week={(self.week if hasattr(self, "week") else None)!s}, '
+                f'year={(self.year if hasattr(self, "year") else None)!s})')

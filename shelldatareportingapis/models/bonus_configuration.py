@@ -17,8 +17,6 @@ class BonusConfiguration(object):
 
     """Implementation of the 'BonusConfiguration' model.
 
-    TODO: type model description here.
-
     Attributes:
         pricing_account_id (int): Account identifier of the Pricing Account
             associated with the Payer.
@@ -69,12 +67,14 @@ class BonusConfiguration(object):
         fee_rule_available_to (str): This bonus or association bonus
             configuration will not be available from this date. Format:
             YYYYMMDD
-        fee_rule_locations (List[FeeRuleLocation]): TODO: type description
-            here.
-        fee_rule_tiers (List[FeeRuleTier]): TODO: type description here.
-        associated_accounts (List[AssociatedAccount]): TODO: type description
-            here.
-        fee_rule_products (List[FeeRuleProduct]): TODO: type description here.
+        fee_rule_locations (List[FeeRuleLocation]): The model property of type
+            List[FeeRuleLocation].
+        fee_rule_tiers (List[FeeRuleTier]): The model property of type
+            List[FeeRuleTier].
+        associated_accounts (List[AssociatedAccount]): The model property of
+            type List[AssociatedAccount].
+        fee_rule_products (List[FeeRuleProduct]): The model property of type
+            List[FeeRuleProduct].
 
     """
 
@@ -325,3 +325,59 @@ class BonusConfiguration(object):
                    fee_rule_tiers,
                    associated_accounts,
                    fee_rule_products)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'pricing_account_id={(self.pricing_account_id if hasattr(self, "pricing_account_id") else None)!r}, '
+                f'pricing_account_number={(self.pricing_account_number if hasattr(self, "pricing_account_number") else None)!r}, '
+                f'pricing_account_short_name={(self.pricing_account_short_name if hasattr(self, "pricing_account_short_name") else None)!r}, '
+                f'pricing_account_full_name={(self.pricing_account_full_name if hasattr(self, "pricing_account_full_name") else None)!r}, '
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!r}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!r}, '
+                f'fee_rule_date_effective={(self.fee_rule_date_effective if hasattr(self, "fee_rule_date_effective") else None)!r}, '
+                f'fee_rule_date_terminated={(self.fee_rule_date_terminated if hasattr(self, "fee_rule_date_terminated") else None)!r}, '
+                f'bonus_paid_to={(self.bonus_paid_to if hasattr(self, "bonus_paid_to") else None)!r}, '
+                f'bonus_paid_to_account_id={(self.bonus_paid_to_account_id if hasattr(self, "bonus_paid_to_account_id") else None)!r}, '
+                f'bonus_paid_to_account_number={(self.bonus_paid_to_account_number if hasattr(self, "bonus_paid_to_account_number") else None)!r}, '
+                f'bonus_paid_to_account_short_name={(self.bonus_paid_to_account_short_name if hasattr(self, "bonus_paid_to_account_short_name") else None)!r}, '
+                f'bonus_paid_to_account_full_name={(self.bonus_paid_to_account_full_name if hasattr(self, "bonus_paid_to_account_full_name") else None)!r}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!r}, '
+                f'next_calculation_date={(self.next_calculation_date if hasattr(self, "next_calculation_date") else None)!r}, '
+                f'previous_calculated_date={(self.previous_calculated_date if hasattr(self, "previous_calculated_date") else None)!r}, '
+                f'fee_rule_basis={(self.fee_rule_basis if hasattr(self, "fee_rule_basis") else None)!r}, '
+                f'fee_rule_currency_code={(self.fee_rule_currency_code if hasattr(self, "fee_rule_currency_code") else None)!r}, '
+                f'fee_rule_currency_symbol={(self.fee_rule_currency_symbol if hasattr(self, "fee_rule_currency_symbol") else None)!r}, '
+                f'fee_rule_available_from={(self.fee_rule_available_from if hasattr(self, "fee_rule_available_from") else None)!r}, '
+                f'fee_rule_available_to={(self.fee_rule_available_to if hasattr(self, "fee_rule_available_to") else None)!r}, '
+                f'fee_rule_locations={(self.fee_rule_locations if hasattr(self, "fee_rule_locations") else None)!r}, '
+                f'fee_rule_tiers={(self.fee_rule_tiers if hasattr(self, "fee_rule_tiers") else None)!r}, '
+                f'associated_accounts={(self.associated_accounts if hasattr(self, "associated_accounts") else None)!r}, '
+                f'fee_rule_products={(self.fee_rule_products if hasattr(self, "fee_rule_products") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'pricing_account_id={(self.pricing_account_id if hasattr(self, "pricing_account_id") else None)!s}, '
+                f'pricing_account_number={(self.pricing_account_number if hasattr(self, "pricing_account_number") else None)!s}, '
+                f'pricing_account_short_name={(self.pricing_account_short_name if hasattr(self, "pricing_account_short_name") else None)!s}, '
+                f'pricing_account_full_name={(self.pricing_account_full_name if hasattr(self, "pricing_account_full_name") else None)!s}, '
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!s}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!s}, '
+                f'fee_rule_date_effective={(self.fee_rule_date_effective if hasattr(self, "fee_rule_date_effective") else None)!s}, '
+                f'fee_rule_date_terminated={(self.fee_rule_date_terminated if hasattr(self, "fee_rule_date_terminated") else None)!s}, '
+                f'bonus_paid_to={(self.bonus_paid_to if hasattr(self, "bonus_paid_to") else None)!s}, '
+                f'bonus_paid_to_account_id={(self.bonus_paid_to_account_id if hasattr(self, "bonus_paid_to_account_id") else None)!s}, '
+                f'bonus_paid_to_account_number={(self.bonus_paid_to_account_number if hasattr(self, "bonus_paid_to_account_number") else None)!s}, '
+                f'bonus_paid_to_account_short_name={(self.bonus_paid_to_account_short_name if hasattr(self, "bonus_paid_to_account_short_name") else None)!s}, '
+                f'bonus_paid_to_account_full_name={(self.bonus_paid_to_account_full_name if hasattr(self, "bonus_paid_to_account_full_name") else None)!s}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!s}, '
+                f'next_calculation_date={(self.next_calculation_date if hasattr(self, "next_calculation_date") else None)!s}, '
+                f'previous_calculated_date={(self.previous_calculated_date if hasattr(self, "previous_calculated_date") else None)!s}, '
+                f'fee_rule_basis={(self.fee_rule_basis if hasattr(self, "fee_rule_basis") else None)!s}, '
+                f'fee_rule_currency_code={(self.fee_rule_currency_code if hasattr(self, "fee_rule_currency_code") else None)!s}, '
+                f'fee_rule_currency_symbol={(self.fee_rule_currency_symbol if hasattr(self, "fee_rule_currency_symbol") else None)!s}, '
+                f'fee_rule_available_from={(self.fee_rule_available_from if hasattr(self, "fee_rule_available_from") else None)!s}, '
+                f'fee_rule_available_to={(self.fee_rule_available_to if hasattr(self, "fee_rule_available_to") else None)!s}, '
+                f'fee_rule_locations={(self.fee_rule_locations if hasattr(self, "fee_rule_locations") else None)!s}, '
+                f'fee_rule_tiers={(self.fee_rule_tiers if hasattr(self, "fee_rule_tiers") else None)!s}, '
+                f'associated_accounts={(self.associated_accounts if hasattr(self, "associated_accounts") else None)!s}, '
+                f'fee_rule_products={(self.fee_rule_products if hasattr(self, "fee_rule_products") else None)!s})')

@@ -14,11 +14,10 @@ class PricedTransactionResponse(object):
 
     """Implementation of the 'PricedTransactionResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        transactions (List[PricedTransactionResponseTransactionsItems]): TODO:
-            type description here.
+        transactions (List[PricedTransactionResponseTransactionsItems]): The
+            model property of type
+            List[PricedTransactionResponseTransactionsItems].
 
     """
 
@@ -65,3 +64,11 @@ class PricedTransactionResponse(object):
             transactions = APIHelper.SKIP
         # Return an object of this model
         return cls(transactions)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions={(self.transactions if hasattr(self, "transactions") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions={(self.transactions if hasattr(self, "transactions") else None)!s})')

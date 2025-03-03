@@ -13,8 +13,6 @@ class InvoiceSummaryDetails(object):
 
     """Implementation of the 'InvoiceSummaryDetails' model.
 
-    TODO: type model description here.
-
     Attributes:
         total_invoices (int): Total number of invoices matching with the given
             search criteria.
@@ -115,3 +113,21 @@ class InvoiceSummaryDetails(object):
                    total_vat_amount_customer_currency,
                    customer_currency_code,
                    customer_currency_symbol)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'total_invoices={(self.total_invoices if hasattr(self, "total_invoices") else None)!r}, '
+                f'total_gross_amount_customer_currency={(self.total_gross_amount_customer_currency if hasattr(self, "total_gross_amount_customer_currency") else None)!r}, '
+                f'total_net_amount_customer_currency={(self.total_net_amount_customer_currency if hasattr(self, "total_net_amount_customer_currency") else None)!r}, '
+                f'total_vat_amount_customer_currency={(self.total_vat_amount_customer_currency if hasattr(self, "total_vat_amount_customer_currency") else None)!r}, '
+                f'customer_currency_code={(self.customer_currency_code if hasattr(self, "customer_currency_code") else None)!r}, '
+                f'customer_currency_symbol={(self.customer_currency_symbol if hasattr(self, "customer_currency_symbol") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'total_invoices={(self.total_invoices if hasattr(self, "total_invoices") else None)!s}, '
+                f'total_gross_amount_customer_currency={(self.total_gross_amount_customer_currency if hasattr(self, "total_gross_amount_customer_currency") else None)!s}, '
+                f'total_net_amount_customer_currency={(self.total_net_amount_customer_currency if hasattr(self, "total_net_amount_customer_currency") else None)!s}, '
+                f'total_vat_amount_customer_currency={(self.total_vat_amount_customer_currency if hasattr(self, "total_vat_amount_customer_currency") else None)!s}, '
+                f'customer_currency_code={(self.customer_currency_code if hasattr(self, "customer_currency_code") else None)!s}, '
+                f'customer_currency_symbol={(self.customer_currency_symbol if hasattr(self, "customer_currency_symbol") else None)!s})')

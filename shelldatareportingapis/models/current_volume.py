@@ -13,8 +13,6 @@ class CurrentVolume(object):
 
     """Implementation of the 'CurrentVolume' model.
 
-    TODO: type model description here.
-
     Attributes:
         fee_rule_id (int): Bonus or association bonus configuration identifier
             that is associated to the payer
@@ -102,3 +100,19 @@ class CurrentVolume(object):
                    month,
                    year,
                    total_volume)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!r}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!r}, '
+                f'month={(self.month if hasattr(self, "month") else None)!r}, '
+                f'year={(self.year if hasattr(self, "year") else None)!r}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!s}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!s}, '
+                f'month={(self.month if hasattr(self, "month") else None)!s}, '
+                f'year={(self.year if hasattr(self, "year") else None)!s}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!s})')

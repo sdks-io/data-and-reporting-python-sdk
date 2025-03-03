@@ -21,12 +21,12 @@ class PricedTransactionReqV2SortOrderEnum(object):
     6.    NetAmountDescensding
 
     Attributes:
-        ENUM_1: TODO: type description here.
-        ENUM_2: TODO: type description here.
-        ENUM_3: TODO: type description here.
-        ENUM_4: TODO: type description here.
-        ENUM_5: TODO: type description here.
-        ENUM_6: TODO: type description here.
+        ENUM_1: The enum member of type str.
+        ENUM_2: The enum member of type str.
+        ENUM_3: The enum member of type str.
+        ENUM_4: The enum member of type str.
+        ENUM_5: The enum member of type str.
+        ENUM_6: The enum member of type str.
 
     """
     ENUM_1 = '1'

@@ -12,8 +12,6 @@ class UpdateOdometer(object):
 
     """Implementation of the 'UpdateOdometer' model.
 
-    TODO: type model description here.
-
     Attributes:
         sales_item_id (str): Unique SalesItemId (Either Billed on Unbilled)
             Mandatory
@@ -65,3 +63,13 @@ class UpdateOdometer(object):
         # Return an object of this model
         return cls(sales_item_id,
                    new_odometer_value)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'sales_item_id={self.sales_item_id!r}, '
+                f'new_odometer_value={self.new_odometer_value!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'sales_item_id={self.sales_item_id!s}, '
+                f'new_odometer_value={self.new_odometer_value!s})')

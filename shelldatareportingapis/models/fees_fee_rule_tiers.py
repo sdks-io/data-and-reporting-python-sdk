@@ -13,16 +13,14 @@ class FeesFeeRuleTiers(object):
 
     """Implementation of the 'FeesFeeRuleTiers' model.
 
-    TODO: type model description here.
-
     Attributes:
-        tier_min (int): TODO: type description here.
-        tier_max (int): TODO: type description here.
-        date_effective (str): TODO: type description here.
-        date_terminated (str): TODO: type description here.
-        tier_value (float): TODO: type description here.
-        fee_rule_basis_id (int): TODO: type description here.
-        fee_rule_basis_description (str): TODO: type description here.
+        tier_min (int): The model property of type int.
+        tier_max (int): The model property of type int.
+        date_effective (str): The model property of type str.
+        date_terminated (str): The model property of type str.
+        tier_value (float): The model property of type float.
+        fee_rule_basis_id (int): The model property of type int.
+        fee_rule_basis_description (str): The model property of type str.
 
     """
 
@@ -117,3 +115,23 @@ class FeesFeeRuleTiers(object):
                    tier_value,
                    fee_rule_basis_id,
                    fee_rule_basis_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_min={(self.tier_min if hasattr(self, "tier_min") else None)!r}, '
+                f'tier_max={(self.tier_max if hasattr(self, "tier_max") else None)!r}, '
+                f'date_effective={(self.date_effective if hasattr(self, "date_effective") else None)!r}, '
+                f'date_terminated={(self.date_terminated if hasattr(self, "date_terminated") else None)!r}, '
+                f'tier_value={(self.tier_value if hasattr(self, "tier_value") else None)!r}, '
+                f'fee_rule_basis_id={(self.fee_rule_basis_id if hasattr(self, "fee_rule_basis_id") else None)!r}, '
+                f'fee_rule_basis_description={(self.fee_rule_basis_description if hasattr(self, "fee_rule_basis_description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_min={(self.tier_min if hasattr(self, "tier_min") else None)!s}, '
+                f'tier_max={(self.tier_max if hasattr(self, "tier_max") else None)!s}, '
+                f'date_effective={(self.date_effective if hasattr(self, "date_effective") else None)!s}, '
+                f'date_terminated={(self.date_terminated if hasattr(self, "date_terminated") else None)!s}, '
+                f'tier_value={(self.tier_value if hasattr(self, "tier_value") else None)!s}, '
+                f'fee_rule_basis_id={(self.fee_rule_basis_id if hasattr(self, "fee_rule_basis_id") else None)!s}, '
+                f'fee_rule_basis_description={(self.fee_rule_basis_description if hasattr(self, "fee_rule_basis_description") else None)!s})')

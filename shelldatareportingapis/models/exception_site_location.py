@@ -72,3 +72,13 @@ class ExceptionSiteLocation(object):
         # Return an object of this model
         return cls(lat,
                    lng)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'lat={(self.lat if hasattr(self, "lat") else None)!r}, '
+                f'lng={(self.lng if hasattr(self, "lng") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'lat={(self.lat if hasattr(self, "lat") else None)!s}, '
+                f'lng={(self.lng if hasattr(self, "lng") else None)!s})')

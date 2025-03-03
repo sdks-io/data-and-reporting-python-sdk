@@ -13,8 +13,6 @@ class SearchDocumentsInvoice(object):
 
     """Implementation of the 'SearchDocumentsInvoice' model.
 
-    TODO: type model description here.
-
     Attributes:
         document_reference (int): Unique Invoice Reference id of the invoice
             for downloading the zip file containing PDF and proofing elements.
@@ -27,13 +25,13 @@ class SearchDocumentsInvoice(object):
             following values: •    NAT (National) •    INT (International) •  
             SOA (Statement of Account)
         gross_amount (float): Included tax amount in the invoice
-        net_amount (float): TODO: type description here.
-        tax_amount (float): TODO: type description here.
-        currency_code (str): TODO: type description here.
-        invoice_status (str): TODO: type description here.
-        invoice_date (str): TODO: type description here.
-        due_date (str): TODO: type description here.
-        vat_country_iso_code (str): TODO: type description here.
+        net_amount (float): The model property of type float.
+        tax_amount (float): The model property of type float.
+        currency_code (str): The model property of type str.
+        invoice_status (str): The model property of type str.
+        invoice_date (str): The model property of type str.
+        due_date (str): The model property of type str.
+        vat_country_iso_code (str): The model property of type str.
 
     """
 
@@ -183,3 +181,37 @@ class SearchDocumentsInvoice(object):
                    invoice_date,
                    due_date,
                    vat_country_iso_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'payer_name={(self.payer_name if hasattr(self, "payer_name") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!r}, '
+                f'gross_amount={(self.gross_amount if hasattr(self, "gross_amount") else None)!r}, '
+                f'net_amount={(self.net_amount if hasattr(self, "net_amount") else None)!r}, '
+                f'tax_amount={(self.tax_amount if hasattr(self, "tax_amount") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!r}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!r}, '
+                f'vat_country_iso_code={(self.vat_country_iso_code if hasattr(self, "vat_country_iso_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'payer_name={(self.payer_name if hasattr(self, "payer_name") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!s}, '
+                f'gross_amount={(self.gross_amount if hasattr(self, "gross_amount") else None)!s}, '
+                f'net_amount={(self.net_amount if hasattr(self, "net_amount") else None)!s}, '
+                f'tax_amount={(self.tax_amount if hasattr(self, "tax_amount") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!s}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!s}, '
+                f'vat_country_iso_code={(self.vat_country_iso_code if hasattr(self, "vat_country_iso_code") else None)!s})')

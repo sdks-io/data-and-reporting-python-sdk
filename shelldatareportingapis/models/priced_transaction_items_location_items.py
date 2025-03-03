@@ -13,8 +13,6 @@ class PricedTransactionItemsLocationItems(object):
 
     """Implementation of the 'PricedTransactionItemsLocationItems' model.
 
-    TODO: type model description here.
-
     Attributes:
         latitude (str): Latitude for the Site Geographic Location Example:
             37.4224764 Note: - The value could be null/blank for fees item.
@@ -96,3 +94,13 @@ class PricedTransactionItemsLocationItems(object):
             return False
 
         return True
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!r}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!s}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!s})')

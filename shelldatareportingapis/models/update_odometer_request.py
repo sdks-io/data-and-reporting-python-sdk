@@ -14,8 +14,6 @@ class UpdateOdometerRequest(object):
 
     """Implementation of the 'UpdateOdometerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id  of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
@@ -32,7 +30,8 @@ class UpdateOdometerRequest(object):
             else Mandatory
         account_number (str): Account Number (ex: GB000000123) of the selected
             account. Optional if AccountId is passed else Mandatory
-        update_odometers (List[UpdateOdometer]): TODO: type description here.
+        update_odometers (List[UpdateOdometer]): The model property of type
+            List[UpdateOdometer].
         notify_caller (bool): True/False. Optional. Default: False If true,
             the caller would be notified back with the status as success or
             failure after the update odometer is processed.
@@ -133,3 +132,25 @@ class UpdateOdometerRequest(object):
                    update_odometers,
                    notify_caller,
                    caller)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'update_odometers={(self.update_odometers if hasattr(self, "update_odometers") else None)!r}, '
+                f'notify_caller={(self.notify_caller if hasattr(self, "notify_caller") else None)!r}, '
+                f'caller={(self.caller if hasattr(self, "caller") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'update_odometers={(self.update_odometers if hasattr(self, "update_odometers") else None)!s}, '
+                f'notify_caller={(self.notify_caller if hasattr(self, "notify_caller") else None)!s}, '
+                f'caller={(self.caller if hasattr(self, "caller") else None)!s})')

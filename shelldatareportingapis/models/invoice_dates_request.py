@@ -14,10 +14,9 @@ class InvoiceDatesRequest(object):
 
     """Implementation of the 'InvoiceDatesRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filters (InvoiceDatesRequestFilters): TODO: type description here.
+        filters (InvoiceDatesRequestFilters): The model property of type
+            InvoiceDatesRequestFilters.
 
     """
 
@@ -60,3 +59,11 @@ class InvoiceDatesRequest(object):
         filters = InvoiceDatesRequestFilters.from_dictionary(dictionary.get('Filters')) if 'Filters' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(filters)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!s})')

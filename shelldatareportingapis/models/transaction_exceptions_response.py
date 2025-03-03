@@ -16,13 +16,12 @@ class TransactionExceptionsResponse(object):
 
     """Implementation of the 'TransactionExceptionsResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        card_exceptions (List[CardExceptions]): TODO: type description here.
-        transaction_exceptions (List[TransactionExceptions]): TODO: type
-            description here.
-        error (ErrorStatus): TODO: type description here.
+        card_exceptions (List[CardExceptions]): The model property of type
+            List[CardExceptions].
+        transaction_exceptions (List[TransactionExceptions]): The model
+            property of type List[TransactionExceptions].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
 
     """
@@ -98,3 +97,17 @@ class TransactionExceptionsResponse(object):
                    transaction_exceptions,
                    error,
                    request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'card_exceptions={(self.card_exceptions if hasattr(self, "card_exceptions") else None)!r}, '
+                f'transaction_exceptions={(self.transaction_exceptions if hasattr(self, "transaction_exceptions") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'card_exceptions={(self.card_exceptions if hasattr(self, "card_exceptions") else None)!s}, '
+                f'transaction_exceptions={(self.transaction_exceptions if hasattr(self, "transaction_exceptions") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

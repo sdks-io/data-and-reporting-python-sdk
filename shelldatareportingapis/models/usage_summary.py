@@ -13,8 +13,6 @@ class UsageSummary(object):
 
     """Implementation of the 'UsageSummary' model.
 
-    TODO: type model description here.
-
     Attributes:
         date (str): Transaction date. The records will be sorted by this field
             in ascending order.   Format: yyyyMMdd
@@ -181,3 +179,37 @@ class UsageSummary(object):
                    currency_symbol,
                    product_group_id,
                    product_group_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r}, '
+                f'is_fuel_product={(self.is_fuel_product if hasattr(self, "is_fuel_product") else None)!r}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!r}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!r}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!r}, '
+                f'total_gross={(self.total_gross if hasattr(self, "total_gross") else None)!r}, '
+                f'total_net={(self.total_net if hasattr(self, "total_net") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s}, '
+                f'is_fuel_product={(self.is_fuel_product if hasattr(self, "is_fuel_product") else None)!s}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!s}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!s}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!s}, '
+                f'total_gross={(self.total_gross if hasattr(self, "total_gross") else None)!s}, '
+                f'total_net={(self.total_net if hasattr(self, "total_net") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s})')

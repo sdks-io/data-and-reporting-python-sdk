@@ -14,8 +14,6 @@ class InvoiceSearchDetails(object):
 
     """Implementation of the 'InvoiceSearchDetails' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_full_name (str): Account Full Name Example: AT_reversal
             customer_FN
@@ -131,8 +129,8 @@ class InvoiceSearchDetails(object):
             Example : CZ, SK, UK, etc.,
         vat_country_op_co_id (str): VAT country’s OpCo Id. Example: 032
         document_reference (str): document reference number of the Invoice file
-        additional_documents (List[InvoiceSearchAdditionalDocument]): TODO:
-            type description here.
+        additional_documents (List[InvoiceSearchAdditionalDocument]): The
+            model property of type List[InvoiceSearchAdditionalDocument].
 
     """
 
@@ -646,3 +644,127 @@ class InvoiceSearchDetails(object):
                    vat_country_op_co_id,
                    document_reference,
                    additional_documents)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_full_name={(self.account_full_name if hasattr(self, "account_full_name") else None)!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!r}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_op_co_id={(self.col_co_op_co_id if hasattr(self, "col_co_op_co_id") else None)!r}, '
+                f'current_billing_frequency={(self.current_billing_frequency if hasattr(self, "current_billing_frequency") else None)!r}, '
+                f'current_billing_frequency_id={(self.current_billing_frequency_id if hasattr(self, "current_billing_frequency_id") else None)!r}, '
+                f'current_distribution_method={(self.current_distribution_method if hasattr(self, "current_distribution_method") else None)!r}, '
+                f'current_distribution_method_id={(self.current_distribution_method_id if hasattr(self, "current_distribution_method_id") else None)!r}, '
+                f'customer_currency_code={(self.customer_currency_code if hasattr(self, "customer_currency_code") else None)!r}, '
+                f'customer_currency_symbol={(self.customer_currency_symbol if hasattr(self, "customer_currency_symbol") else None)!r}, '
+                f'del_co_client_number={(self.del_co_client_number if hasattr(self, "del_co_client_number") else None)!r}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!r}, '
+                f'del_co_op_co_id={(self.del_co_op_co_id if hasattr(self, "del_co_op_co_id") else None)!r}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!r}, '
+                f'document_type_id={(self.document_type_id if hasattr(self, "document_type_id") else None)!r}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!r}, '
+                f'gross_amount_customer_currency={(self.gross_amount_customer_currency if hasattr(self, "gross_amount_customer_currency") else None)!r}, '
+                f'gross_amount_transaction_currency={(self.gross_amount_transaction_currency if hasattr(self, "gross_amount_transaction_currency") else None)!r}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!r}, '
+                f'invoiced_by={(self.invoiced_by if hasattr(self, "invoiced_by") else None)!r}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!r}, '
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'is_international={(self.is_international if hasattr(self, "is_international") else None)!r}, '
+                f'is_national={(self.is_national if hasattr(self, "is_national") else None)!r}, '
+                f'net_amount_customer_currency={(self.net_amount_customer_currency if hasattr(self, "net_amount_customer_currency") else None)!r}, '
+                f'net_amount_transaction_currency={(self.net_amount_transaction_currency if hasattr(self, "net_amount_transaction_currency") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'payment_terms={(self.payment_terms if hasattr(self, "payment_terms") else None)!r}, '
+                f'payment_terms_id={(self.payment_terms_id if hasattr(self, "payment_terms_id") else None)!r}, '
+                f'replacement_invoice_id={(self.replacement_invoice_id if hasattr(self, "replacement_invoice_id") else None)!r}, '
+                f'reversal_invoice_id={(self.reversal_invoice_id if hasattr(self, "reversal_invoice_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'summary_document_billing_type={(self.summary_document_billing_type if hasattr(self, "summary_document_billing_type") else None)!r}, '
+                f'summary_document_billing_type_id={(self.summary_document_billing_type_id if hasattr(self, "summary_document_billing_type_id") else None)!r}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!r}, '
+                f'summary_document_dd_amount={(self.summary_document_dd_amount if hasattr(self, "summary_document_dd_amount") else None)!r}, '
+                f'summary_document_due_date={(self.summary_document_due_date if hasattr(self, "summary_document_due_date") else None)!r}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!r}, '
+                f'summary_document_is_fully_paid={(self.summary_document_is_fully_paid if hasattr(self, "summary_document_is_fully_paid") else None)!r}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!r}, '
+                f'summary_document_paid_amount={(self.summary_document_paid_amount if hasattr(self, "summary_document_paid_amount") else None)!r}, '
+                f'summary_document_so_a_reference_number={(self.summary_document_so_a_reference_number if hasattr(self, "summary_document_so_a_reference_number") else None)!r}, '
+                f'summary_document_statement_of_account_id={(self.summary_document_statement_of_account_id if hasattr(self, "summary_document_statement_of_account_id") else None)!r}, '
+                f'transaction_currency_code={(self.transaction_currency_code if hasattr(self, "transaction_currency_code") else None)!r}, '
+                f'transaction_currency_symbol={(self.transaction_currency_symbol if hasattr(self, "transaction_currency_symbol") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'type_id={(self.type_id if hasattr(self, "type_id") else None)!r}, '
+                f'vat_amount_customer_currency={(self.vat_amount_customer_currency if hasattr(self, "vat_amount_customer_currency") else None)!r}, '
+                f'vat_amount_transaction_currency={(self.vat_amount_transaction_currency if hasattr(self, "vat_amount_transaction_currency") else None)!r}, '
+                f'vat_country={(self.vat_country if hasattr(self, "vat_country") else None)!r}, '
+                f'vat_country_id={(self.vat_country_id if hasattr(self, "vat_country_id") else None)!r}, '
+                f'vat_country_iso_code={(self.vat_country_iso_code if hasattr(self, "vat_country_iso_code") else None)!r}, '
+                f'vat_country_op_co_id={(self.vat_country_op_co_id if hasattr(self, "vat_country_op_co_id") else None)!r}, '
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!r}, '
+                f'additional_documents={(self.additional_documents if hasattr(self, "additional_documents") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_full_name={(self.account_full_name if hasattr(self, "account_full_name") else None)!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!s}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_op_co_id={(self.col_co_op_co_id if hasattr(self, "col_co_op_co_id") else None)!s}, '
+                f'current_billing_frequency={(self.current_billing_frequency if hasattr(self, "current_billing_frequency") else None)!s}, '
+                f'current_billing_frequency_id={(self.current_billing_frequency_id if hasattr(self, "current_billing_frequency_id") else None)!s}, '
+                f'current_distribution_method={(self.current_distribution_method if hasattr(self, "current_distribution_method") else None)!s}, '
+                f'current_distribution_method_id={(self.current_distribution_method_id if hasattr(self, "current_distribution_method_id") else None)!s}, '
+                f'customer_currency_code={(self.customer_currency_code if hasattr(self, "customer_currency_code") else None)!s}, '
+                f'customer_currency_symbol={(self.customer_currency_symbol if hasattr(self, "customer_currency_symbol") else None)!s}, '
+                f'del_co_client_number={(self.del_co_client_number if hasattr(self, "del_co_client_number") else None)!s}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!s}, '
+                f'del_co_op_co_id={(self.del_co_op_co_id if hasattr(self, "del_co_op_co_id") else None)!s}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!s}, '
+                f'document_type_id={(self.document_type_id if hasattr(self, "document_type_id") else None)!s}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!s}, '
+                f'gross_amount_customer_currency={(self.gross_amount_customer_currency if hasattr(self, "gross_amount_customer_currency") else None)!s}, '
+                f'gross_amount_transaction_currency={(self.gross_amount_transaction_currency if hasattr(self, "gross_amount_transaction_currency") else None)!s}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!s}, '
+                f'invoiced_by={(self.invoiced_by if hasattr(self, "invoiced_by") else None)!s}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!s}, '
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'is_international={(self.is_international if hasattr(self, "is_international") else None)!s}, '
+                f'is_national={(self.is_national if hasattr(self, "is_national") else None)!s}, '
+                f'net_amount_customer_currency={(self.net_amount_customer_currency if hasattr(self, "net_amount_customer_currency") else None)!s}, '
+                f'net_amount_transaction_currency={(self.net_amount_transaction_currency if hasattr(self, "net_amount_transaction_currency") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'payment_terms={(self.payment_terms if hasattr(self, "payment_terms") else None)!s}, '
+                f'payment_terms_id={(self.payment_terms_id if hasattr(self, "payment_terms_id") else None)!s}, '
+                f'replacement_invoice_id={(self.replacement_invoice_id if hasattr(self, "replacement_invoice_id") else None)!s}, '
+                f'reversal_invoice_id={(self.reversal_invoice_id if hasattr(self, "reversal_invoice_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'summary_document_billing_type={(self.summary_document_billing_type if hasattr(self, "summary_document_billing_type") else None)!s}, '
+                f'summary_document_billing_type_id={(self.summary_document_billing_type_id if hasattr(self, "summary_document_billing_type_id") else None)!s}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!s}, '
+                f'summary_document_dd_amount={(self.summary_document_dd_amount if hasattr(self, "summary_document_dd_amount") else None)!s}, '
+                f'summary_document_due_date={(self.summary_document_due_date if hasattr(self, "summary_document_due_date") else None)!s}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!s}, '
+                f'summary_document_is_fully_paid={(self.summary_document_is_fully_paid if hasattr(self, "summary_document_is_fully_paid") else None)!s}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!s}, '
+                f'summary_document_paid_amount={(self.summary_document_paid_amount if hasattr(self, "summary_document_paid_amount") else None)!s}, '
+                f'summary_document_so_a_reference_number={(self.summary_document_so_a_reference_number if hasattr(self, "summary_document_so_a_reference_number") else None)!s}, '
+                f'summary_document_statement_of_account_id={(self.summary_document_statement_of_account_id if hasattr(self, "summary_document_statement_of_account_id") else None)!s}, '
+                f'transaction_currency_code={(self.transaction_currency_code if hasattr(self, "transaction_currency_code") else None)!s}, '
+                f'transaction_currency_symbol={(self.transaction_currency_symbol if hasattr(self, "transaction_currency_symbol") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'type_id={(self.type_id if hasattr(self, "type_id") else None)!s}, '
+                f'vat_amount_customer_currency={(self.vat_amount_customer_currency if hasattr(self, "vat_amount_customer_currency") else None)!s}, '
+                f'vat_amount_transaction_currency={(self.vat_amount_transaction_currency if hasattr(self, "vat_amount_transaction_currency") else None)!s}, '
+                f'vat_country={(self.vat_country if hasattr(self, "vat_country") else None)!s}, '
+                f'vat_country_id={(self.vat_country_id if hasattr(self, "vat_country_id") else None)!s}, '
+                f'vat_country_iso_code={(self.vat_country_iso_code if hasattr(self, "vat_country_iso_code") else None)!s}, '
+                f'vat_country_op_co_id={(self.vat_country_op_co_id if hasattr(self, "vat_country_op_co_id") else None)!s}, '
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!s}, '
+                f'additional_documents={(self.additional_documents if hasattr(self, "additional_documents") else None)!s})')

@@ -15,17 +15,15 @@ class FeeSummaryResponse(object):
 
     """Implementation of the 'FeeSummaryResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        fee_items_summary (List[FeeItemSummaryAllOf0]): TODO: type description
-            here.
+        fee_items_summary (List[FeeItemSummaryAllOf0]): The model property of
+            type List[FeeItemSummaryAllOf0].
         request_id (str): A unique request id in GUID format. The value is
             written to the Shell API Platform audit log for end to end
             traceability of a request. If a value is not provided by an API
             client, then a GUID is automatically populated by the Shell API
             Platform and returned in the API response.
-        error (ErrorStatus): TODO: type description here.
+        error (ErrorStatus): The model property of type ErrorStatus.
 
     """
 
@@ -86,3 +84,15 @@ class FeeSummaryResponse(object):
         return cls(fee_items_summary,
                    request_id,
                    error)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_items_summary={(self.fee_items_summary if hasattr(self, "fee_items_summary") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_items_summary={(self.fee_items_summary if hasattr(self, "fee_items_summary") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s})')

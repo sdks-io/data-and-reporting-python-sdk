@@ -13,8 +13,6 @@ class EIDSearchReq(object):
 
     """Implementation of the 'EIDSearchReq' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory
@@ -135,3 +133,27 @@ class EIDSearchReq(object):
                    invoice_type,
                    invoice_status,
                    sort_by)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!r}, '
+                f'account_group_country={self.account_group_country!r}, '
+                f'account_group_id={self.account_group_id!r}, '
+                f'account_group_name={(self.account_group_name if hasattr(self, "account_group_name") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'invoice_type={(self.invoice_type if hasattr(self, "invoice_type") else None)!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'sort_by={(self.sort_by if hasattr(self, "sort_by") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!s}, '
+                f'account_group_country={self.account_group_country!s}, '
+                f'account_group_id={self.account_group_id!s}, '
+                f'account_group_name={(self.account_group_name if hasattr(self, "account_group_name") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'invoice_type={(self.invoice_type if hasattr(self, "invoice_type") else None)!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'sort_by={(self.sort_by if hasattr(self, "sort_by") else None)!s})')

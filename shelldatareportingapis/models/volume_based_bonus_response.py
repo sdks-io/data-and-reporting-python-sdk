@@ -17,15 +17,14 @@ class VolumeBasedBonusResponse(object):
 
     """Implementation of the 'VolumeBasedBonusResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        configuration (List[BonusConfiguration]): TODO: type description here.
-        current_period_consumption (List[CurrentVolume]): TODO: type
-            description here.
-        historical_bonus_paid (List[BonusHistory]): TODO: type description
-            here.
-        error (ErrorStatus): TODO: type description here.
+        configuration (List[BonusConfiguration]): The model property of type
+            List[BonusConfiguration].
+        current_period_consumption (List[CurrentVolume]): The model property
+            of type List[CurrentVolume].
+        historical_bonus_paid (List[BonusHistory]): The model property of type
+            List[BonusHistory].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
 
     """
@@ -109,3 +108,19 @@ class VolumeBasedBonusResponse(object):
                    historical_bonus_paid,
                    error,
                    request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'configuration={(self.configuration if hasattr(self, "configuration") else None)!r}, '
+                f'current_period_consumption={(self.current_period_consumption if hasattr(self, "current_period_consumption") else None)!r}, '
+                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'configuration={(self.configuration if hasattr(self, "configuration") else None)!s}, '
+                f'current_period_consumption={(self.current_period_consumption if hasattr(self, "current_period_consumption") else None)!s}, '
+                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

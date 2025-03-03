@@ -13,8 +13,6 @@ class InvoicesSummaries(object):
 
     """Implementation of the 'InvoicesSummaries' model.
 
-    TODO: type model description here.
-
     Attributes:
         amount_due (float): Amount due from last summary document date.
         amount_not_overdue (float): Amount that are due from past summary
@@ -187,3 +185,37 @@ class InvoicesSummaries(object):
                    total_net_amount_billing_currency,
                    total_summary_documents,
                    total_vat_amount_billing_currency)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!r}, '
+                f'amount_not_overdue={(self.amount_not_overdue if hasattr(self, "amount_not_overdue") else None)!r}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!r}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!r}, '
+                f'billing_currency_code={(self.billing_currency_code if hasattr(self, "billing_currency_code") else None)!r}, '
+                f'billing_currency_symbol={(self.billing_currency_symbol if hasattr(self, "billing_currency_symbol") else None)!r}, '
+                f'outstanding_balance={(self.outstanding_balance if hasattr(self, "outstanding_balance") else None)!r}, '
+                f'payment_due_date={(self.payment_due_date if hasattr(self, "payment_due_date") else None)!r}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!r}, '
+                f'total_billing_documents={(self.total_billing_documents if hasattr(self, "total_billing_documents") else None)!r}, '
+                f'total_gross_amount_billing_currency={(self.total_gross_amount_billing_currency if hasattr(self, "total_gross_amount_billing_currency") else None)!r}, '
+                f'total_net_amount_billing_currency={(self.total_net_amount_billing_currency if hasattr(self, "total_net_amount_billing_currency") else None)!r}, '
+                f'total_summary_documents={(self.total_summary_documents if hasattr(self, "total_summary_documents") else None)!r}, '
+                f'total_vat_amount_billing_currency={(self.total_vat_amount_billing_currency if hasattr(self, "total_vat_amount_billing_currency") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!s}, '
+                f'amount_not_overdue={(self.amount_not_overdue if hasattr(self, "amount_not_overdue") else None)!s}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!s}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!s}, '
+                f'billing_currency_code={(self.billing_currency_code if hasattr(self, "billing_currency_code") else None)!s}, '
+                f'billing_currency_symbol={(self.billing_currency_symbol if hasattr(self, "billing_currency_symbol") else None)!s}, '
+                f'outstanding_balance={(self.outstanding_balance if hasattr(self, "outstanding_balance") else None)!s}, '
+                f'payment_due_date={(self.payment_due_date if hasattr(self, "payment_due_date") else None)!s}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!s}, '
+                f'total_billing_documents={(self.total_billing_documents if hasattr(self, "total_billing_documents") else None)!s}, '
+                f'total_gross_amount_billing_currency={(self.total_gross_amount_billing_currency if hasattr(self, "total_gross_amount_billing_currency") else None)!s}, '
+                f'total_net_amount_billing_currency={(self.total_net_amount_billing_currency if hasattr(self, "total_net_amount_billing_currency") else None)!s}, '
+                f'total_summary_documents={(self.total_summary_documents if hasattr(self, "total_summary_documents") else None)!s}, '
+                f'total_vat_amount_billing_currency={(self.total_vat_amount_billing_currency if hasattr(self, "total_vat_amount_billing_currency") else None)!s})')

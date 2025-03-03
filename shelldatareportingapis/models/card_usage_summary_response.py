@@ -15,12 +15,11 @@ class CardUsageSummaryResponse(object):
 
     """Implementation of the 'CardUsageSummaryResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        usage_summary (List[UsageSummary]): TODO: type description here.
+        usage_summary (List[UsageSummary]): The model property of type
+            List[UsageSummary].
         request_id (str): API Request Id
-        error (ErrorStatus): TODO: type description here.
+        error (ErrorStatus): The model property of type ErrorStatus.
 
     """
 
@@ -81,3 +80,15 @@ class CardUsageSummaryResponse(object):
         return cls(usage_summary,
                    request_id,
                    error)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'usage_summary={(self.usage_summary if hasattr(self, "usage_summary") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'usage_summary={(self.usage_summary if hasattr(self, "usage_summary") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s})')

@@ -13,8 +13,6 @@ class PastStatementOfAccounts(object):
 
     """Implementation of the 'PastStatementOfAccounts' model.
 
-    TODO: type model description here.
-
     Attributes:
         amount_due (float): Invoiced amount under this statement of account
             and due for payment.
@@ -390,3 +388,77 @@ class PastStatementOfAccounts(object):
                    local_currency_code,
                    local_currency_symbol,
                    local_currency_exchange_rate)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!r}, '
+                f'amount_not_overdue={(self.amount_not_overdue if hasattr(self, "amount_not_overdue") else None)!r}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!r}, '
+                f'amount_overdue_from_unallocated={(self.amount_overdue_from_unallocated if hasattr(self, "amount_overdue_from_unallocated") else None)!r}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!r}, '
+                f'balance_on_this_statement={(self.balance_on_this_statement if hasattr(self, "balance_on_this_statement") else None)!r}, '
+                f'billing_currency_code={(self.billing_currency_code if hasattr(self, "billing_currency_code") else None)!r}, '
+                f'billing_currency_symbol={(self.billing_currency_symbol if hasattr(self, "billing_currency_symbol") else None)!r}, '
+                f'credit_limit={(self.credit_limit if hasattr(self, "credit_limit") else None)!r}, '
+                f'credit_limit_currency_code={(self.credit_limit_currency_code if hasattr(self, "credit_limit_currency_code") else None)!r}, '
+                f'credit_limit_currency_symbol={(self.credit_limit_currency_symbol if hasattr(self, "credit_limit_currency_symbol") else None)!r}, '
+                f'credit_limit_in_customer_currency={(self.credit_limit_in_customer_currency if hasattr(self, "credit_limit_in_customer_currency") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'fully_paid={(self.fully_paid if hasattr(self, "fully_paid") else None)!r}, '
+                f'last_payment_currency_code={(self.last_payment_currency_code if hasattr(self, "last_payment_currency_code") else None)!r}, '
+                f'last_payment_currency_symbol={(self.last_payment_currency_symbol if hasattr(self, "last_payment_currency_symbol") else None)!r}, '
+                f'last_payment_date={(self.last_payment_date if hasattr(self, "last_payment_date") else None)!r}, '
+                f'last_payment_value={(self.last_payment_value if hasattr(self, "last_payment_value") else None)!r}, '
+                f'outstanding_balance={(self.outstanding_balance if hasattr(self, "outstanding_balance") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'payment_due_date={(self.payment_due_date if hasattr(self, "payment_due_date") else None)!r}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!r}, '
+                f'statement_date={(self.statement_date if hasattr(self, "statement_date") else None)!r}, '
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!r}, '
+                f'total_billing_documents={(self.total_billing_documents if hasattr(self, "total_billing_documents") else None)!r}, '
+                f'total_net_amount_billing_currency={(self.total_net_amount_billing_currency if hasattr(self, "total_net_amount_billing_currency") else None)!r}, '
+                f'total_summary_billing_documents={(self.total_summary_billing_documents if hasattr(self, "total_summary_billing_documents") else None)!r}, '
+                f'total_vat_amount_billing_currency={(self.total_vat_amount_billing_currency if hasattr(self, "total_vat_amount_billing_currency") else None)!r}, '
+                f'unallocated_payment={(self.unallocated_payment if hasattr(self, "unallocated_payment") else None)!r}, '
+                f'local_currency_code={(self.local_currency_code if hasattr(self, "local_currency_code") else None)!r}, '
+                f'local_currency_symbol={(self.local_currency_symbol if hasattr(self, "local_currency_symbol") else None)!r}, '
+                f'local_currency_exchange_rate={(self.local_currency_exchange_rate if hasattr(self, "local_currency_exchange_rate") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!s}, '
+                f'amount_not_overdue={(self.amount_not_overdue if hasattr(self, "amount_not_overdue") else None)!s}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!s}, '
+                f'amount_overdue_from_unallocated={(self.amount_overdue_from_unallocated if hasattr(self, "amount_overdue_from_unallocated") else None)!s}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!s}, '
+                f'balance_on_this_statement={(self.balance_on_this_statement if hasattr(self, "balance_on_this_statement") else None)!s}, '
+                f'billing_currency_code={(self.billing_currency_code if hasattr(self, "billing_currency_code") else None)!s}, '
+                f'billing_currency_symbol={(self.billing_currency_symbol if hasattr(self, "billing_currency_symbol") else None)!s}, '
+                f'credit_limit={(self.credit_limit if hasattr(self, "credit_limit") else None)!s}, '
+                f'credit_limit_currency_code={(self.credit_limit_currency_code if hasattr(self, "credit_limit_currency_code") else None)!s}, '
+                f'credit_limit_currency_symbol={(self.credit_limit_currency_symbol if hasattr(self, "credit_limit_currency_symbol") else None)!s}, '
+                f'credit_limit_in_customer_currency={(self.credit_limit_in_customer_currency if hasattr(self, "credit_limit_in_customer_currency") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'fully_paid={(self.fully_paid if hasattr(self, "fully_paid") else None)!s}, '
+                f'last_payment_currency_code={(self.last_payment_currency_code if hasattr(self, "last_payment_currency_code") else None)!s}, '
+                f'last_payment_currency_symbol={(self.last_payment_currency_symbol if hasattr(self, "last_payment_currency_symbol") else None)!s}, '
+                f'last_payment_date={(self.last_payment_date if hasattr(self, "last_payment_date") else None)!s}, '
+                f'last_payment_value={(self.last_payment_value if hasattr(self, "last_payment_value") else None)!s}, '
+                f'outstanding_balance={(self.outstanding_balance if hasattr(self, "outstanding_balance") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'payment_due_date={(self.payment_due_date if hasattr(self, "payment_due_date") else None)!s}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!s}, '
+                f'statement_date={(self.statement_date if hasattr(self, "statement_date") else None)!s}, '
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!s}, '
+                f'total_billing_documents={(self.total_billing_documents if hasattr(self, "total_billing_documents") else None)!s}, '
+                f'total_net_amount_billing_currency={(self.total_net_amount_billing_currency if hasattr(self, "total_net_amount_billing_currency") else None)!s}, '
+                f'total_summary_billing_documents={(self.total_summary_billing_documents if hasattr(self, "total_summary_billing_documents") else None)!s}, '
+                f'total_vat_amount_billing_currency={(self.total_vat_amount_billing_currency if hasattr(self, "total_vat_amount_billing_currency") else None)!s}, '
+                f'unallocated_payment={(self.unallocated_payment if hasattr(self, "unallocated_payment") else None)!s}, '
+                f'local_currency_code={(self.local_currency_code if hasattr(self, "local_currency_code") else None)!s}, '
+                f'local_currency_symbol={(self.local_currency_symbol if hasattr(self, "local_currency_symbol") else None)!s}, '
+                f'local_currency_exchange_rate={(self.local_currency_exchange_rate if hasattr(self, "local_currency_exchange_rate") else None)!s})')

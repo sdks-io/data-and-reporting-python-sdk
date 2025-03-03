@@ -13,8 +13,6 @@ class FuelConsumptionCard(object):
 
     """Implementation of the 'FuelConsumptionCard' model.
 
-    TODO: type model description here.
-
     Attributes:
         card_id (int): Card Id   Optional, when PAN is provided else mandatory.
         pan (str): Full Card PAN Optional, when CardId is provided else
@@ -76,3 +74,15 @@ class FuelConsumptionCard(object):
         return cls(card_id,
                    pan,
                    expiry_date)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!r}, '
+                f'pan={(self.pan if hasattr(self, "pan") else None)!r}, '
+                f'expiry_date={(self.expiry_date if hasattr(self, "expiry_date") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!s}, '
+                f'pan={(self.pan if hasattr(self, "pan") else None)!s}, '
+                f'expiry_date={(self.expiry_date if hasattr(self, "expiry_date") else None)!s})')

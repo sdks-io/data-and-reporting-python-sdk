@@ -14,8 +14,6 @@ class RecentTransactionsResponse(object):
 
     """Implementation of the 'RecentTransactionsResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         request_id (str): RequestID is unique identifier value that is
             attached to requests and messages that allow reference to a
@@ -106,3 +104,21 @@ class RecentTransactionsResponse(object):
                    row_count,
                    total_pages,
                    data)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r}, '
+                f'row_count={(self.row_count if hasattr(self, "row_count") else None)!r}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!r}, '
+                f'data={(self.data if hasattr(self, "data") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s}, '
+                f'row_count={(self.row_count if hasattr(self, "row_count") else None)!s}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!s}, '
+                f'data={(self.data if hasattr(self, "data") else None)!s})')

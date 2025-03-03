@@ -13,8 +13,6 @@ class SearchDocReq(object):
 
     """Implementation of the 'SearchDocReq' model.
 
-    TODO: type model description here.
-
     Attributes:
         payer_number (str): Payer Number of the selected payer. Mandatory
             Example: GB000000123
@@ -216,3 +214,41 @@ class SearchDocReq(object):
                    document_type,
                    vat_issuer_country,
                    sorty_by)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_number={self.payer_number!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_number_list={(self.account_number_list if hasattr(self, "account_number_list") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'invoice_number_list={(self.invoice_number_list if hasattr(self, "invoice_number_list") else None)!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'issuing_date_from={(self.issuing_date_from if hasattr(self, "issuing_date_from") else None)!r}, '
+                f'issuing_date_to={(self.issuing_date_to if hasattr(self, "issuing_date_to") else None)!r}, '
+                f'due_date_from={(self.due_date_from if hasattr(self, "due_date_from") else None)!r}, '
+                f'due_date_to={(self.due_date_to if hasattr(self, "due_date_to") else None)!r}, '
+                f'gross_amount={(self.gross_amount if hasattr(self, "gross_amount") else None)!r}, '
+                f'gross_amount_operator={(self.gross_amount_operator if hasattr(self, "gross_amount_operator") else None)!r}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!r}, '
+                f'vat_issuer_country={(self.vat_issuer_country if hasattr(self, "vat_issuer_country") else None)!r}, '
+                f'sorty_by={(self.sorty_by if hasattr(self, "sorty_by") else None)!r}, '
+                f'col_co_code={self.col_co_code!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_number={self.payer_number!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_number_list={(self.account_number_list if hasattr(self, "account_number_list") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'invoice_number_list={(self.invoice_number_list if hasattr(self, "invoice_number_list") else None)!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'issuing_date_from={(self.issuing_date_from if hasattr(self, "issuing_date_from") else None)!s}, '
+                f'issuing_date_to={(self.issuing_date_to if hasattr(self, "issuing_date_to") else None)!s}, '
+                f'due_date_from={(self.due_date_from if hasattr(self, "due_date_from") else None)!s}, '
+                f'due_date_to={(self.due_date_to if hasattr(self, "due_date_to") else None)!s}, '
+                f'gross_amount={(self.gross_amount if hasattr(self, "gross_amount") else None)!s}, '
+                f'gross_amount_operator={(self.gross_amount_operator if hasattr(self, "gross_amount_operator") else None)!s}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!s}, '
+                f'vat_issuer_country={(self.vat_issuer_country if hasattr(self, "vat_issuer_country") else None)!s}, '
+                f'sorty_by={(self.sorty_by if hasattr(self, "sorty_by") else None)!s}, '
+                f'col_co_code={self.col_co_code!s})')

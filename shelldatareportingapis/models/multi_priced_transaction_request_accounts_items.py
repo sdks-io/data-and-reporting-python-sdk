@@ -13,8 +13,6 @@ class MultiPricedTransactionRequestAccountsItems(object):
 
     """Implementation of the 'MultiPricedTransactionRequestAccountsItems' model.
 
-    TODO: type model description here.
-
     Attributes:
         payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory Example: 123456
@@ -87,3 +85,17 @@ class MultiPricedTransactionRequestAccountsItems(object):
                    payer_number,
                    account_id,
                    account_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s})')

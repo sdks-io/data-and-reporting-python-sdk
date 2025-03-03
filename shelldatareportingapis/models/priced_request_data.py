@@ -20,11 +20,15 @@ class PricedRequestData(object):
     Attributes:
         col_co_code (str): Collecting Company Code (Shell Code) of the
             selected payer.
-        invoice_status (object): TODO: type description here.
+        col_co_id (int): The Collecting Company Id in the Shell Card Platform.
+        invoice_status (PricedTransactionReqV2InvoiceStatusEnum): Invoice
+            status of the transactions. Mandatory Possible options:I -
+            Invoiced, U – Un-Invoiced, A – All
         payer_number (str): Payer Number of the selected payer.
         account_id (int): Account Id (GFN customer id)
         account_number (str): Account Number of the selected account.
         driver_name (str): Driver Name (of Card record)
+        card_id (int): Unique Card Id in the Shell Card Platform
         card_group_id (int): Card Group Id in GFN
         card_pan (str): Full Card PAN
         product_code (str): Product Code – Global as per GFN configuration
@@ -45,8 +49,8 @@ class PricedRequestData(object):
         cards (List[int]): This entity accepts the list of CardId to filter in
             the response. Note: The number of cardId allowed to be passed in
             the request is configurable to a maximum of 500 cards.
-        sort_order (PricedTransactionReqV2SortOrderEnum): TODO: type
-            description here.
+        sort_order (PricedTransactionReqV2SortOrderEnum): The model property
+            of type PricedTransactionReqV2SortOrderEnum.
         from_date (str): From transaction delivery date
         to_date (str): To transaction delivery date
         period (PricedTransactionReqV2PeriodEnum): Pass below one of the value
@@ -83,9 +87,11 @@ class PricedRequestData(object):
         "col_co_code": 'ColCoCode',
         "invoice_status": 'InvoiceStatus',
         "payer_number": 'PayerNumber',
+        "col_co_id": 'ColCoId',
         "account_id": 'AccountId',
         "account_number": 'AccountNumber',
         "driver_name": 'DriverName',
+        "card_id": 'CardId',
         "card_group_id": 'CardGroupId',
         "card_pan": 'CardPAN',
         "product_code": 'ProductCode',
@@ -120,9 +126,11 @@ class PricedRequestData(object):
     }
 
     _optionals = [
+        'col_co_id',
         'account_id',
         'account_number',
         'driver_name',
+        'card_id',
         'card_group_id',
         'card_pan',
         'product_code',
@@ -194,9 +202,11 @@ class PricedRequestData(object):
                  col_co_code=None,
                  invoice_status=None,
                  payer_number=None,
+                 col_co_id=APIHelper.SKIP,
                  account_id=APIHelper.SKIP,
                  account_number=APIHelper.SKIP,
                  driver_name=APIHelper.SKIP,
+                 card_id=APIHelper.SKIP,
                  card_group_id=APIHelper.SKIP,
                  card_pan=APIHelper.SKIP,
                  product_code=APIHelper.SKIP,
@@ -232,6 +242,8 @@ class PricedRequestData(object):
 
         # Initialize members of the class
         self.col_co_code = col_co_code 
+        if col_co_id is not APIHelper.SKIP:
+            self.col_co_id = col_co_id 
         self.invoice_status = invoice_status 
         self.payer_number = payer_number 
         if account_id is not APIHelper.SKIP:
@@ -240,6 +252,8 @@ class PricedRequestData(object):
             self.account_number = account_number 
         if driver_name is not APIHelper.SKIP:
             self.driver_name = driver_name 
+        if card_id is not APIHelper.SKIP:
+            self.card_id = card_id 
         if card_group_id is not APIHelper.SKIP:
             self.card_group_id = card_group_id 
         if card_pan is not APIHelper.SKIP:
@@ -323,9 +337,11 @@ class PricedRequestData(object):
         col_co_code = dictionary.get("ColCoCode") if dictionary.get("ColCoCode") else None
         invoice_status = dictionary.get("InvoiceStatus") if dictionary.get("InvoiceStatus") else None
         payer_number = dictionary.get("PayerNumber") if dictionary.get("PayerNumber") else None
+        col_co_id = dictionary.get("ColCoId") if dictionary.get("ColCoId") else APIHelper.SKIP
         account_id = dictionary.get("AccountId") if "AccountId" in dictionary.keys() else APIHelper.SKIP
         account_number = dictionary.get("AccountNumber") if "AccountNumber" in dictionary.keys() else APIHelper.SKIP
         driver_name = dictionary.get("DriverName") if "DriverName" in dictionary.keys() else APIHelper.SKIP
+        card_id = dictionary.get("CardId") if dictionary.get("CardId") else APIHelper.SKIP
         card_group_id = dictionary.get("CardGroupId") if "CardGroupId" in dictionary.keys() else APIHelper.SKIP
         card_pan = dictionary.get("CardPAN") if "CardPAN" in dictionary.keys() else APIHelper.SKIP
         product_code = dictionary.get("ProductCode") if "ProductCode" in dictionary.keys() else APIHelper.SKIP
@@ -361,9 +377,11 @@ class PricedRequestData(object):
         return cls(col_co_code,
                    invoice_status,
                    payer_number,
+                   col_co_id,
                    account_id,
                    account_number,
                    driver_name,
+                   card_id,
                    card_group_id,
                    card_pan,
                    product_code,
@@ -395,3 +413,87 @@ class PricedRequestData(object):
                    hosting_collecting_company_number,
                    search,
                    transaction_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!r}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'invoice_status={self.invoice_status!r}, '
+                f'payer_number={self.payer_number!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!r}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!r}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!r}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!r}, '
+                f'incoming_site_number={(self.incoming_site_number if hasattr(self, "incoming_site_number") else None)!r}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'purchased_in_country_code={(self.purchased_in_country_code if hasattr(self, "purchased_in_country_code") else None)!r}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!r}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!r}, '
+                f'vehicle_registration_number={(self.vehicle_registration_number if hasattr(self, "vehicle_registration_number") else None)!r}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!r}, '
+                f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!r}, '
+                f'cards={(self.cards if hasattr(self, "cards") else None)!r}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'period={(self.period if hasattr(self, "period") else None)!r}, '
+                f'posting_date_from={(self.posting_date_from if hasattr(self, "posting_date_from") else None)!r}, '
+                f'posting_date_to={(self.posting_date_to if hasattr(self, "posting_date_to") else None)!r}, '
+                f'transaction_item_id={(self.transaction_item_id if hasattr(self, "transaction_item_id") else None)!r}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!r}, '
+                f'include_fees={(self.include_fees if hasattr(self, "include_fees") else None)!r}, '
+                f'is_multipayer={(self.is_multipayer if hasattr(self, "is_multipayer") else None)!r}, '
+                f'valid_invoice_date_only={(self.valid_invoice_date_only if hasattr(self, "valid_invoice_date_only") else None)!r}, '
+                f'invoice_from_date={(self.invoice_from_date if hasattr(self, "invoice_from_date") else None)!r}, '
+                f'invoice_to_date={(self.invoice_to_date if hasattr(self, "invoice_to_date") else None)!r}, '
+                f'hosting_collecting_company_number={(self.hosting_collecting_company_number if hasattr(self, "hosting_collecting_company_number") else None)!r}, '
+                f'search={(self.search if hasattr(self, "search") else None)!r}, '
+                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!s}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'invoice_status={self.invoice_status!s}, '
+                f'payer_number={self.payer_number!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'driver_name={(self.driver_name if hasattr(self, "driver_name") else None)!s}, '
+                f'card_id={(self.card_id if hasattr(self, "card_id") else None)!s}, '
+                f'card_group_id={(self.card_group_id if hasattr(self, "card_group_id") else None)!s}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!s}, '
+                f'incoming_site_number={(self.incoming_site_number if hasattr(self, "incoming_site_number") else None)!s}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'purchased_in_country_code={(self.purchased_in_country_code if hasattr(self, "purchased_in_country_code") else None)!s}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!s}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!s}, '
+                f'vehicle_registration_number={(self.vehicle_registration_number if hasattr(self, "vehicle_registration_number") else None)!s}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!s}, '
+                f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!s}, '
+                f'cards={(self.cards if hasattr(self, "cards") else None)!s}, '
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'period={(self.period if hasattr(self, "period") else None)!s}, '
+                f'posting_date_from={(self.posting_date_from if hasattr(self, "posting_date_from") else None)!s}, '
+                f'posting_date_to={(self.posting_date_to if hasattr(self, "posting_date_to") else None)!s}, '
+                f'transaction_item_id={(self.transaction_item_id if hasattr(self, "transaction_item_id") else None)!s}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!s}, '
+                f'include_fees={(self.include_fees if hasattr(self, "include_fees") else None)!s}, '
+                f'is_multipayer={(self.is_multipayer if hasattr(self, "is_multipayer") else None)!s}, '
+                f'valid_invoice_date_only={(self.valid_invoice_date_only if hasattr(self, "valid_invoice_date_only") else None)!s}, '
+                f'invoice_from_date={(self.invoice_from_date if hasattr(self, "invoice_from_date") else None)!s}, '
+                f'invoice_to_date={(self.invoice_to_date if hasattr(self, "invoice_to_date") else None)!s}, '
+                f'hosting_collecting_company_number={(self.hosting_collecting_company_number if hasattr(self, "hosting_collecting_company_number") else None)!s}, '
+                f'search={(self.search if hasattr(self, "search") else None)!s}, '
+                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!s})')

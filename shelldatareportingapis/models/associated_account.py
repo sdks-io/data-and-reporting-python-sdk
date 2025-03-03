@@ -13,8 +13,6 @@ class AssociatedAccount(object):
 
     """Implementation of the 'AssociatedAccount' model.
 
-    TODO: type model description here.
-
     Attributes:
         associated_account_id (int): Account identifier  of the Associated
             Account associated with the Payer.
@@ -93,3 +91,17 @@ class AssociatedAccount(object):
                    associated_account_number,
                    associated_account_short_name,
                    associated_account_full_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'associated_account_id={(self.associated_account_id if hasattr(self, "associated_account_id") else None)!r}, '
+                f'associated_account_number={(self.associated_account_number if hasattr(self, "associated_account_number") else None)!r}, '
+                f'associated_account_short_name={(self.associated_account_short_name if hasattr(self, "associated_account_short_name") else None)!r}, '
+                f'associated_account_full_name={(self.associated_account_full_name if hasattr(self, "associated_account_full_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'associated_account_id={(self.associated_account_id if hasattr(self, "associated_account_id") else None)!s}, '
+                f'associated_account_number={(self.associated_account_number if hasattr(self, "associated_account_number") else None)!s}, '
+                f'associated_account_short_name={(self.associated_account_short_name if hasattr(self, "associated_account_short_name") else None)!s}, '
+                f'associated_account_full_name={(self.associated_account_full_name if hasattr(self, "associated_account_full_name") else None)!s})')

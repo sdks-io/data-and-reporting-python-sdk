@@ -13,11 +13,9 @@ class CustomerPriceListRequest(object):
 
     """Implementation of the 'CustomerPriceListRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        col_co_id (int): TODO: type description here.
-        col_co_code (int): TODO: type description here.
+        col_co_id (int): The model property of type int.
+        col_co_code (int): The model property of type int.
         payer_id (int): Payer Id of the selected payer. Optional if
             PayerNumber is passed else Mandatory
         payer_number (str): Payer Number of the selected payer. Optional if
@@ -170,3 +168,33 @@ class CustomerPriceListRequest(object):
                    price_list_type,
                    del_co_id,
                    include_pump_price_discounts)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'customer_specific_list={(self.customer_specific_list if hasattr(self, "customer_specific_list") else None)!r}, '
+                f'price_list_type={(self.price_list_type if hasattr(self, "price_list_type") else None)!r}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!r}, '
+                f'from_date={self.from_date!r}, '
+                f'to_date={self.to_date!r}, '
+                f'include_pump_price_discounts={(self.include_pump_price_discounts if hasattr(self, "include_pump_price_discounts") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'customer_specific_list={(self.customer_specific_list if hasattr(self, "customer_specific_list") else None)!s}, '
+                f'price_list_type={(self.price_list_type if hasattr(self, "price_list_type") else None)!s}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!s}, '
+                f'from_date={self.from_date!s}, '
+                f'to_date={self.to_date!s}, '
+                f'include_pump_price_discounts={(self.include_pump_price_discounts if hasattr(self, "include_pump_price_discounts") else None)!s})')

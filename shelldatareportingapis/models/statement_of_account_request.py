@@ -14,11 +14,9 @@ class StatementOfAccountRequest(object):
 
     """Implementation of the 'StatementOfAccountRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filters (StatementOfAccountRequestFilters): TODO: type description
-            here.
+        filters (StatementOfAccountRequestFilters): The model property of type
+            StatementOfAccountRequestFilters.
 
     """
 
@@ -61,3 +59,11 @@ class StatementOfAccountRequest(object):
         filters = StatementOfAccountRequestFilters.from_dictionary(dictionary.get('Filters')) if 'Filters' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(filters)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!s})')

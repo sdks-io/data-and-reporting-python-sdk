@@ -14,14 +14,13 @@ class PricedTransactionResponseV2(object):
 
     """Implementation of the 'PricedTransactionResponseV2' model.
 
-    TODO: type model description here.
-
     Attributes:
         request_id (str): Mandatory UUID (according to RFC 4122 standards) for
             requests and responses. This will be played back in the response
             from the req
         status (str): Indicates overall status of the request
-        data (List[PricedResponseData]): TODO: type description here.
+        data (List[PricedResponseData]): The model property of type
+            List[PricedResponseData].
         page (int): Current page
         page_size (int): Number of records returned in the response
         total_pages (int): Total number of pages available for the requested
@@ -107,3 +106,21 @@ class PricedTransactionResponseV2(object):
                    page,
                    page_size,
                    total_pages)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'data={(self.data if hasattr(self, "data") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'data={(self.data if hasattr(self, "data") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!s})')

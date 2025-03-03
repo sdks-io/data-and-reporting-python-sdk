@@ -13,8 +13,6 @@ class InvoiceDownloadReq(object):
 
     """Implementation of the 'InvoiceDownloadReq' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory
@@ -99,3 +97,19 @@ class InvoiceDownloadReq(object):
                    account_number,
                    document_reference,
                    invoice_or_soa_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!r}, '
+                f'payer_number={self.payer_number!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!r}, '
+                f'invoice_or_soa_number={(self.invoice_or_soa_number if hasattr(self, "invoice_or_soa_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!s}, '
+                f'payer_number={self.payer_number!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'document_reference={(self.document_reference if hasattr(self, "document_reference") else None)!s}, '
+                f'invoice_or_soa_number={(self.invoice_or_soa_number if hasattr(self, "invoice_or_soa_number") else None)!s})')

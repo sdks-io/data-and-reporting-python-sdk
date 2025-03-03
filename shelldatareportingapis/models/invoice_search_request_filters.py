@@ -14,8 +14,6 @@ class InvoiceSearchRequestFilters(object):
 
     """Implementation of the 'InvoiceSearchRequestFilters' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional.  Example:  1-Philippines  5-UK
@@ -71,7 +69,7 @@ class InvoiceSearchRequestFilters(object):
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory - It is mandatory field to external source ATOS for
             E-invoicing.   Example:  86-Philippines  5-UK
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
         mtype (str): Invoice type. Allowed values – •    Original – Original
             document. •    Reversal – Reversed document. •    Replacement –
             Replaced document. Optional. (When not passed all invoice, types
@@ -269,3 +267,47 @@ class InvoiceSearchRequestFilters(object):
                    col_co_code,
                    accounts,
                    mtype)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!r}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!r}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!r}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!r}, '
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!r}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!r}, '
+                f'period={(self.period if hasattr(self, "period") else None)!r}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!r}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!r}, '
+                f'include_e_invoice_details={(self.include_e_invoice_details if hasattr(self, "include_e_invoice_details") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!s}, '
+                f'invoice_number={(self.invoice_number if hasattr(self, "invoice_number") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'invoice_date={(self.invoice_date if hasattr(self, "invoice_date") else None)!s}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!s}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!s}, '
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!s}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!s}, '
+                f'period={(self.period if hasattr(self, "period") else None)!s}, '
+                f'invoice_status={(self.invoice_status if hasattr(self, "invoice_status") else None)!s}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!s}, '
+                f'include_e_invoice_details={(self.include_e_invoice_details if hasattr(self, "include_e_invoice_details") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s})')

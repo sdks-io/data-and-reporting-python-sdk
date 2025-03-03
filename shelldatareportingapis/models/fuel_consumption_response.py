@@ -15,12 +15,10 @@ class FuelConsumptionResponse(object):
 
     """Implementation of the 'FuelConsumptionResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        fuel_consumption (List[FuelConsumptionData]): TODO: type description
-            here.
-        error (ErrorStatus): TODO: type description here.
+        fuel_consumption (List[FuelConsumptionData]): The model property of
+            type List[FuelConsumptionData].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
 
     """
@@ -82,3 +80,15 @@ class FuelConsumptionResponse(object):
         return cls(fuel_consumption,
                    error,
                    request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'fuel_consumption={(self.fuel_consumption if hasattr(self, "fuel_consumption") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'fuel_consumption={(self.fuel_consumption if hasattr(self, "fuel_consumption") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

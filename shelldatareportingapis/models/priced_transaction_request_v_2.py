@@ -14,8 +14,6 @@ class PricedTransactionRequestV2(object):
 
     """Implementation of the 'PricedTransactionRequestV2' model.
 
-    TODO: type model description here.
-
     Attributes:
         filters (PricedRequestData): This endpoint allows querying the
             transaction data (i.e. Priced, Billed and Unbilled sales items)
@@ -79,3 +77,15 @@ class PricedTransactionRequestV2(object):
         return cls(filters,
                    page,
                    page_size)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')

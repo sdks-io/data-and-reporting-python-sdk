@@ -15,12 +15,11 @@ class MultiPricedTransactionResponse(object):
 
     """Implementation of the 'MultiPricedTransactionResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         transactions (List[MultiPricedTransactionResponseTransactionsItems]):
-            TODO: type description here.
-        error (ErrorStatus): TODO: type description here.
+            The model property of type
+            List[MultiPricedTransactionResponseTransactionsItems].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
         current_page (int): Current Page
         row_count (int): Total row count matched for the given input criteria
@@ -108,3 +107,21 @@ class MultiPricedTransactionResponse(object):
                    current_page,
                    row_count,
                    total_pages)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions={(self.transactions if hasattr(self, "transactions") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
+                f'row_count={(self.row_count if hasattr(self, "row_count") else None)!r}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions={(self.transactions if hasattr(self, "transactions") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
+                f'row_count={(self.row_count if hasattr(self, "row_count") else None)!s}, '
+                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!s})')

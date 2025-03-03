@@ -14,8 +14,6 @@ class InvoiceDatesRequestFilters(object):
 
     """Implementation of the 'InvoiceDatesRequestFilters' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory for serviced OUs such as Romania, Latvia, Lithuania,
@@ -32,7 +30,7 @@ class InvoiceDatesRequestFilters(object):
             input is a search criterion, if given. Date format: yyyyMMdd
         to_date (str): Invoice date searched until this date. Optional. This
             input is a search criterion, if given. Date format: yyyyMMdd
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
 
     """
 
@@ -130,3 +128,23 @@ class InvoiceDatesRequestFilters(object):
                    from_date,
                    to_date,
                    accounts)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s})')

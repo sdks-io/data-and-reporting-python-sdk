@@ -15,14 +15,13 @@ class CustomerPriceListResponse(object):
 
     """Implementation of the 'CustomerPriceListResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         request_id (str): UUID (according to RFC 4122 standards) for requests
             and responses. This will be played back in the response from the
             request.
-        price_list (List[PriceList]): TODO: type description here.
-        error (ErrorStatus): TODO: type description here.
+        price_list (List[PriceList]): The model property of type
+            List[PriceList].
+        error (ErrorStatus): The model property of type ErrorStatus.
 
     """
 
@@ -83,3 +82,15 @@ class CustomerPriceListResponse(object):
         return cls(request_id,
                    price_list,
                    error)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'price_list={(self.price_list if hasattr(self, "price_list") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'price_list={(self.price_list if hasattr(self, "price_list") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s})')

@@ -13,8 +13,6 @@ class BonusHistory(object):
 
     """Implementation of the 'BonusHistory' model.
 
-    TODO: type model description here.
-
     Attributes:
         payer_id (int): Payer Id
         payer_number (str): Payer Number of the selected payer
@@ -361,3 +359,73 @@ class BonusHistory(object):
                    fee_item_tier_total_volume,
                    tier_minimum,
                    tier_rate)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'payer_short_name={(self.payer_short_name if hasattr(self, "payer_short_name") else None)!r}, '
+                f'payer_full_name={(self.payer_full_name if hasattr(self, "payer_full_name") else None)!r}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!r}, '
+                f'account_full_name={(self.account_full_name if hasattr(self, "account_full_name") else None)!r}, '
+                f'invoice_account_id={(self.invoice_account_id if hasattr(self, "invoice_account_id") else None)!r}, '
+                f'invoice_account_number={(self.invoice_account_number if hasattr(self, "invoice_account_number") else None)!r}, '
+                f'invoice_account_short_name={(self.invoice_account_short_name if hasattr(self, "invoice_account_short_name") else None)!r}, '
+                f'invoice_account_full_name={(self.invoice_account_full_name if hasattr(self, "invoice_account_full_name") else None)!r}, '
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!r}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!r}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'bonus_paid_to={(self.bonus_paid_to if hasattr(self, "bonus_paid_to") else None)!r}, '
+                f'fee_item_id={(self.fee_item_id if hasattr(self, "fee_item_id") else None)!r}, '
+                f'fee_rule_basis={(self.fee_rule_basis if hasattr(self, "fee_rule_basis") else None)!r}, '
+                f'fee_item_currency_code={(self.fee_item_currency_code if hasattr(self, "fee_item_currency_code") else None)!r}, '
+                f'fee_item_currency_symbol={(self.fee_item_currency_symbol if hasattr(self, "fee_item_currency_symbol") else None)!r}, '
+                f'prorated_volume={(self.prorated_volume if hasattr(self, "prorated_volume") else None)!r}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!r}, '
+                f'fee_product={(self.fee_product if hasattr(self, "fee_product") else None)!r}, '
+                f'invoice_gross_amount={(self.invoice_gross_amount if hasattr(self, "invoice_gross_amount") else None)!r}, '
+                f'invoice_net_amount={(self.invoice_net_amount if hasattr(self, "invoice_net_amount") else None)!r}, '
+                f'invoice_vat_amount={(self.invoice_vat_amount if hasattr(self, "invoice_vat_amount") else None)!r}, '
+                f'is_fee_cancelled={(self.is_fee_cancelled if hasattr(self, "is_fee_cancelled") else None)!r}, '
+                f'fee_item_tier_prorated_volume={(self.fee_item_tier_prorated_volume if hasattr(self, "fee_item_tier_prorated_volume") else None)!r}, '
+                f'fee_item_tier_total_volume={(self.fee_item_tier_total_volume if hasattr(self, "fee_item_tier_total_volume") else None)!r}, '
+                f'tier_minimum={(self.tier_minimum if hasattr(self, "tier_minimum") else None)!r}, '
+                f'tier_rate={(self.tier_rate if hasattr(self, "tier_rate") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'payer_short_name={(self.payer_short_name if hasattr(self, "payer_short_name") else None)!s}, '
+                f'payer_full_name={(self.payer_full_name if hasattr(self, "payer_full_name") else None)!s}, '
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!s}, '
+                f'account_full_name={(self.account_full_name if hasattr(self, "account_full_name") else None)!s}, '
+                f'invoice_account_id={(self.invoice_account_id if hasattr(self, "invoice_account_id") else None)!s}, '
+                f'invoice_account_number={(self.invoice_account_number if hasattr(self, "invoice_account_number") else None)!s}, '
+                f'invoice_account_short_name={(self.invoice_account_short_name if hasattr(self, "invoice_account_short_name") else None)!s}, '
+                f'invoice_account_full_name={(self.invoice_account_full_name if hasattr(self, "invoice_account_full_name") else None)!s}, '
+                f'fee_rule_id={(self.fee_rule_id if hasattr(self, "fee_rule_id") else None)!s}, '
+                f'fee_rule_description={(self.fee_rule_description if hasattr(self, "fee_rule_description") else None)!s}, '
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'bonus_paid_to={(self.bonus_paid_to if hasattr(self, "bonus_paid_to") else None)!s}, '
+                f'fee_item_id={(self.fee_item_id if hasattr(self, "fee_item_id") else None)!s}, '
+                f'fee_rule_basis={(self.fee_rule_basis if hasattr(self, "fee_rule_basis") else None)!s}, '
+                f'fee_item_currency_code={(self.fee_item_currency_code if hasattr(self, "fee_item_currency_code") else None)!s}, '
+                f'fee_item_currency_symbol={(self.fee_item_currency_symbol if hasattr(self, "fee_item_currency_symbol") else None)!s}, '
+                f'prorated_volume={(self.prorated_volume if hasattr(self, "prorated_volume") else None)!s}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!s}, '
+                f'fee_product={(self.fee_product if hasattr(self, "fee_product") else None)!s}, '
+                f'invoice_gross_amount={(self.invoice_gross_amount if hasattr(self, "invoice_gross_amount") else None)!s}, '
+                f'invoice_net_amount={(self.invoice_net_amount if hasattr(self, "invoice_net_amount") else None)!s}, '
+                f'invoice_vat_amount={(self.invoice_vat_amount if hasattr(self, "invoice_vat_amount") else None)!s}, '
+                f'is_fee_cancelled={(self.is_fee_cancelled if hasattr(self, "is_fee_cancelled") else None)!s}, '
+                f'fee_item_tier_prorated_volume={(self.fee_item_tier_prorated_volume if hasattr(self, "fee_item_tier_prorated_volume") else None)!s}, '
+                f'fee_item_tier_total_volume={(self.fee_item_tier_total_volume if hasattr(self, "fee_item_tier_total_volume") else None)!s}, '
+                f'tier_minimum={(self.tier_minimum if hasattr(self, "tier_minimum") else None)!s}, '
+                f'tier_rate={(self.tier_rate if hasattr(self, "tier_rate") else None)!s})')

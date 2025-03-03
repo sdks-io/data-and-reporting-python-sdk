@@ -15,8 +15,6 @@ class TransactionExceptionsRequest(object):
 
     """Implementation of the 'TransactionExceptionsRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
@@ -29,7 +27,7 @@ class TransactionExceptionsRequest(object):
             PayerNumber is passed else Mandatory
         payer_number (str): Payer Number of the selected payer. Optional if
             PayerId is passed else Mandatory
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
         transactions_from_date (str): Exceptions to be searched in
             transactions from date. Should be with in last 24 months from the
             ToDate parameter. Mandatory Format: yyyyMMdd
@@ -41,7 +39,8 @@ class TransactionExceptionsRequest(object):
             UsageLessThan  5. ValueGreaterThan (in Customer Currency)  6.
             ValueLessThan  (in Customer Currency)  Note: -   When “OutputType”
             = 1 is passed as input, above 3 and 4 Condition are not applicable.
-        products (List[ExceptionProduct]): TODO: type description here.
+        products (List[ExceptionProduct]): The model property of type
+            List[ExceptionProduct].
         exception_period (int): Period in which the Exceptions such as
             Monthly/Weekly or Daily volume, value or usage to be identified in
             the given transactions date range. It is only applied when the
@@ -199,3 +198,39 @@ class TransactionExceptionsRequest(object):
                    fuel_only,
                    site_group_ids,
                    use_field_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r}, '
+                f'transactions_from_date={self.transactions_from_date!r}, '
+                f'transactions_to_date={self.transactions_to_date!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r}, '
+                f'condition={self.condition!r}, '
+                f'products={(self.products if hasattr(self, "products") else None)!r}, '
+                f'exception_period={(self.exception_period if hasattr(self, "exception_period") else None)!r}, '
+                f'output_type={self.output_type!r}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!r}, '
+                f'site_group_ids={(self.site_group_ids if hasattr(self, "site_group_ids") else None)!r}, '
+                f'use_field_id={(self.use_field_id if hasattr(self, "use_field_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s}, '
+                f'transactions_from_date={self.transactions_from_date!s}, '
+                f'transactions_to_date={self.transactions_to_date!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s}, '
+                f'condition={self.condition!s}, '
+                f'products={(self.products if hasattr(self, "products") else None)!s}, '
+                f'exception_period={(self.exception_period if hasattr(self, "exception_period") else None)!s}, '
+                f'output_type={self.output_type!s}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!s}, '
+                f'site_group_ids={(self.site_group_ids if hasattr(self, "site_group_ids") else None)!s}, '
+                f'use_field_id={(self.use_field_id if hasattr(self, "use_field_id") else None)!s})')

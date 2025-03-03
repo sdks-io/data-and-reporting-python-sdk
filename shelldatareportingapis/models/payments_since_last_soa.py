@@ -266,3 +266,51 @@ class PaymentsSinceLastSOA(object):
                    local_currency_code,
                    local_currency_symbol,
                    local_currency_exchange_rate)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!r}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!r}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!r}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!r}, '
+                f'summary_document_payment_due_date={(self.summary_document_payment_due_date if hasattr(self, "summary_document_payment_due_date") else None)!r}, '
+                f'summary_document_total_value={(self.summary_document_total_value if hasattr(self, "summary_document_total_value") else None)!r}, '
+                f'summary_document_total_vat={(self.summary_document_total_vat if hasattr(self, "summary_document_total_vat") else None)!r}, '
+                f'summary_document_dd_amount={(self.summary_document_dd_amount if hasattr(self, "summary_document_dd_amount") else None)!r}, '
+                f'payment_date={(self.payment_date if hasattr(self, "payment_date") else None)!r}, '
+                f'payment_reference={(self.payment_reference if hasattr(self, "payment_reference") else None)!r}, '
+                f'payment_currency_code={(self.payment_currency_code if hasattr(self, "payment_currency_code") else None)!r}, '
+                f'payment_currency_symbol={(self.payment_currency_symbol if hasattr(self, "payment_currency_symbol") else None)!r}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!r}, '
+                f'balance={(self.balance if hasattr(self, "balance") else None)!r}, '
+                f'true_payment={(self.true_payment if hasattr(self, "true_payment") else None)!r}, '
+                f'prepaid_balance={(self.prepaid_balance if hasattr(self, "prepaid_balance") else None)!r}, '
+                f'local_currency_code={(self.local_currency_code if hasattr(self, "local_currency_code") else None)!r}, '
+                f'local_currency_symbol={(self.local_currency_symbol if hasattr(self, "local_currency_symbol") else None)!r}, '
+                f'local_currency_exchange_rate={(self.local_currency_exchange_rate if hasattr(self, "local_currency_exchange_rate") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'account_short_name={(self.account_short_name if hasattr(self, "account_short_name") else None)!s}, '
+                f'summary_document_id={(self.summary_document_id if hasattr(self, "summary_document_id") else None)!s}, '
+                f'summary_document_number={(self.summary_document_number if hasattr(self, "summary_document_number") else None)!s}, '
+                f'summary_document_date={(self.summary_document_date if hasattr(self, "summary_document_date") else None)!s}, '
+                f'summary_document_payment_due_date={(self.summary_document_payment_due_date if hasattr(self, "summary_document_payment_due_date") else None)!s}, '
+                f'summary_document_total_value={(self.summary_document_total_value if hasattr(self, "summary_document_total_value") else None)!s}, '
+                f'summary_document_total_vat={(self.summary_document_total_vat if hasattr(self, "summary_document_total_vat") else None)!s}, '
+                f'summary_document_dd_amount={(self.summary_document_dd_amount if hasattr(self, "summary_document_dd_amount") else None)!s}, '
+                f'payment_date={(self.payment_date if hasattr(self, "payment_date") else None)!s}, '
+                f'payment_reference={(self.payment_reference if hasattr(self, "payment_reference") else None)!s}, '
+                f'payment_currency_code={(self.payment_currency_code if hasattr(self, "payment_currency_code") else None)!s}, '
+                f'payment_currency_symbol={(self.payment_currency_symbol if hasattr(self, "payment_currency_symbol") else None)!s}, '
+                f'amount_paid={(self.amount_paid if hasattr(self, "amount_paid") else None)!s}, '
+                f'balance={(self.balance if hasattr(self, "balance") else None)!s}, '
+                f'true_payment={(self.true_payment if hasattr(self, "true_payment") else None)!s}, '
+                f'prepaid_balance={(self.prepaid_balance if hasattr(self, "prepaid_balance") else None)!s}, '
+                f'local_currency_code={(self.local_currency_code if hasattr(self, "local_currency_code") else None)!s}, '
+                f'local_currency_symbol={(self.local_currency_symbol if hasattr(self, "local_currency_symbol") else None)!s}, '
+                f'local_currency_exchange_rate={(self.local_currency_exchange_rate if hasattr(self, "local_currency_exchange_rate") else None)!s})')

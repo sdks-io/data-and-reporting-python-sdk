@@ -13,8 +13,6 @@ class EIDDocument(object):
 
     """Implementation of the 'EIDDocument' model.
 
-    TODO: type model description here.
-
     Attributes:
         document_id (int): Technical identifier for the EID file. Should not
             be stored in database as it is not guaranteed to stay unchanged
@@ -148,3 +146,29 @@ class EIDDocument(object):
                    file_size,
                    document_status,
                    document_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'document_id={(self.document_id if hasattr(self, "document_id") else None)!r}, '
+                f'account_group_id={(self.account_group_id if hasattr(self, "account_group_id") else None)!r}, '
+                f'account_group_name={(self.account_group_name if hasattr(self, "account_group_name") else None)!r}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!r}, '
+                f'document_format={(self.document_format if hasattr(self, "document_format") else None)!r}, '
+                f'document_date={(self.document_date if hasattr(self, "document_date") else None)!r}, '
+                f'number_of_invoices={(self.number_of_invoices if hasattr(self, "number_of_invoices") else None)!r}, '
+                f'file_size={(self.file_size if hasattr(self, "file_size") else None)!r}, '
+                f'document_status={(self.document_status if hasattr(self, "document_status") else None)!r}, '
+                f'document_name={(self.document_name if hasattr(self, "document_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'document_id={(self.document_id if hasattr(self, "document_id") else None)!s}, '
+                f'account_group_id={(self.account_group_id if hasattr(self, "account_group_id") else None)!s}, '
+                f'account_group_name={(self.account_group_name if hasattr(self, "account_group_name") else None)!s}, '
+                f'document_type={(self.document_type if hasattr(self, "document_type") else None)!s}, '
+                f'document_format={(self.document_format if hasattr(self, "document_format") else None)!s}, '
+                f'document_date={(self.document_date if hasattr(self, "document_date") else None)!s}, '
+                f'number_of_invoices={(self.number_of_invoices if hasattr(self, "number_of_invoices") else None)!s}, '
+                f'file_size={(self.file_size if hasattr(self, "file_size") else None)!s}, '
+                f'document_status={(self.document_status if hasattr(self, "document_status") else None)!s}, '
+                f'document_name={(self.document_name if hasattr(self, "document_name") else None)!s})')

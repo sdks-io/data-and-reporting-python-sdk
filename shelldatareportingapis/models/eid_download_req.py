@@ -12,15 +12,14 @@ class EIDDownloadReq(object):
 
     """Implementation of the 'EIDDownloadReq' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Collecting Company Code of the selected payer.  
             Mandatory
-        eid_list (List[str]): TODO: type description here.
+        eid_list (List[str]): The model property of type List[str].
         account_group_country (int): ColCo code associated with the Account
             Group IDs of the given EID/EDI files. Mandatory
-        account_group_id_list (List[str]): TODO: type description here.
+        account_group_id_list (List[str]): The model property of type
+            List[str].
 
     """
 
@@ -78,3 +77,17 @@ class EIDDownloadReq(object):
                    eid_list,
                    account_group_country,
                    account_group_id_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!r}, '
+                f'eid_list={self.eid_list!r}, '
+                f'account_group_country={self.account_group_country!r}, '
+                f'account_group_id_list={self.account_group_id_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!s}, '
+                f'eid_list={self.eid_list!s}, '
+                f'account_group_country={self.account_group_country!s}, '
+                f'account_group_id_list={self.account_group_id_list!s})')

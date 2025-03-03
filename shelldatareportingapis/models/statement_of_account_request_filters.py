@@ -14,8 +14,6 @@ class StatementOfAccountRequestFilters(object):
 
     """Implementation of the 'StatementOfAccountRequestFilters' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Collecting Company Code (Shell Code) of the
             selected payer.   Optional If ColCo Id is passed else Mandatory.
@@ -40,7 +38,7 @@ class StatementOfAccountRequestFilters(object):
             in the API output.
         col_co_id (int): Collecting Company Id of the selected payer.  
             Optional If ColCo Code is passed else Mandatory.
-        accounts (List[Accounts]): TODO: type description here.
+        accounts (List[Accounts]): The model property of type List[Accounts].
 
     """
 
@@ -162,3 +160,29 @@ class StatementOfAccountRequestFilters(object):
                    include_account_invoices_summary,
                    col_co_id,
                    accounts)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'include_monthly_invoice_trend={(self.include_monthly_invoice_trend if hasattr(self, "include_monthly_invoice_trend") else None)!r}, '
+                f'include_past_statement_of_accounts={(self.include_past_statement_of_accounts if hasattr(self, "include_past_statement_of_accounts") else None)!r}, '
+                f'due_or_over_due_soa_documents_only={(self.due_or_over_due_soa_documents_only if hasattr(self, "due_or_over_due_soa_documents_only") else None)!r}, '
+                f'number_of_soa_documents={(self.number_of_soa_documents if hasattr(self, "number_of_soa_documents") else None)!r}, '
+                f'include_account_invoices_summary={(self.include_account_invoices_summary if hasattr(self, "include_account_invoices_summary") else None)!r}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'include_monthly_invoice_trend={(self.include_monthly_invoice_trend if hasattr(self, "include_monthly_invoice_trend") else None)!s}, '
+                f'include_past_statement_of_accounts={(self.include_past_statement_of_accounts if hasattr(self, "include_past_statement_of_accounts") else None)!s}, '
+                f'due_or_over_due_soa_documents_only={(self.due_or_over_due_soa_documents_only if hasattr(self, "due_or_over_due_soa_documents_only") else None)!s}, '
+                f'number_of_soa_documents={(self.number_of_soa_documents if hasattr(self, "number_of_soa_documents") else None)!s}, '
+                f'include_account_invoices_summary={(self.include_account_invoices_summary if hasattr(self, "include_account_invoices_summary") else None)!s}, '
+                f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
+                f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s})')

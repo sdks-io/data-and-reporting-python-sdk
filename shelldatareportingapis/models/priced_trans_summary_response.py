@@ -15,13 +15,12 @@ class PricedTransSummaryResponse(object):
 
     """Implementation of the 'PricedTransSummaryResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         transactions_summary
-            (List[PricedTransSummaryResponseTransactionsSummaryItems]): TODO:
-            type description here.
-        error (ErrorStatus): TODO: type description here.
+            (List[PricedTransSummaryResponseTransactionsSummaryItems]): The
+            model property of type
+            List[PricedTransSummaryResponseTransactionsSummaryItems].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
 
     """
@@ -83,3 +82,15 @@ class PricedTransSummaryResponse(object):
         return cls(transactions_summary,
                    error,
                    request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions_summary={(self.transactions_summary if hasattr(self, "transactions_summary") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'transactions_summary={(self.transactions_summary if hasattr(self, "transactions_summary") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

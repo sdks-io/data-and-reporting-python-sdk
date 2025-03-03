@@ -325,7 +325,7 @@ class CustomerController(BaseController):
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (AccountRequest, optional): TODO: type description here.
+            body (AccountRequest, optional): The request body parameter.
 
         Returns:
             AccountResponse: Response from the API. List of fuel cards. The

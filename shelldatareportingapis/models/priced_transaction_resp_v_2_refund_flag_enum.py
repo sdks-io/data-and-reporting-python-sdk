@@ -15,8 +15,8 @@ class PricedTransactionRespV2RefundFlagEnum(object):
     Flag to check if there is any refund
 
     Attributes:
-        Y: TODO: type description here.
-        N: TODO: type description here.
+        Y: The enum member of type str.
+        N: The enum member of type str.
 
     """
     Y = 'Y'

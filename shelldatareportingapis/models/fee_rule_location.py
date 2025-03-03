@@ -13,8 +13,6 @@ class FeeRuleLocation(object):
 
     """Implementation of the 'FeeRuleLocation' model.
 
-    TODO: type model description here.
-
     Attributes:
         delco_id (str): Delco Identifier.
         country (str): Country name.
@@ -144,3 +142,29 @@ class FeeRuleLocation(object):
                    site_code,
                    site_id,
                    site_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'delco_id={(self.delco_id if hasattr(self, "delco_id") else None)!r}, '
+                f'country={(self.country if hasattr(self, "country") else None)!r}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!r}, '
+                f'fuel_network_id={(self.fuel_network_id if hasattr(self, "fuel_network_id") else None)!r}, '
+                f'network_name={(self.network_name if hasattr(self, "network_name") else None)!r}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!r}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!r}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!r}, '
+                f'site_id={(self.site_id if hasattr(self, "site_id") else None)!r}, '
+                f'site_name={(self.site_name if hasattr(self, "site_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'delco_id={(self.delco_id if hasattr(self, "delco_id") else None)!s}, '
+                f'country={(self.country if hasattr(self, "country") else None)!s}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!s}, '
+                f'fuel_network_id={(self.fuel_network_id if hasattr(self, "fuel_network_id") else None)!s}, '
+                f'network_name={(self.network_name if hasattr(self, "network_name") else None)!s}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!s}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!s}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!s}, '
+                f'site_id={(self.site_id if hasattr(self, "site_id") else None)!s}, '
+                f'site_name={(self.site_name if hasattr(self, "site_name") else None)!s})')

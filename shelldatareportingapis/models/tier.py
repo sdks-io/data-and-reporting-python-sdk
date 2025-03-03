@@ -13,8 +13,6 @@ class Tier(object):
 
     """Implementation of the 'Tier' model.
 
-    TODO: type model description here.
-
     Attributes:
         tier_price_list_id (int): The price list if reference price is list
             price. Only used when the Price Rule category is set to. ‘Tiered
@@ -143,3 +141,27 @@ class Tier(object):
                    discount_value,
                    price_per_unit,
                    price_per_unit_after_discount)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_price_list_id={(self.tier_price_list_id if hasattr(self, "tier_price_list_id") else None)!r}, '
+                f'price_list_description={(self.price_list_description if hasattr(self, "price_list_description") else None)!r}, '
+                f'tier_min={(self.tier_min if hasattr(self, "tier_min") else None)!r}, '
+                f'tier_max={(self.tier_max if hasattr(self, "tier_max") else None)!r}, '
+                f'tiered_pricing_group_name={(self.tiered_pricing_group_name if hasattr(self, "tiered_pricing_group_name") else None)!r}, '
+                f'tiered_pricing_group_period={(self.tiered_pricing_group_period if hasattr(self, "tiered_pricing_group_period") else None)!r}, '
+                f'discount_value={(self.discount_value if hasattr(self, "discount_value") else None)!r}, '
+                f'price_per_unit={(self.price_per_unit if hasattr(self, "price_per_unit") else None)!r}, '
+                f'price_per_unit_after_discount={(self.price_per_unit_after_discount if hasattr(self, "price_per_unit_after_discount") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_price_list_id={(self.tier_price_list_id if hasattr(self, "tier_price_list_id") else None)!s}, '
+                f'price_list_description={(self.price_list_description if hasattr(self, "price_list_description") else None)!s}, '
+                f'tier_min={(self.tier_min if hasattr(self, "tier_min") else None)!s}, '
+                f'tier_max={(self.tier_max if hasattr(self, "tier_max") else None)!s}, '
+                f'tiered_pricing_group_name={(self.tiered_pricing_group_name if hasattr(self, "tiered_pricing_group_name") else None)!s}, '
+                f'tiered_pricing_group_period={(self.tiered_pricing_group_period if hasattr(self, "tiered_pricing_group_period") else None)!s}, '
+                f'discount_value={(self.discount_value if hasattr(self, "discount_value") else None)!s}, '
+                f'price_per_unit={(self.price_per_unit if hasattr(self, "price_per_unit") else None)!s}, '
+                f'price_per_unit_after_discount={(self.price_per_unit_after_discount if hasattr(self, "price_per_unit_after_discount") else None)!s})')

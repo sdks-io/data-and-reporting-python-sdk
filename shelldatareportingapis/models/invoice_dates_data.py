@@ -13,8 +13,6 @@ class InvoiceDatesData(object):
 
     """Implementation of the 'InvoiceDatesData' model.
 
-    TODO: type model description here.
-
     Attributes:
         invoice_numbers (List[str]): List of Invoice numbers.
         invoice_dates (List[str]): List of Invoicing dates. Format: yyyyMMdd
@@ -67,3 +65,13 @@ class InvoiceDatesData(object):
         # Return an object of this model
         return cls(invoice_numbers,
                    invoice_dates)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'invoice_numbers={(self.invoice_numbers if hasattr(self, "invoice_numbers") else None)!r}, '
+                f'invoice_dates={(self.invoice_dates if hasattr(self, "invoice_dates") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'invoice_numbers={(self.invoice_numbers if hasattr(self, "invoice_numbers") else None)!s}, '
+                f'invoice_dates={(self.invoice_dates if hasattr(self, "invoice_dates") else None)!s})')

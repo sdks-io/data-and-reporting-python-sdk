@@ -13,8 +13,6 @@ class FeeRuleTier(object):
 
     """Implementation of the 'FeeRuleTier' model.
 
-    TODO: type model description here.
-
     Attributes:
         tier_minimum (int): Minimum consumption configured in the tier.
         value (float): Bonus value for the tier.
@@ -81,3 +79,15 @@ class FeeRuleTier(object):
         return cls(tier_minimum,
                    value,
                    tier_maximum)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_minimum={(self.tier_minimum if hasattr(self, "tier_minimum") else None)!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r}, '
+                f'tier_maximum={(self.tier_maximum if hasattr(self, "tier_maximum") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'tier_minimum={(self.tier_minimum if hasattr(self, "tier_minimum") else None)!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s}, '
+                f'tier_maximum={(self.tier_maximum if hasattr(self, "tier_maximum") else None)!s})')

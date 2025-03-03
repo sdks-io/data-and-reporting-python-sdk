@@ -14,15 +14,14 @@ class SearchDocumentsResponse(object):
 
     """Implementation of the 'SearchDocumentsResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         request_id (str): UUID (according to RFC 4122 standards) for requests
             and responses. This will be played back in the response from the
             request.
         status (str): Indicates overall status of the request. Allowed values:
             SUCCES, FAILED
-        data (List[SearchDocumentsInvoice]): TODO: type description here.
+        data (List[SearchDocumentsInvoice]): The model property of type
+            List[SearchDocumentsInvoice].
         total_records (int): Total number of elements corresponding to the
             request
         total_records_on_page (int): Number of elements in the page content.
@@ -117,3 +116,23 @@ class SearchDocumentsResponse(object):
                    total_records_on_page,
                    is_first_page,
                    is_last_page)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'data={(self.data if hasattr(self, "data") else None)!r}, '
+                f'total_records={(self.total_records if hasattr(self, "total_records") else None)!r}, '
+                f'total_records_on_page={(self.total_records_on_page if hasattr(self, "total_records_on_page") else None)!r}, '
+                f'is_first_page={(self.is_first_page if hasattr(self, "is_first_page") else None)!r}, '
+                f'is_last_page={(self.is_last_page if hasattr(self, "is_last_page") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'data={(self.data if hasattr(self, "data") else None)!s}, '
+                f'total_records={(self.total_records if hasattr(self, "total_records") else None)!s}, '
+                f'total_records_on_page={(self.total_records_on_page if hasattr(self, "total_records_on_page") else None)!s}, '
+                f'is_first_page={(self.is_first_page if hasattr(self, "is_first_page") else None)!s}, '
+                f'is_last_page={(self.is_last_page if hasattr(self, "is_last_page") else None)!s})')

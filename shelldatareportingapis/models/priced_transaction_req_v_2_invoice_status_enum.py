@@ -16,9 +16,9 @@ class PricedTransactionReqV2InvoiceStatusEnum(object):
     Invoiced, U – Un-Invoiced, A – All
 
     Attributes:
-        I: TODO: type description here.
-        U: TODO: type description here.
-        A: TODO: type description here.
+        I: The enum member of type str.
+        U: The enum member of type str.
+        A: The enum member of type str.
 
     """
     I = 'I'

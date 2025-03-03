@@ -15,13 +15,11 @@ class UpdateOdometerResponse(object):
 
     """Implementation of the 'UpdateOdometerResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         service_reference (int): Main reference number for tracking.
-        update_odometer_references (List[UpdateOdometerReference]): TODO: type
-            description here.
-        error (ErrorStatus): TODO: type description here.
+        update_odometer_references (List[UpdateOdometerReference]): The model
+            property of type List[UpdateOdometerReference].
+        error (ErrorStatus): The model property of type ErrorStatus.
         request_id (str): API Request Id
 
     """
@@ -90,3 +88,17 @@ class UpdateOdometerResponse(object):
                    update_odometer_references,
                    error,
                    request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_reference={(self.service_reference if hasattr(self, "service_reference") else None)!r}, '
+                f'update_odometer_references={(self.update_odometer_references if hasattr(self, "update_odometer_references") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_reference={(self.service_reference if hasattr(self, "service_reference") else None)!s}, '
+                f'update_odometer_references={(self.update_odometer_references if hasattr(self, "update_odometer_references") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

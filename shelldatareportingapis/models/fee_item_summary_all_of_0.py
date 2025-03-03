@@ -13,8 +13,6 @@ class FeeItemSummaryAllOf0(object):
 
     """Implementation of the 'FeeItemSummaryAllOf0' model.
 
-    TODO: type model description here.
-
     Attributes:
         fee_type_group (str): Fee type group in under which the Fee item is
             generated.
@@ -174,3 +172,35 @@ class FeeItemSummaryAllOf0(object):
                    total_invoice_vat_amount,
                    invoice_currency_code,
                    invoice_currency_symbol)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_type_group={(self.fee_type_group if hasattr(self, "fee_type_group") else None)!r}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r}, '
+                f'total_quantity={(self.total_quantity if hasattr(self, "total_quantity") else None)!r}, '
+                f'total_invoice_net_amount={(self.total_invoice_net_amount if hasattr(self, "total_invoice_net_amount") else None)!r}, '
+                f'total_invoice_gross_amount={(self.total_invoice_gross_amount if hasattr(self, "total_invoice_gross_amount") else None)!r}, '
+                f'total_invoice_vat_amount={(self.total_invoice_vat_amount if hasattr(self, "total_invoice_vat_amount") else None)!r}, '
+                f'invoice_currency_code={(self.invoice_currency_code if hasattr(self, "invoice_currency_code") else None)!r}, '
+                f'invoice_currency_symbol={(self.invoice_currency_symbol if hasattr(self, "invoice_currency_symbol") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'fee_type_group={(self.fee_type_group if hasattr(self, "fee_type_group") else None)!s}, '
+                f'fee_type_id={(self.fee_type_id if hasattr(self, "fee_type_id") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s}, '
+                f'total_quantity={(self.total_quantity if hasattr(self, "total_quantity") else None)!s}, '
+                f'total_invoice_net_amount={(self.total_invoice_net_amount if hasattr(self, "total_invoice_net_amount") else None)!s}, '
+                f'total_invoice_gross_amount={(self.total_invoice_gross_amount if hasattr(self, "total_invoice_gross_amount") else None)!s}, '
+                f'total_invoice_vat_amount={(self.total_invoice_vat_amount if hasattr(self, "total_invoice_vat_amount") else None)!s}, '
+                f'invoice_currency_code={(self.invoice_currency_code if hasattr(self, "invoice_currency_code") else None)!s}, '
+                f'invoice_currency_symbol={(self.invoice_currency_symbol if hasattr(self, "invoice_currency_symbol") else None)!s})')

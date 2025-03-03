@@ -13,8 +13,6 @@ class FeeRuleProduct(object):
 
     """Implementation of the 'FeeRuleProduct' model.
 
-    TODO: type model description here.
-
     Attributes:
         product_group_id (int): Product Group Id
         product_group_name (str): Product Group name
@@ -99,3 +97,19 @@ class FeeRuleProduct(object):
                    product_code,
                    product_id,
                    product_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s})')

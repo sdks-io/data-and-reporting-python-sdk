@@ -13,8 +13,6 @@ class RecentTransactionReq(object):
 
     """Implementation of the 'RecentTransactionReq' model.
 
-    TODO: type model description here.
-
     Attributes:
         col_co_code (int): Three character Collecting Company Code (Shell
             Code) of the selected payer
@@ -194,3 +192,39 @@ class RecentTransactionReq(object):
                    include_declines,
                    card_issuer_name,
                    column_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!r}, '
+                f'payer_number={self.payer_number!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!r}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!r}, '
+                f'from_date_time={(self.from_date_time if hasattr(self, "from_date_time") else None)!r}, '
+                f'to_date_time={(self.to_date_time if hasattr(self, "to_date_time") else None)!r}, '
+                f'transaction_status={(self.transaction_status if hasattr(self, "transaction_status") else None)!r}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r}, '
+                f'vehicle_registration_number={(self.vehicle_registration_number if hasattr(self, "vehicle_registration_number") else None)!r}, '
+                f'include_declines={(self.include_declines if hasattr(self, "include_declines") else None)!r}, '
+                f'card_issuer_name={(self.card_issuer_name if hasattr(self, "card_issuer_name") else None)!r}, '
+                f'column_list={(self.column_list if hasattr(self, "column_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'col_co_code={self.col_co_code!s}, '
+                f'payer_number={self.payer_number!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'purchased_in_country={(self.purchased_in_country if hasattr(self, "purchased_in_country") else None)!s}, '
+                f'card_pan={(self.card_pan if hasattr(self, "card_pan") else None)!s}, '
+                f'from_date_time={(self.from_date_time if hasattr(self, "from_date_time") else None)!s}, '
+                f'to_date_time={(self.to_date_time if hasattr(self, "to_date_time") else None)!s}, '
+                f'transaction_status={(self.transaction_status if hasattr(self, "transaction_status") else None)!s}, '
+                f'fuel_only={(self.fuel_only if hasattr(self, "fuel_only") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s}, '
+                f'vehicle_registration_number={(self.vehicle_registration_number if hasattr(self, "vehicle_registration_number") else None)!s}, '
+                f'include_declines={(self.include_declines if hasattr(self, "include_declines") else None)!s}, '
+                f'card_issuer_name={(self.card_issuer_name if hasattr(self, "card_issuer_name") else None)!s}, '
+                f'column_list={(self.column_list if hasattr(self, "column_list") else None)!s})')

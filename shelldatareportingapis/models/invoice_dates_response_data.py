@@ -14,14 +14,13 @@ class InvoiceDatesResponseData(object):
 
     """Implementation of the 'InvoiceDatesResponseData' model.
 
-    TODO: type model description here.
-
     Attributes:
         request_id (str): Unique request identifier passed from end user. This
             identifier helps in tracing a transaction
         status (str): Indicates overall status of the request. Allowed values:
             SUCCES, FAILED
-        data (List[InvoiceDatesData]): TODO: type description here.
+        data (List[InvoiceDatesData]): The model property of type
+            List[InvoiceDatesData].
 
     """
 
@@ -82,3 +81,15 @@ class InvoiceDatesResponseData(object):
         return cls(request_id,
                    status,
                    data)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'data={(self.data if hasattr(self, "data") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'data={(self.data if hasattr(self, "data") else None)!s})')

@@ -13,8 +13,6 @@ class SearchStatementOfAccount(object):
 
     """Implementation of the 'SearchStatementOfAccount' model.
 
-    TODO: type model description here.
-
     Attributes:
         statement_of_account_id (int): Statement of account identifier
         so_a_reference_number (str): Statement of account reference
@@ -191,3 +189,37 @@ class SearchStatementOfAccount(object):
                    status,
                    gross_amount_customer_currency,
                    document_reference_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!r}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!r}, '
+                f'statement_date={(self.statement_date if hasattr(self, "statement_date") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!r}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!r}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'gross_amount_customer_currency={(self.gross_amount_customer_currency if hasattr(self, "gross_amount_customer_currency") else None)!r}, '
+                f'document_reference_number={(self.document_reference_number if hasattr(self, "document_reference_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'statement_of_account_id={(self.statement_of_account_id if hasattr(self, "statement_of_account_id") else None)!s}, '
+                f'so_a_reference_number={(self.so_a_reference_number if hasattr(self, "so_a_reference_number") else None)!s}, '
+                f'statement_date={(self.statement_date if hasattr(self, "statement_date") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
+                f'amount_due={(self.amount_due if hasattr(self, "amount_due") else None)!s}, '
+                f'amount_overdue={(self.amount_overdue if hasattr(self, "amount_overdue") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'due_date={(self.due_date if hasattr(self, "due_date") else None)!s}, '
+                f'invoiced_on_behalf_of={(self.invoiced_on_behalf_of if hasattr(self, "invoiced_on_behalf_of") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'gross_amount_customer_currency={(self.gross_amount_customer_currency if hasattr(self, "gross_amount_customer_currency") else None)!s}, '
+                f'document_reference_number={(self.document_reference_number if hasattr(self, "document_reference_number") else None)!s})')

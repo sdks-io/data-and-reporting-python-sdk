@@ -86,3 +86,15 @@ class InvoiceSearchAdditionalDocument(object):
         return cls(reference,
                    mtype,
                    is_applicable)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'is_applicable={(self.is_applicable if hasattr(self, "is_applicable") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'is_applicable={(self.is_applicable if hasattr(self, "is_applicable") else None)!s})')

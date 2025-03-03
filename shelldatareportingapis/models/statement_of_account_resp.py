@@ -18,19 +18,17 @@ class StatementOfAccountResp(object):
 
     """Implementation of the 'StatementOfAccountResp' model.
 
-    TODO: type model description here.
-
     Attributes:
         last_statement_of_account (LastStatementOfAccount): Latest statement
             of the account generated for the given Payer.
-        monthly_invoice_trend (List[MonthlyInvoiceTrend]): TODO: type
-            description here.
-        past_statement_of_accounts (List[PastStatementOfAccounts]): TODO: type
-            description here.
-        payments_since_last_soa (List[PaymentsSinceLastSOA]): TODO: type
-            description here.
-        invoices_summaries (List[InvoicesSummaries]): TODO: type description
-            here.
+        monthly_invoice_trend (List[MonthlyInvoiceTrend]): The model property
+            of type List[MonthlyInvoiceTrend].
+        past_statement_of_accounts (List[PastStatementOfAccounts]): The model
+            property of type List[PastStatementOfAccounts].
+        payments_since_last_soa (List[PaymentsSinceLastSOA]): The model
+            property of type List[PaymentsSinceLastSOA].
+        invoices_summaries (List[InvoicesSummaries]): The model property of
+            type List[InvoicesSummaries].
 
     """
 
@@ -120,3 +118,19 @@ class StatementOfAccountResp(object):
                    past_statement_of_accounts,
                    payments_since_last_soa,
                    invoices_summaries)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'last_statement_of_account={(self.last_statement_of_account if hasattr(self, "last_statement_of_account") else None)!r}, '
+                f'monthly_invoice_trend={(self.monthly_invoice_trend if hasattr(self, "monthly_invoice_trend") else None)!r}, '
+                f'past_statement_of_accounts={(self.past_statement_of_accounts if hasattr(self, "past_statement_of_accounts") else None)!r}, '
+                f'payments_since_last_soa={(self.payments_since_last_soa if hasattr(self, "payments_since_last_soa") else None)!r}, '
+                f'invoices_summaries={(self.invoices_summaries if hasattr(self, "invoices_summaries") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'last_statement_of_account={(self.last_statement_of_account if hasattr(self, "last_statement_of_account") else None)!s}, '
+                f'monthly_invoice_trend={(self.monthly_invoice_trend if hasattr(self, "monthly_invoice_trend") else None)!s}, '
+                f'past_statement_of_accounts={(self.past_statement_of_accounts if hasattr(self, "past_statement_of_accounts") else None)!s}, '
+                f'payments_since_last_soa={(self.payments_since_last_soa if hasattr(self, "payments_since_last_soa") else None)!s}, '
+                f'invoices_summaries={(self.invoices_summaries if hasattr(self, "invoices_summaries") else None)!s})')

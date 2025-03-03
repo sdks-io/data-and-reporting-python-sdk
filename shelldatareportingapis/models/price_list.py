@@ -14,8 +14,6 @@ class PriceList(object):
 
     """Implementation of the 'PriceList' model.
 
-    TODO: type model description here.
-
     Attributes:
         date (str): Date on which the price is applicable. Format: yyyyMMdd
             E.g.: 20180131
@@ -64,7 +62,7 @@ class PriceList(object):
         price_per_unit_after_discount (float): Price per unit after discount
         vat_percentage (float): VAT Percentage
         price_rule_category_id (int): PriceRuleCategoryId
-        tiers (List[Tier]): TODO: type description here.
+        tiers (List[Tier]): The model property of type List[Tier].
 
     """
 
@@ -394,3 +392,81 @@ class PriceList(object):
                    vat_percentage,
                    price_rule_category_id,
                    tiers)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!r}, '
+                f'day={(self.day if hasattr(self, "day") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'price_list_id={(self.price_list_id if hasattr(self, "price_list_id") else None)!r}, '
+                f'price_list_description={(self.price_list_description if hasattr(self, "price_list_description") else None)!r}, '
+                f'price_rule_id={(self.price_rule_id if hasattr(self, "price_rule_id") else None)!r}, '
+                f'price_rule_name={(self.price_rule_name if hasattr(self, "price_rule_name") else None)!r}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!r}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!r}, '
+                f'country={(self.country if hasattr(self, "country") else None)!r}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!r}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!r}, '
+                f'price_per_unit={(self.price_per_unit if hasattr(self, "price_per_unit") else None)!r}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'price_type={(self.price_type if hasattr(self, "price_type") else None)!r}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!r}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!r}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!r}, '
+                f'site_id={(self.site_id if hasattr(self, "site_id") else None)!r}, '
+                f'site_name={(self.site_name if hasattr(self, "site_name") else None)!r}, '
+                f'fuel_network_id={(self.fuel_network_id if hasattr(self, "fuel_network_id") else None)!r}, '
+                f'network_name={(self.network_name if hasattr(self, "network_name") else None)!r}, '
+                f'price_rule_delco_id={(self.price_rule_delco_id if hasattr(self, "price_rule_delco_id") else None)!r}, '
+                f'price_rule_delco_name={(self.price_rule_delco_name if hasattr(self, "price_rule_delco_name") else None)!r}, '
+                f'price_rule_country={(self.price_rule_country if hasattr(self, "price_rule_country") else None)!r}, '
+                f'price_rule_country_code={(self.price_rule_country_code if hasattr(self, "price_rule_country_code") else None)!r}, '
+                f'price_rule_basis_id={(self.price_rule_basis_id if hasattr(self, "price_rule_basis_id") else None)!r}, '
+                f'discount_value={(self.discount_value if hasattr(self, "discount_value") else None)!r}, '
+                f'price_per_unit_after_discount={(self.price_per_unit_after_discount if hasattr(self, "price_per_unit_after_discount") else None)!r}, '
+                f'vat_percentage={(self.vat_percentage if hasattr(self, "vat_percentage") else None)!r}, '
+                f'price_rule_category_id={(self.price_rule_category_id if hasattr(self, "price_rule_category_id") else None)!r}, '
+                f'tiers={(self.tiers if hasattr(self, "tiers") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!s}, '
+                f'day={(self.day if hasattr(self, "day") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'price_list_id={(self.price_list_id if hasattr(self, "price_list_id") else None)!s}, '
+                f'price_list_description={(self.price_list_description if hasattr(self, "price_list_description") else None)!s}, '
+                f'price_rule_id={(self.price_rule_id if hasattr(self, "price_rule_id") else None)!s}, '
+                f'price_rule_name={(self.price_rule_name if hasattr(self, "price_rule_name") else None)!s}, '
+                f'del_co_id={(self.del_co_id if hasattr(self, "del_co_id") else None)!s}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!s}, '
+                f'country={(self.country if hasattr(self, "country") else None)!s}, '
+                f'product_group_id={(self.product_group_id if hasattr(self, "product_group_id") else None)!s}, '
+                f'product_group_name={(self.product_group_name if hasattr(self, "product_group_name") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'product_name={(self.product_name if hasattr(self, "product_name") else None)!s}, '
+                f'price_per_unit={(self.price_per_unit if hasattr(self, "price_per_unit") else None)!s}, '
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'price_type={(self.price_type if hasattr(self, "price_type") else None)!s}, '
+                f'site_group_id={(self.site_group_id if hasattr(self, "site_group_id") else None)!s}, '
+                f'site_group_name={(self.site_group_name if hasattr(self, "site_group_name") else None)!s}, '
+                f'site_code={(self.site_code if hasattr(self, "site_code") else None)!s}, '
+                f'site_id={(self.site_id if hasattr(self, "site_id") else None)!s}, '
+                f'site_name={(self.site_name if hasattr(self, "site_name") else None)!s}, '
+                f'fuel_network_id={(self.fuel_network_id if hasattr(self, "fuel_network_id") else None)!s}, '
+                f'network_name={(self.network_name if hasattr(self, "network_name") else None)!s}, '
+                f'price_rule_delco_id={(self.price_rule_delco_id if hasattr(self, "price_rule_delco_id") else None)!s}, '
+                f'price_rule_delco_name={(self.price_rule_delco_name if hasattr(self, "price_rule_delco_name") else None)!s}, '
+                f'price_rule_country={(self.price_rule_country if hasattr(self, "price_rule_country") else None)!s}, '
+                f'price_rule_country_code={(self.price_rule_country_code if hasattr(self, "price_rule_country_code") else None)!s}, '
+                f'price_rule_basis_id={(self.price_rule_basis_id if hasattr(self, "price_rule_basis_id") else None)!s}, '
+                f'discount_value={(self.discount_value if hasattr(self, "discount_value") else None)!s}, '
+                f'price_per_unit_after_discount={(self.price_per_unit_after_discount if hasattr(self, "price_per_unit_after_discount") else None)!s}, '
+                f'vat_percentage={(self.vat_percentage if hasattr(self, "vat_percentage") else None)!s}, '
+                f'price_rule_category_id={(self.price_rule_category_id if hasattr(self, "price_rule_category_id") else None)!s}, '
+                f'tiers={(self.tiers if hasattr(self, "tiers") else None)!s})')

@@ -13,8 +13,6 @@ class PricingHistory(object):
 
     """Implementation of the 'PricingHistory' model.
 
-    TODO: type model description here.
-
     Attributes:
         from_date (str): Pricing History Period Start date and should be the
             first date of the month. Format: YYYYMMDD
@@ -105,3 +103,19 @@ class PricingHistory(object):
                    fees_rule_id,
                    fees_rule_description,
                    total_volume)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r}, '
+                f'fees_rule_id={(self.fees_rule_id if hasattr(self, "fees_rule_id") else None)!r}, '
+                f'fees_rule_description={(self.fees_rule_description if hasattr(self, "fees_rule_description") else None)!r}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
+                f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s}, '
+                f'fees_rule_id={(self.fees_rule_id if hasattr(self, "fees_rule_id") else None)!s}, '
+                f'fees_rule_description={(self.fees_rule_description if hasattr(self, "fees_rule_description") else None)!s}, '
+                f'total_volume={(self.total_volume if hasattr(self, "total_volume") else None)!s})')

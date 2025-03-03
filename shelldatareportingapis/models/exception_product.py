@@ -13,8 +13,6 @@ class ExceptionProduct(object):
 
     """Implementation of the 'ExceptionProduct' model.
 
-    TODO: type model description here.
-
     Attributes:
         productid (int): Product Id Optional if ProductCode is passed else
             Mandatory.
@@ -74,3 +72,13 @@ class ExceptionProduct(object):
         # Return an object of this model
         return cls(productid,
                    product_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'productid={(self.productid if hasattr(self, "productid") else None)!r}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'productid={(self.productid if hasattr(self, "productid") else None)!s}, '
+                f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s})')

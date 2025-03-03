@@ -14,12 +14,11 @@ class InvoiceSearchRequest(object):
 
     """Implementation of the 'InvoiceSearchRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filters (InvoiceSearchRequestFilters): TODO: type description here.
-        page_size (int): TODO: type description here.
-        page (int): TODO: type description here.
+        filters (InvoiceSearchRequestFilters): The model property of type
+            InvoiceSearchRequestFilters.
+        page_size (int): The model property of type int.
+        page (int): The model property of type int.
         sort_by (List[int]): Sort option –  1.    InvoiceDate ASC  2.   
             InvoiceDate DESC  3.    NetAmountCustomerCurrency ASC  4.   
             NetAmountCustomerCurrency DESC  Optional  Note:  This option uses
@@ -90,3 +89,17 @@ class InvoiceSearchRequest(object):
                    page_size,
                    page,
                    sort_by)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!r}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r}, '
+                f'sort_by={(self.sort_by if hasattr(self, "sort_by") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filters={(self.filters if hasattr(self, "filters") else None)!s}, '
+                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s}, '
+                f'sort_by={(self.sort_by if hasattr(self, "sort_by") else None)!s})')

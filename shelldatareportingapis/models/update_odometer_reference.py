@@ -13,8 +13,6 @@ class UpdateOdometerReference(object):
 
     """Implementation of the 'UpdateOdometerReference' model.
 
-    TODO: type model description here.
-
     Attributes:
         sales_item_id (int): SalesItemId of input parameter
         update_odometer_reference_id (int): Reference number for each
@@ -73,3 +71,13 @@ class UpdateOdometerReference(object):
         # Return an object of this model
         return cls(sales_item_id,
                    update_odometer_reference_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'sales_item_id={(self.sales_item_id if hasattr(self, "sales_item_id") else None)!r}, '
+                f'update_odometer_reference_id={(self.update_odometer_reference_id if hasattr(self, "update_odometer_reference_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'sales_item_id={(self.sales_item_id if hasattr(self, "sales_item_id") else None)!s}, '
+                f'update_odometer_reference_id={(self.update_odometer_reference_id if hasattr(self, "update_odometer_reference_id") else None)!s})')

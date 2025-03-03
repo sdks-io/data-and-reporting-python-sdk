@@ -13,12 +13,11 @@ class RecentTransactionRequest(object):
 
     """Implementation of the 'RecentTransactionRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         page_size (int): Specify the number of records to returned; Max 1000
         page (int): Specify the page of results to be returned.
-        filters (RecentTransactionReq): TODO: type description here.
+        filters (RecentTransactionReq): The model property of type
+            RecentTransactionReq.
 
     """
 
@@ -66,3 +65,15 @@ class RecentTransactionRequest(object):
         return cls(page_size,
                    page,
                    filters)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'page_size={self.page_size!r}, '
+                f'page={self.page!r}, '
+                f'filters={self.filters!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'page_size={self.page_size!s}, '
+                f'page={self.page!s}, '
+                f'filters={self.filters!s})')

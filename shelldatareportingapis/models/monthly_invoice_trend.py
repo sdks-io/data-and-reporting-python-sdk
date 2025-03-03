@@ -13,8 +13,6 @@ class MonthlyInvoiceTrend(object):
 
     """Implementation of the 'MonthlyInvoiceTrend' model.
 
-    TODO: type model description here.
-
     Attributes:
         currency_code (str): ISO code of invoice currency.   Example: EUR
         currency_symbol (str): Symbol of invoice currency.   Example: €
@@ -108,3 +106,21 @@ class MonthlyInvoiceTrend(object):
                    total_net_amount,
                    total_vat_amount,
                    year)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!r}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!r}, '
+                f'month={(self.month if hasattr(self, "month") else None)!r}, '
+                f'total_net_amount={(self.total_net_amount if hasattr(self, "total_net_amount") else None)!r}, '
+                f'total_vat_amount={(self.total_vat_amount if hasattr(self, "total_vat_amount") else None)!r}, '
+                f'year={(self.year if hasattr(self, "year") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'currency_code={(self.currency_code if hasattr(self, "currency_code") else None)!s}, '
+                f'currency_symbol={(self.currency_symbol if hasattr(self, "currency_symbol") else None)!s}, '
+                f'month={(self.month if hasattr(self, "month") else None)!s}, '
+                f'total_net_amount={(self.total_net_amount if hasattr(self, "total_net_amount") else None)!s}, '
+                f'total_vat_amount={(self.total_vat_amount if hasattr(self, "total_vat_amount") else None)!s}, '
+                f'year={(self.year if hasattr(self, "year") else None)!s})')
