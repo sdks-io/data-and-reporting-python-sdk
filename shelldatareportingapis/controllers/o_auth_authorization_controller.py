@@ -24,10 +24,10 @@ class OAuthAuthorizationController(BaseController):
     def __init__(self, config):
         super(OAuthAuthorizationController, self).__init__(config)
 
-    def request_token_bearer_token(self,
-                                   authorization,
-                                   scope=None,
-                                   _optional_form_parameters=None):
+    def request_token(self,
+                      authorization,
+                      scope=None,
+                      _optional_form_parameters=None):
         """Does a POST request to /v2/oauth/token.
 
         Create a new OAuth 2 token.

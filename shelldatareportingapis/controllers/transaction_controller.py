@@ -15,21 +15,19 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from shelldatareportingapis.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from shelldatareportingapis.models.priced_transaction_response import PricedTransactionResponse
-from shelldatareportingapis.models.priced_trans_summary_response import PricedTransSummaryResponse
-from shelldatareportingapis.models.multi_priced_transaction_response import MultiPricedTransactionResponse
-from shelldatareportingapis.models.card_usage_summary_response import CardUsageSummaryResponse
-from shelldatareportingapis.models.volume_based_bonus_response import VolumeBasedBonusResponse
-from shelldatareportingapis.models.volume_based_pricing_response import VolumeBasedPricingResponse
-from shelldatareportingapis.models.transaction_fees_response import TransactionFeesResponse
+from shelldatareportingapis.models.priced_transaction_res import PricedTransactionRes
+from shelldatareportingapis.models.priced_trans_summary_resp import PricedTransSummaryResp
+from shelldatareportingapis.models.multi_priced_transaction_res import MultiPricedTransactionRes
+from shelldatareportingapis.models.card_usage_summary_res import CardUsageSummaryRes
+from shelldatareportingapis.models.volume_based_bonus_res import VolumeBasedBonusRes
+from shelldatareportingapis.models.volume_based_pricing_res import VolumeBasedPricingRes
+from shelldatareportingapis.models.transaction_fees_res import TransactionFeesRes
 from shelldatareportingapis.models.fee_summary_response import FeeSummaryResponse
 from shelldatareportingapis.models.fuel_consumption_response import FuelConsumptionResponse
-from shelldatareportingapis.models.update_odometer_response import UpdateOdometerResponse
-from shelldatareportingapis.models.transaction_exceptions_response import TransactionExceptionsResponse
+from shelldatareportingapis.models.update_odometer_resp import UpdateOdometerResp
+from shelldatareportingapis.models.transaction_exceptions_res import TransactionExceptionsRes
 from shelldatareportingapis.models.recent_transactions_response import RecentTransactionsResponse
 from shelldatareportingapis.models.priced_transaction_response_v_2 import PricedTransactionResponseV2
-from shelldatareportingapis.exceptions.default_error_exception import DefaultErrorException
-from shelldatareportingapis.exceptions.error_user_access_error_1_exception import ErrorUserAccessError1Exception
 from shelldatareportingapis.exceptions.error_object_exception import ErrorObjectException
 
 
@@ -40,10 +38,9 @@ class TransactionController(BaseController):
         super(TransactionController, self).__init__(config)
 
     def priced_transactions(self,
-                            apikey,
                             request_id,
                             body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/pricedtransactions.
+        """Does a POST request to /transaction-data/v1/pricedtransaction.
 
         This API allows querying transaction data (i.e. Priced, Billed and
         Unbilled sales items). It provides a flexible search criteria and
@@ -88,16 +85,14 @@ class TransactionController(BaseController):
         (configurable) days.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (PriceTransactionRequest, optional): Priced Transaction
-                Request Body
+            body (PriceTransactionReq, optional): Priced Transaction Request
+                Body
 
         Returns:
-            PricedTransactionResponse: Response from the API. OK
+            PricedTransactionRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -109,11 +104,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/pricedtransactions')
+            .path('/transaction-data/v1/pricedtransaction')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -126,23 +118,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PricedTransactionResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(PricedTransactionRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def priced_transactions_summary(self,
-                                    apikey,
                                     request_id,
                                     body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/pricedtransactionssummary.
+        """Does a POST request to /transaction-data/v1/pricedtransactionssummary.
 
         This API returns the transaction summary data (i.e. Priced, Billed and
         Unbilled sales items). It provides a flexible search criteria. 
@@ -183,16 +174,13 @@ class TransactionController(BaseController):
         transactions will be fetched.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (PriceTransSummaryRequest, optional): PricedSummary
-                RequestBody
+            body (PriceTransSummaryReq, optional): PricedSummary RequestBody
 
         Returns:
-            PricedTransSummaryResponse: Response from the API. OK
+            PricedTransSummaryResp: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -204,11 +192,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/pricedtransactionssummary')
+            .path('/transaction-data/v1/pricedtransactionssummary')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -221,23 +206,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PricedTransSummaryResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(PricedTransSummaryResp.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def multipriced_transactions(self,
-                                 apikey,
                                  request_id,
                                  body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/multipayerspricedtransactions.
+        """Does a POST request to /transaction-data/v1/multipayerspricedtransactions.
 
         This API allows querying transaction data (i.e. Priced, Billed and
         Unbilled sales items) for multiple payers. It provides a flexible
@@ -275,16 +259,13 @@ class TransactionController(BaseController):
         transactions will be fetched.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (MultiPricedTransactionRequest, optional): MultiPayer
-                RequestBody
+            body (MultiPricedTransactionReq, optional): MultiPayer RequestBody
 
         Returns:
-            MultiPricedTransactionResponse: Response from the API. OK
+            MultiPricedTransactionRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -296,11 +277,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/multipayerspricedtransactions')
+            .path('/transaction-data/v1/multipayerspricedtransactions')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -313,23 +291,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(MultiPricedTransactionResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(MultiPricedTransactionRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def card_usage_summary(self,
-                           apikey,
                            request_id,
                            body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/cardusagesummary.
+        """Does a POST request to /transaction-data/v1/cardusagesummary.
 
         This operation is to provide the expenditure analysis for a card for
         the past 7 months.
@@ -338,16 +315,14 @@ class TransactionController(BaseController):
         by card, site-group and product.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (CardUsageSummaryRequest, optional): Card Usage Summary
+            body (CardUsageSummaryReq, optional): Card Usage Summary
                 RequestBody
 
         Returns:
-            CardUsageSummaryResponse: Response from the API. OK
+            CardUsageSummaryRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -359,11 +334,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/cardusagesummary')
+            .path('/transaction-data/v1/cardusagesummary')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -376,23 +348,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardUsageSummaryResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(CardUsageSummaryRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def volume_based_bonus(self,
-                           apikey,
                            request_id,
                            body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/volumebasedbonus.
+        """Does a POST request to /transaction-data/v1/volumebasedbonuss.
 
         - This API provides the details of the bonus and/or association bonus
         rules setup for the given payer and that are active on the current
@@ -402,16 +373,13 @@ class TransactionController(BaseController):
         bonus and consumption of the applicable payers.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (VolumeBasedBonusRequest, optional): VolumeBasedBonus
-                RequestBody
+            body (VolumeBasedBonusReq, optional): VolumeBasedBonus RequestBody
 
         Returns:
-            VolumeBasedBonusResponse: Response from the API. OK
+            VolumeBasedBonusRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -423,11 +391,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/volumebasedbonus')
+            .path('/transaction-data/v1/volumebasedbonuss')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -440,23 +405,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(VolumeBasedBonusResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(VolumeBasedBonusRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def volume_based_pricing(self,
-                             apikey,
                              request_id,
                              body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/volumebasedpricing.
+        """Does a POST request to /transaction-data/v1/volumebasedpricing.
 
         - This API will return the details of the in arrear fee rule applied
         to the payer along with details of locations, products, tiers as
@@ -465,16 +429,14 @@ class TransactionController(BaseController):
         related tier applied for the following month.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (VolumeBasedPricingRequest, optional): VolumeBasedPricing
+            body (VolumeBasedPricingReq, optional): VolumeBasedPricing
                 RequestBody
 
         Returns:
-            VolumeBasedPricingResponse: Response from the API. OK
+            VolumeBasedPricingRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -486,11 +448,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/volumebasedpricing')
+            .path('/transaction-data/v1/volumebasedpricing')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -503,23 +462,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(VolumeBasedPricingResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(VolumeBasedPricingRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def fees(self,
-             apikey,
              request_id,
              body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/fees.
+        """Does a POST request to /transaction-data/v1/fees.
 
         This API returns the fee/charges levied from a  customer's account in
         a billing period or date range. The API returns both billed and
@@ -537,16 +495,13 @@ class TransactionController(BaseController):
           * Get fees by product
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (TransactionFeesRequest, optional): Transaction Fees
-                RequestBody
+            body (TransactionFeesReq, optional): Transaction Fees RequestBody
 
         Returns:
-            TransactionFeesResponse: Response from the API. OK
+            TransactionFeesRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -558,11 +513,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/fees')
+            .path('/transaction-data/v1/fees')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -575,23 +527,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransactionFeesResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(TransactionFeesRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def fee_summary_response(self,
-                             apikey,
                              request_id,
                              body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/feessummary.
+        """Does a POST request to /transaction-data/v1/feessummary.
 
         This API returns the summary data of the fee/charges levied from a
         customer's account in a billing period or date range. The API returns
@@ -609,12 +560,10 @@ class TransactionController(BaseController):
           * Get fees by product
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (TransactionFeesRequest, optional): FeeSummary RequestBody
+            body (TransactionFeesSummaryReq, optional): FeeSummary RequestBody
 
         Returns:
             FeeSummaryResponse: Response from the API. OK
@@ -629,11 +578,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/feessummary')
+            .path('/transaction-data/v1/feessummary')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -646,23 +592,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FeeSummaryResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def fuel_consumption(self,
-                         apikey,
                          request_id,
                          body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/fuelconsumption.
+        """Does a POST request to /transaction-data/v1/fuelconsumption.
 
         - This API returns the customer an overview of how many transactions,
         how much fuel volume used over a given period and the total volume
@@ -672,13 +617,10 @@ class TransactionController(BaseController):
         and VRN
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (FuelConsumptionRequest, optional): FuelConsumption
-                RequestBody
+            body (FuelConsumptionReq, optional): FuelConsumption RequestBody
 
         Returns:
             FuelConsumptionResponse: Response from the API. OK
@@ -693,11 +635,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/fuelconsumption')
+            .path('/transaction-data/v1/fuelconsumption')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -710,23 +649,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FuelConsumptionResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def update_odometer(self,
-                        apikey,
                         request_id,
                         body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/updateodometer.
+        """Does a POST request to /transaction-data/v1/updateodometer.
 
         - This API allows the users to update the odometer readings on the
         sales items (transaction data) 
@@ -734,15 +672,13 @@ class TransactionController(BaseController):
         notified on completion of processing.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
             body (UpdateOdometerRequest, optional): updateOdometer RequestBody
 
         Returns:
-            UpdateOdometerResponse: Response from the API. OK
+            UpdateOdometerResp: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -754,11 +690,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/updateodometer')
+            .path('/transaction-data/v1/updateodometer')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -771,23 +704,22 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(UpdateOdometerResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(UpdateOdometerResp.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def transaction_exceptions(self,
-                               apikey,
                                request_id,
                                body=None):
-        """Does a POST request to /fleetmanagement/v1/transaction/exceptions.
+        """Does a POST request to /transaction-data/v1/exceptions.
 
         - This API provides the details of the Cards or Transaction related
         exceptions based on the given conditions for the Requested period.
@@ -796,16 +728,14 @@ class TransactionController(BaseController):
         the Cards related exceptions.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (TransactionExceptionsRequest, optional): Transaction
-                Exceptions RequestBody
+            body (TransactionExceptionsReq, optional): Transaction Exceptions
+                RequestBody
 
         Returns:
-            TransactionExceptionsResponse: Response from the API. OK
+            TransactionExceptionsRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -817,11 +747,8 @@ class TransactionController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/transaction/exceptions')
+            .path('/transaction-data/v1/exceptions')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -834,16 +761,16 @@ class TransactionController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransactionExceptionsResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(TransactionExceptionsRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()
 
     def recent_transactions_new(self,

@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `is_default` | `bool` | Optional | Whether this payer is the default payer of the user.<br>**Default**: `False` |
+| `is_default` | `bool` | Optional | Whether this payer is the default payer of the user.<br><br>**Default**: `False` |
 | `colco_id` | `int` | Optional | Collecting company id. |
 | `colco_code` | `int` | Optional | Collecting company code.<br>Example:<br>86-Philippines<br>5-UK |
 | `col_co_country_code` | `str` | Optional | The 2-character ISO Code for the customer and card owning country |

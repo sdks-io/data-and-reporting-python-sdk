@@ -28,12 +28,6 @@ class PayerRequest(object):
             required to get the result quicker.
         include_bonus_parameters (bool): Include the Finance Currency, used
             for Finance Widget, in the response
-        current_page (int): Page Number
-        page_size (int): Page Size – Number of records to show on a page   
-            Default value 50  Return 250 rows only in the response if -1 is
-            supplied as page size.    Note:   •    Max page size is 250, if
-            the user provided value is more than 250 then it will throw error.
-            •    This value is configurable.
 
     """
 
@@ -42,9 +36,7 @@ class PayerRequest(object):
         "payers": 'Payers',
         "return_basic_details_only": 'ReturnBasicDetailsOnly',
         "include_addresses": 'IncludeAddresses',
-        "include_bonus_parameters": 'IncludeBonusParameters',
-        "current_page": 'CurrentPage',
-        "page_size": 'PageSize'
+        "include_bonus_parameters": 'IncludeBonusParameters'
     }
 
     _optionals = [
@@ -52,17 +44,13 @@ class PayerRequest(object):
         'return_basic_details_only',
         'include_addresses',
         'include_bonus_parameters',
-        'current_page',
-        'page_size',
     ]
 
     def __init__(self,
                  payers=APIHelper.SKIP,
                  return_basic_details_only=False,
                  include_addresses=False,
-                 include_bonus_parameters=False,
-                 current_page=APIHelper.SKIP,
-                 page_size=APIHelper.SKIP):
+                 include_bonus_parameters=False):
         """Constructor for the PayerRequest class"""
 
         # Initialize members of the class
@@ -71,10 +59,6 @@ class PayerRequest(object):
         self.return_basic_details_only = return_basic_details_only 
         self.include_addresses = include_addresses 
         self.include_bonus_parameters = include_bonus_parameters 
-        if current_page is not APIHelper.SKIP:
-            self.current_page = current_page 
-        if page_size is not APIHelper.SKIP:
-            self.page_size = page_size 
 
     @classmethod
     def from_dictionary(cls,
@@ -103,30 +87,22 @@ class PayerRequest(object):
         return_basic_details_only = dictionary.get("ReturnBasicDetailsOnly") if dictionary.get("ReturnBasicDetailsOnly") else False
         include_addresses = dictionary.get("IncludeAddresses") if dictionary.get("IncludeAddresses") else False
         include_bonus_parameters = dictionary.get("IncludeBonusParameters") if dictionary.get("IncludeBonusParameters") else False
-        current_page = dictionary.get("CurrentPage") if dictionary.get("CurrentPage") else APIHelper.SKIP
-        page_size = dictionary.get("PageSize") if dictionary.get("PageSize") else APIHelper.SKIP
         # Return an object of this model
         return cls(payers,
                    return_basic_details_only,
                    include_addresses,
-                   include_bonus_parameters,
-                   current_page,
-                   page_size)
+                   include_bonus_parameters)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
                 f'payers={(self.payers if hasattr(self, "payers") else None)!r}, '
                 f'return_basic_details_only={(self.return_basic_details_only if hasattr(self, "return_basic_details_only") else None)!r}, '
                 f'include_addresses={(self.include_addresses if hasattr(self, "include_addresses") else None)!r}, '
-                f'include_bonus_parameters={(self.include_bonus_parameters if hasattr(self, "include_bonus_parameters") else None)!r}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+                f'include_bonus_parameters={(self.include_bonus_parameters if hasattr(self, "include_bonus_parameters") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
                 f'payers={(self.payers if hasattr(self, "payers") else None)!s}, '
                 f'return_basic_details_only={(self.return_basic_details_only if hasattr(self, "return_basic_details_only") else None)!s}, '
                 f'include_addresses={(self.include_addresses if hasattr(self, "include_addresses") else None)!s}, '
-                f'include_bonus_parameters={(self.include_bonus_parameters if hasattr(self, "include_bonus_parameters") else None)!s}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')
+                f'include_bonus_parameters={(self.include_bonus_parameters if hasattr(self, "include_bonus_parameters") else None)!s})')

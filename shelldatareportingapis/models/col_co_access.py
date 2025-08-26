@@ -14,8 +14,8 @@ class ColCoAccess(object):
     """Implementation of the 'ColCoAccess' model.
 
     Attributes:
-        col_co_id (str): Collecting company ID.
-        col_co_code (str): Collecting company code.
+        col_co_id (int): Collecting company ID.
+        col_co_code (int): Collecting company code.
         col_co_country_name (str): Collecting company’s Country name. ex:
             United Kingdom
         issuing_country_number (str): Issuing Country Number.   ex: 032 -

@@ -50,7 +50,7 @@ def invoice_search(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`InvoiceSearchRequest`](../../doc/models/invoice-search-request.md) | Body, Optional | Invoice Search RequestBody |
 
 ## Response Type
@@ -90,6 +90,7 @@ result = invoice_controller.invoice_search(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -202,7 +203,7 @@ def invoice_summary(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`InvoiceSummaryRequest`](../../doc/models/invoice-summary-request.md) | Body, Optional | Invoice Search RequestBody |
 
 ## Response Type
@@ -240,6 +241,7 @@ result = invoice_controller.invoice_summary(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -296,7 +298,7 @@ def statement_of_account(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`StatementOfAccountRequest`](../../doc/models/statement-of-account-request.md) | Body, Optional | StatementOfAccount RequestBody |
 
 ## Response Type
@@ -325,6 +327,7 @@ result = invoice_controller.statement_of_account(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -435,7 +438,7 @@ def dates(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`InvoiceDatesRequest`](../../doc/models/invoice-dates-request.md) | Body, Optional | StatementOfAccount RequestBody |
 
 ## Response Type
@@ -466,6 +469,7 @@ result = invoice_controller.dates(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -512,7 +516,7 @@ def search_statement_of_account(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`SearchStatementOfAccountRequest`](../../doc/models/search-statement-of-account-request.md) | Body, Optional | searchstatementofaccount RequestBody |
 
 ## Response Type
@@ -548,6 +552,7 @@ result = invoice_controller.search_statement_of_account(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -606,7 +611,7 @@ def search_documents(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`SearchDocumentsRequest`](../../doc/models/search-documents-request.md) | Body, Optional | SearchDocuments RequestBody |
 
 ## Response Type
@@ -654,6 +659,7 @@ result = invoice_controller.search_documents(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -712,7 +718,7 @@ def eid_search(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`EIDSearchRequest`](../../doc/models/eid-search-request.md) | Body, Optional | EIDSearch RequestBody |
 
 ## Response Type
@@ -731,6 +737,7 @@ body = EIDSearchRequest(
         account_group_id=[
             '122'
         ],
+        account_group_name=None,
         from_date='2017/08/30',
         to_date='2017/10/31',
         invoice_type='NAT',
@@ -747,6 +754,7 @@ result = invoice_controller.eid_search(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -803,7 +811,7 @@ def download(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`InvoiceDownloadRequest`](../../doc/models/invoice-download-request.md) | Body, Optional | Invoice Download RequestBody |
 
 ## Response Type
@@ -833,6 +841,7 @@ result = invoice_controller.download(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Errors
@@ -861,7 +870,7 @@ def eid_download(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
+| `request_id` | `str` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request.<br><br>**Constraints**: *Minimum Length*: `36`, *Maximum Length*: `36`, *Pattern*: `^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$` |
 | `body` | [`EIDDownloadRequest`](../../doc/models/eid-download-request.md) | Body, Optional | EIDInvoice Download RequestBody |
 
 ## Response Type
@@ -891,6 +900,7 @@ result = invoice_controller.eid_download(
     request_id,
     body=body
 )
+print(result)
 ```
 
 ## Errors

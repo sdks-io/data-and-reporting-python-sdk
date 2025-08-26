@@ -35,11 +35,6 @@ class CardGroupRequest(object):
             those have the entered value at any part
         status (str): Card Group Status Mandatory Allowed values: •    ALL •  
             TERMINATED •    ACTIVE
-        current_page (int): Page Number (as shown to the users) Optional
-            Default value 1
-        page_size (int): Page Size – Number of records to show on a page.
-            Optional Default value 50. Return all rows if -1 is supplied as
-            page size.
 
     """
 
@@ -51,9 +46,7 @@ class CardGroupRequest(object):
         "payer_number": 'PayerNumber',
         "account": 'Account',
         "card_group_name": 'CardGroupName',
-        "status": 'Status',
-        "current_page": 'CurrentPage',
-        "page_size": 'PageSize'
+        "status": 'Status'
     }
 
     _optionals = [
@@ -64,8 +57,6 @@ class CardGroupRequest(object):
         'account',
         'card_group_name',
         'status',
-        'current_page',
-        'page_size',
     ]
 
     _nullables = [
@@ -84,9 +75,7 @@ class CardGroupRequest(object):
                  payer_number=APIHelper.SKIP,
                  account=APIHelper.SKIP,
                  card_group_name=APIHelper.SKIP,
-                 status=APIHelper.SKIP,
-                 current_page=APIHelper.SKIP,
-                 page_size=APIHelper.SKIP):
+                 status=APIHelper.SKIP):
         """Constructor for the CardGroupRequest class"""
 
         # Initialize members of the class
@@ -104,10 +93,6 @@ class CardGroupRequest(object):
             self.card_group_name = card_group_name 
         if status is not APIHelper.SKIP:
             self.status = status 
-        if current_page is not APIHelper.SKIP:
-            self.current_page = current_page 
-        if page_size is not APIHelper.SKIP:
-            self.page_size = page_size 
 
     @classmethod
     def from_dictionary(cls,
@@ -139,8 +124,6 @@ class CardGroupRequest(object):
             account = APIHelper.SKIP
         card_group_name = dictionary.get("CardGroupName") if "CardGroupName" in dictionary.keys() else APIHelper.SKIP
         status = dictionary.get("Status") if "Status" in dictionary.keys() else APIHelper.SKIP
-        current_page = dictionary.get("CurrentPage") if dictionary.get("CurrentPage") else APIHelper.SKIP
-        page_size = dictionary.get("PageSize") if dictionary.get("PageSize") else APIHelper.SKIP
         # Return an object of this model
         return cls(col_co_id,
                    col_co_code,
@@ -148,9 +131,7 @@ class CardGroupRequest(object):
                    payer_number,
                    account,
                    card_group_name,
-                   status,
-                   current_page,
-                   page_size)
+                   status)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
@@ -160,9 +141,7 @@ class CardGroupRequest(object):
                 f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!r}, '
                 f'account={(self.account if hasattr(self, "account") else None)!r}, '
                 f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!r}, '
-                f'status={(self.status if hasattr(self, "status") else None)!r}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
@@ -172,6 +151,4 @@ class CardGroupRequest(object):
                 f'payer_number={(self.payer_number if hasattr(self, "payer_number") else None)!s}, '
                 f'account={(self.account if hasattr(self, "account") else None)!s}, '
                 f'card_group_name={(self.card_group_name if hasattr(self, "card_group_name") else None)!s}, '
-                f'status={(self.status if hasattr(self, "status") else None)!s}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

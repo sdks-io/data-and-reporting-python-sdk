@@ -3,12 +3,12 @@
 
 ## Data Type
 
-`object | None | PricedTransactionItemsLocationItems`
+`Any | None | PricedTransactionItemsLocationItems`
 
 ## Cases
 
 | Type |
 |  --- |
-| `object` |
+| `Any` |
 | [`PricedTransactionItemsLocationItems`](../../../doc/models/priced-transaction-items-location-items.md) |
 

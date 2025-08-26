@@ -10,10 +10,10 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `col_co_code` | `int` | Required | Three character Collecting Company Code (Shell Code) of the selected payer |
-| `payer_number` | `str` | Required | Unique Identifier for the customer at payment point.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10` |
+| `payer_number` | `str` | Required | Unique Identifier for the customer at payment point.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10` |
 | `account_number` | `str` | Optional | Customer account number. |
 | `product_code` | `str` | Optional | Global product code |
-| `purchased_in_country` | `str` | Optional | Delco country<br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` |
+| `purchased_in_country` | `str` | Optional | Delco country<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` |
 | `card_pan` | `str` | Optional | Card identifier number masked |
 | `from_date_time` | `str` | Optional | Start date and time of transactions |
 | `to_date_time` | `str` | Optional | End date and time of transactions. Mandatory if FromDateTime is provided. |

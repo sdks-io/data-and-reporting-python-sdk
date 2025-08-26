@@ -44,7 +44,7 @@ class AccountRequest(object):
         invoice_points_only (bool): Optional – default value: false. When
             passed as true, the API will return accounts that are configured
             as Invoice Point only.
-        col_co_id (int): Collecting Company Id (in GFN) of the selected payer.
+        col_co_id (int): Collecting Company Id  of the selected payer.  
             Optional if ColCoCode or ColCoCountryCode  is passed else
             Mandatory.
         return_tolls_customer_id (bool): Return e-Toll Customer details When

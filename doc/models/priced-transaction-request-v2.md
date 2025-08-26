@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filters` | [`PricedRequestData`](../../doc/models/priced-request-data.md) | Optional | This endpoint allows querying the transaction data (i.e. Priced, Billed and Unbilled sales items) from SFSBI. It provides a flexible search criteria and supports paging |
+| `filters` | [`Filters`](../../doc/models/filters.md) | Optional | - |
 | `page` | `int` | Optional | Specify the page of results to be returned. |
 | `page_size` | `int` | Optional | Specify the number of records to returned; Max 1000 |
 

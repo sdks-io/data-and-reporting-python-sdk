@@ -10,7 +10,6 @@ from shelldatareportingapis.api_helper import APIHelper
 from shelldatareportingapis.models.bonus_configuration import BonusConfiguration
 from shelldatareportingapis.models.bonus_history import BonusHistory
 from shelldatareportingapis.models.current_volume import CurrentVolume
-from shelldatareportingapis.models.error_status import ErrorStatus
 
 
 class VolumeBasedBonusResponse(object):
@@ -24,8 +23,6 @@ class VolumeBasedBonusResponse(object):
             of type List[CurrentVolume].
         historical_bonus_paid (List[BonusHistory]): The model property of type
             List[BonusHistory].
-        error (ErrorStatus): The model property of type ErrorStatus.
-        request_id (str): API Request Id
 
     """
 
@@ -33,25 +30,19 @@ class VolumeBasedBonusResponse(object):
     _names = {
         "configuration": 'Configuration',
         "current_period_consumption": 'CurrentPeriodConsumption',
-        "historical_bonus_paid": 'HistoricalBonusPaid',
-        "error": 'Error',
-        "request_id": 'RequestId'
+        "historical_bonus_paid": 'HistoricalBonusPaid'
     }
 
     _optionals = [
         'configuration',
         'current_period_consumption',
         'historical_bonus_paid',
-        'error',
-        'request_id',
     ]
 
     def __init__(self,
                  configuration=APIHelper.SKIP,
                  current_period_consumption=APIHelper.SKIP,
-                 historical_bonus_paid=APIHelper.SKIP,
-                 error=APIHelper.SKIP,
-                 request_id=APIHelper.SKIP):
+                 historical_bonus_paid=APIHelper.SKIP):
         """Constructor for the VolumeBasedBonusResponse class"""
 
         # Initialize members of the class
@@ -61,10 +52,6 @@ class VolumeBasedBonusResponse(object):
             self.current_period_consumption = current_period_consumption 
         if historical_bonus_paid is not APIHelper.SKIP:
             self.historical_bonus_paid = historical_bonus_paid 
-        if error is not APIHelper.SKIP:
-            self.error = error 
-        if request_id is not APIHelper.SKIP:
-            self.request_id = request_id 
 
     @classmethod
     def from_dictionary(cls,
@@ -100,27 +87,19 @@ class VolumeBasedBonusResponse(object):
             historical_bonus_paid = [BonusHistory.from_dictionary(x) for x in dictionary.get('HistoricalBonusPaid')]
         else:
             historical_bonus_paid = APIHelper.SKIP
-        error = ErrorStatus.from_dictionary(dictionary.get('Error')) if 'Error' in dictionary.keys() else APIHelper.SKIP
-        request_id = dictionary.get("RequestId") if dictionary.get("RequestId") else APIHelper.SKIP
         # Return an object of this model
         return cls(configuration,
                    current_period_consumption,
-                   historical_bonus_paid,
-                   error,
-                   request_id)
+                   historical_bonus_paid)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
                 f'configuration={(self.configuration if hasattr(self, "configuration") else None)!r}, '
                 f'current_period_consumption={(self.current_period_consumption if hasattr(self, "current_period_consumption") else None)!r}, '
-                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!r}, '
-                f'error={(self.error if hasattr(self, "error") else None)!r}, '
-                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
                 f'configuration={(self.configuration if hasattr(self, "configuration") else None)!s}, '
                 f'current_period_consumption={(self.current_period_consumption if hasattr(self, "current_period_consumption") else None)!s}, '
-                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!s}, '
-                f'error={(self.error if hasattr(self, "error") else None)!s}, '
-                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')
+                f'historical_bonus_paid={(self.historical_bonus_paid if hasattr(self, "historical_bonus_paid") else None)!s})')

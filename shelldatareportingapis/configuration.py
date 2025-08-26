@@ -33,19 +33,15 @@ class Configuration(HttpClientConfiguration):
         return self._environment
 
     @property
-    def basic_auth_credentials(self):
-        return self._basic_auth_credentials
-
-    @property
-    def bearer_token_credentials(self):
-        return self._bearer_token_credentials
+    def client_credentials_auth_credentials(self):
+        return self._client_credentials_auth_credentials
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None,
-                 environment=Environment.SIT, basic_auth_credentials=None,
-                 bearer_token_credentials=None):
+                 environment=Environment.SIT,
+                 client_credentials_auth_credentials=None):
         if retry_methods is None:
             retry_methods = ['GET', 'PUT']
 
@@ -60,11 +56,7 @@ class Configuration(HttpClientConfiguration):
         # Current API environment
         self._environment = environment
 
-        # The object holding Basic Authentication credentials
-        self._basic_auth_credentials = basic_auth_credentials
-
-        # The object holding OAuth 2 Client Credentials Grant credentials
-        self._bearer_token_credentials = bearer_token_credentials
+        self._client_credentials_auth_credentials = client_credentials_auth_credentials
 
         # The Http Client to use for making requests.
         self.set_http_client(self.create_http_client())
@@ -73,7 +65,7 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, environment=None,
-                   basic_auth_credentials=None, bearer_token_credentials=None):
+                   client_credentials_auth_credentials=None):
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         http_call_back = http_call_back or self.http_callback
@@ -83,17 +75,14 @@ class Configuration(HttpClientConfiguration):
         retry_statuses = retry_statuses or self.retry_statuses
         retry_methods = retry_methods or self.retry_methods
         environment = environment or self.environment
-        basic_auth_credentials = basic_auth_credentials or self.basic_auth_credentials
-        bearer_token_credentials = bearer_token_credentials or self.bearer_token_credentials
+        client_credentials_auth_credentials = client_credentials_auth_credentials or self.client_credentials_auth_credentials
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            environment=environment,
-            basic_auth_credentials=basic_auth_credentials,
-            bearer_token_credentials=bearer_token_credentials
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, environment=environment,
+            client_credentials_auth_credentials=client_credentials_auth_credentials
         )
 
     def create_http_client(self):

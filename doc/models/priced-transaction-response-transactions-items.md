@@ -47,7 +47,7 @@
 | `site_code` | `str` | Optional | Site Code<br>Example:<br>050001 -    CHARNOCK RICHARD NTHBOUND MWSA 0755<br>050002 -    CHARNOCK RICHARD STHBOUND MWSA 0755 |
 | `site_name` | `str` | Optional | Site Name<br>Example:<br>050001 -    CHARNOCK RICHARD NTHBOUND MWSA 0755<br>050002 -    CHARNOCK RICHARD STHBOUND MWSA 0755 |
 | `site_country` | `str` | Optional | Site Country<br>Example: France, Germany<br>Note: - The value could be null/blank for fees item.<br>Geography Location entity for Site Location<br>Note: - The value could be null/blank for fees item. |
-| `location` | List[object \| None \| [PricedTransactionItemsLocationItems](../../doc/models/priced-transaction-items-location-items.md)] \| None | Optional | This is List of a container for one-of cases. |
+| `location` | List[Any \| None \| [PricedTransactionItemsLocationItems](../../doc/models/priced-transaction-items-location-items.md)] \| None | Optional | This is List of a container for one-of cases. |
 | `card_group_name` | `str` | Optional | Card Group Name |
 | `receipt_number` | `str` | Optional | Receipt Number |
 | `product_code` | `str` | Optional | Product Code<br>10    TMF Charges<br>11    Tunnel/Bridges<br>12    Motorway toll<br>13    Ferries |
@@ -133,8 +133,6 @@
 | `customer_retail_value_total_gross` | `float` | Optional | Retail gross price (or gross pump price) in customer currency |
 | `customer_retail_value_total_net` | `float` | Optional | Retail gross price (or gross pump price) in customer currency<br>Retail net price (or net pump price) in customer currency |
 | `transaction_type_description` | `str` | Optional | Transaction Type Description<br>Note: - The value could be null/blank for fees item |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
-| `request_id` | `str` | Optional | API Request Id |
 
 ## Example (as JSON)
 

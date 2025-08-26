@@ -27,8 +27,6 @@
 | `product_code` | `str` | Optional | Product Code<br>Optional<br>Example:<br><br>1. Service fee<br>2. Invoice production fee<br>3. Account fee<br>4. Transaction fee<br>5. Card membership fee |
 | `line_item_description` | `str` | Optional | Line item description.<br>Optional<br>Minimum of 4 characters should be provided else not considered<br>Those fee items that have the entered value at any part of the line item description will be returned. |
 | `sort_order` | `str` | Optional | Allowed Sorting Options:<br>•    FeeDateAscending<br>•    FeeDateDescending<br>•    NetAmountAscending<br>•    NetAmountDescending<br>Optional.<br>Default: 1 |
-| `current_page` | `int` | Optional | Page Number |
-| `page_size` | `int` | Optional | Page Size – Number of records to show on a page |
 
 ## Example (as JSON)
 

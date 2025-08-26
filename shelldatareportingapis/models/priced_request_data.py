@@ -21,9 +21,8 @@ class PricedRequestData(object):
         col_co_code (str): Collecting Company Code (Shell Code) of the
             selected payer.
         col_co_id (int): The Collecting Company Id in the Shell Card Platform.
-        invoice_status (PricedTransactionReqV2InvoiceStatusEnum): Invoice
-            status of the transactions. Mandatory Possible options:I -
-            Invoiced, U – Un-Invoiced, A – All
+        invoice_status (PricedTransactionReqV2InvoiceStatusEnum): The model
+            property of type PricedTransactionReqV2InvoiceStatusEnum.
         payer_number (str): Payer Number of the selected payer.
         account_id (int): Account Id (GFN customer id)
         account_number (str): Account Number of the selected account.
@@ -53,9 +52,8 @@ class PricedRequestData(object):
             of type PricedTransactionReqV2SortOrderEnum.
         from_date (str): From transaction delivery date
         to_date (str): To transaction delivery date
-        period (PricedTransactionReqV2PeriodEnum): Pass below one of the value
-            as per the required transaction period 1. Last 7 Days 2. Last 30
-            Days 3. Last 90 Days
+        period (PricedTransactionReqV2PeriodEnum): The model property of type
+            PricedTransactionReqV2PeriodEnum.
         posting_date_from (str): Transaction posting start date and time
         posting_date_to (str): Transaction posting end date and time
         transaction_item_id (str): Unique id of the transaction that may

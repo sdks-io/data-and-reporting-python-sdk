@@ -11,7 +11,7 @@ from shelldatareportingapis.api_helper import APIHelper
 
 class FleetmanagementV1UserLoggedinuserRequest(object):
 
-    """Implementation of the 'Fleetmanagement V1 User Loggedinuser Request' model.
+    """Implementation of the 'FleetmanagementV1UserLoggedinuserRequest' model.
 
     Attributes:
         include_payer_group (bool): True/False. The output will include the

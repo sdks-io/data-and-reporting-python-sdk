@@ -53,8 +53,8 @@
 | `invoice_account_id` | `int` | Optional | The Account ID of the account on which the invoice is generated. |
 | `invoice_account_number` | `str` | Optional | The Account Number of the account on which the invoice is generated. |
 | `invoice_account_short_name` | `str` | Optional | The Account Short Name of the account on which the invoice is generated. |
-| `best_of_indicator` | `bool` | Optional | Best of Indicator of the Pricing customer/account configured.<br>**Default**: `False` |
-| `is_international` | `bool` | Optional | Whether the account is international.<br>**Default**: `False` |
+| `best_of_indicator` | `bool` | Optional | Best of Indicator of the Pricing customer/account configured.<br><br>**Default**: `False` |
+| `is_international` | `bool` | Optional | Whether the account is international.<br><br>**Default**: `False` |
 | `total_accounts` | `int` | Optional | Total number of accounts under the payer. |
 | `total_active_accounts` | `int` | Optional | Total number of active accounts under the payer. |
 | `total_cards` | `int` | Optional | Total number of cards under the payer. |
@@ -79,10 +79,10 @@
 | `industry_class` | `str` | Optional | Payer/Company Industry class id and description |
 | `marketing_segmentation` | `str` | Optional | Marketing Segmentation id and description |
 | `line_of_business` | `str` | Optional | Payer/Company Line of Business Id and Description |
-| `print_credit_limit` | `bool` | Optional | Is Credit Limit printed on the statement of account: True/False<br>If True Credit Limit is printed on invoice/SOA<br>**Default**: `False` |
+| `print_credit_limit` | `bool` | Optional | Is Credit Limit printed on the statement of account: True/False<br>If True Credit Limit is printed on invoice/SOA<br><br>**Default**: `False` |
 | `card_group_type` | `str` | Optional | Card Group Type configured for Payer<br>e.g. (Id – Description):<br>1-Horizontal only<br>2-Vertical only<br>3-Both |
-| `renew_cards` | `bool` | Optional | If set to True cards will be automatically renewed on expiry<br>**Default**: `False` |
-| `allow_select_pin` | `bool` | Optional | If set to True then Self Select PIN is allowed for Payer<br>**Default**: `False` |
+| `renew_cards` | `bool` | Optional | If set to True cards will be automatically renewed on expiry<br><br>**Default**: `False` |
+| `allow_select_pin` | `bool` | Optional | If set to True then Self Select PIN is allowed for Payer<br><br>**Default**: `False` |
 | `use_fleet_pin` | `bool` | Optional | If set to True then Fleet PIN is applied for the cards directly under payer |
 | `vat_reg_number` | `str` | Optional | Payer/Company VAT registration number. |
 | `vat_reg_number_2` | `str` | Optional | Payer/Company VAT registration number 2. |
@@ -110,7 +110,7 @@
 | `has_active_vol_based_pricing` | `bool` | Optional | True, if the payer is setup for volume-based pricing and is active on the current date, else false.<br><br>This field is returned only when IncludeBonusParameters is set to True in the request. Else set to null. |
 | `has_active_vol_based_bonus` | `bool` | Optional | True, if the payer is setup for volume-based bonus and is active on the current date, else false.<br>This field is returned only when IncludeBonusParameters is set to True in the request. Else set to null. |
 | `has_active_vol_based_association_bonus` | `bool` | Optional | True, if the payer is setup for volume-based association bonus and is active on the current date, else false.<br>This field is returned only when IncludeBonusParameters is set to True in the request. Else set to null. |
-| `finance_currency` | [`FinanceCurrency`](../../doc/models/finance-currency.md) | Optional | This entity will not be present in the response if the ‘IncludeFinanceCurrency’ flag in the request is ‘false’ |
+| `finance_currency` | [`FinanceCurrency2`](../../doc/models/finance-currency-2.md) | Optional | - |
 | `tolls_customer_id` | `str` | Optional | Customer id in e-TM system<br>This field will have value only when ReturnTollsCustomerId is set to true in the request else set to null or empty. |
 | `tolls_colco_country_type_id` | `str` | Optional | String    Colco country type id in e-TM system<br>This field will have value only when ReturnTollsCustomerId is set to true in the request else set to null or empty. |
 | `contracts` | [`List[CustomerContract]`](../../doc/models/customer-contract.md) | Optional | - |

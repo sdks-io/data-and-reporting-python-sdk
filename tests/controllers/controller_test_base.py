@@ -12,8 +12,7 @@ import unittest
 from tests.http_response_catcher import HttpResponseCatcher
 from shelldatareportingapis.configuration import Configuration, Environment
 from shelldatareportingapis.shelldatareportingapis_client import ShelldatareportingapisClient
-from shelldatareportingapis.http.auth.basic_auth import BasicAuthCredentials
-from shelldatareportingapis.http.auth.bearer_token import BearerTokenCredentials
+from shelldatareportingapis.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
 
 
 class ControllerTestBase(unittest.TestCase):
@@ -34,33 +33,22 @@ class ControllerTestBase(unittest.TestCase):
 
     @staticmethod
     def create_configuration():
-
         environment = os.getenv('SHELLDATAREPORTINGAPIS_ENVIRONMENT')
-        username = os.getenv('SHELLDATAREPORTINGAPIS_USERNAME')
-        password = os.getenv('SHELLDATAREPORTINGAPIS_PASSWORD')
         o_auth_client_id = os.getenv('SHELLDATAREPORTINGAPIS_O_AUTH_CLIENT_ID')
         o_auth_client_secret = os.getenv('SHELLDATAREPORTINGAPIS_O_AUTH_CLIENT_SECRET')
 
         if environment is not None:
-            environment = Environment[environment.upper()] 
-
-        basic_auth_credentials=None
-        if (username is not None
-                and password is not None):
-            basic_auth_credentials=BasicAuthCredentials(username=username,
-                                                        password=password)
-
-        bearer_token_credentials=None
+            environment = Environment[environment.upper()]
+        client_credentials_auth_credentials=None
         if (o_auth_client_id is not None
                 and o_auth_client_secret is not None):
-            bearer_token_credentials=BearerTokenCredentials(
+            client_credentials_auth_credentials=ClientCredentialsAuthCredentials(
                 o_auth_client_id=o_auth_client_id,
                 o_auth_client_secret=o_auth_client_secret)
 
 
         config = Configuration(http_call_back=HttpResponseCatcher())
         return config.clone_with(
-            basic_auth_credentials=basic_auth_credentials,
-            bearer_token_credentials=bearer_token_credentials,
+            client_credentials_auth_credentials=client_credentials_auth_credentials,
             environment=environment)
 

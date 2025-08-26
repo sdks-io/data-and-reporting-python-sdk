@@ -14,7 +14,7 @@ class EIDAccess(object):
     """Implementation of the 'EIDAccess' model.
 
     Attributes:
-        col_co_id (str): Collecting company id.
+        col_co_id (int): Collecting company id.
         col_co_code (int): Collecting company Code
         account_group_id (str): Identifier for the EID account group
             configured for the user.

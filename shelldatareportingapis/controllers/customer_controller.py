@@ -15,16 +15,15 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from shelldatareportingapis.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from shelldatareportingapis.models.logged_in_user_response import LoggedInUserResponse
-from shelldatareportingapis.models.payer_response import PayerResponse
-from shelldatareportingapis.models.customer_detail_response import CustomerDetailResponse
-from shelldatareportingapis.models.customer_price_list_response import CustomerPriceListResponse
-from shelldatareportingapis.models.account_response import AccountResponse
-from shelldatareportingapis.models.card_type_response import CardTypeResponse
-from shelldatareportingapis.models.card_group_response import CardGroupResponse
+from shelldatareportingapis.models.logged_in_user_res import LoggedInUserRes
+from shelldatareportingapis.models.payer_res import PayerRes
+from shelldatareportingapis.models.customer_res import CustomerRes
+from shelldatareportingapis.models.account_res import AccountRes
+from shelldatareportingapis.models.card_type_res import CardTypeRes
+from shelldatareportingapis.models.card_group_res import CardGroupRes
 from shelldatareportingapis.models.audit_response import AuditResponse
-from shelldatareportingapis.exceptions.default_error_exception import DefaultErrorException
-from shelldatareportingapis.exceptions.error_user_access_error_1_exception import ErrorUserAccessError1Exception
+from shelldatareportingapis.models.customer_price_list_res import CustomerPriceListRes
+from shelldatareportingapis.exceptions.error_object_exception import ErrorObjectException
 
 
 class CustomerController(BaseController):
@@ -33,34 +32,27 @@ class CustomerController(BaseController):
     def __init__(self, config):
         super(CustomerController, self).__init__(config)
 
-    def loggedin_user(self,
-                      apikey,
-                      request_id,
-                      body=None):
-        """Does a POST request to /fleetmanagement/v1/user/loggedinuser.
+    def user_loggedinuser(self,
+                          request_id,
+                          body):
+        """Does a POST request to /user-management/v1/loggedinuser.
 
-        This API allows querying the user data of the logged in user.</br>
-        This API will return the user access details such as payers and/or
-        accounts. </br>
-        This API will also validate that logged in user has access to the
-        requested API, on failure it will return HasAPIAccess flag as false in
-        response.</br>
+        This operation allows querying the user data of the logged in user.
+        This operation should be called only after successful authentication
+        of the end user in client application. This operation will return the
+        user access details such as payers and/or accounts. 
+        This operation will also validate that logged in user has access to
+        the requested operation, on failure it will return HasAPIAccess flag
+        as false in the response. 
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (FleetmanagementV1UserLoggedinuserRequest, optional): Logged
-                in user request body
+            body (LoggedInUserReq): The request body parameter.
 
         Returns:
-            LoggedInUserResponse: Response from the API. The http status code
-                200 and the Error.Code "0000" in the response body would
-                indicate the API call is successful. The http status code 200
-                with Error Code other than "0000" in the response body would
-                indicate there is a failure in the API call.
+            LoggedInUserRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -72,11 +64,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/user/loggedinuser')
+            .path('/user-management/v1/loggedinuser')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -89,23 +78,22 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LoggedInUserResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(LoggedInUserRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
-    def payers(self,
-               apikey,
-               request_id,
-               body=None):
-        """Does a POST request to /fleetmanagement/v1/customer/payers.
+    def customerpayers(self,
+                       request_id,
+                       body):
+        """Does a POST request to /customer-management/v1/payers.
 
         This API allows querying the payer accounts details from the Shell
         Cards
@@ -119,15 +107,13 @@ class CustomerController(BaseController):
         multiple ColCos.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (PayerRequest, optional): Serach payers request body
+            body (PayerReq): The request body parameter.
 
         Returns:
-            PayerResponse: Response from the API. OK
+            PayerRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -139,11 +125,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/customer/payers')
+            .path('/customer-management/v1/payers')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -156,44 +139,35 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PayerResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(PayerRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
-    def customer(self,
-                 apikey,
-                 request_id,
-                 body=None):
-        """Does a POST request to /fleetmanagement/v1/customer/customer.
+    def customerdetail(self,
+                       request_id,
+                       body):
+        """Does a POST request to /customer-management/v1/customer.
 
         This API allows querying the card delivery addresses of a given
-        account from the Shell Cards Platform. 
-        Only active delivery addresses will be returned.
+        account from the Shell Cards Platform. Only active delivery addresses
+        will be returned.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (CustomerDetailRequest, optional): Customerdetails request
-                body
+            body (CustomerReq): The request body parameter.
 
         Returns:
-            CustomerDetailResponse: Response from the API. List of fuel cards.
-                The http status code 200 and the Error.Code "0000" in the
-                response body would indicate the API call is successful. The
-                http status code 200 with Error Code other than "0000" in the
-                response body would indicate there is a failure in the API
-                call.
+            CustomerRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -205,11 +179,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/customer/customer')
+            .path('/customer-management/v1/customer')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -222,118 +193,35 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CustomerDetailResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(CustomerRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
-    def customer_price_list(self,
-                            apikey,
-                            request_id,
-                            body=None):
-        """Does a POST request to /fleetmanagement/v2/customer/pricelist.
-
-        - This operation fetches the International and National Price List and
-        discount values set on pump prices & List Prices
-        - It allows searching price list and discount values set on pump
-        prices that are applicable for a given customer 
-        **Note**: Accounts with cancelled status will not be considered for
-        this operation for the configured 
-        - When the search is based on customer specific price list then the
-        customer price list is returned based on the associated pricing
-        customer.
-        - The discount values set on pump prices, which are returned by the
-        operation are always customer specific values based on the customer
-        associated price rules.
-
-        Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
-            request_id (str): Mandatory UUID (according to RFC 4122 standards)
-                for requests and responses. This will be played back in the
-                response from the request.
-            body (CustomerPriceListRequest, optional): Customerdetails request
-                body
-
-        Returns:
-            CustomerPriceListResponse: Response from the API. List of fuel
-                cards. The http status code 200 and the Error.Code "0000" in
-                the response body would indicate the API call is successful.
-                The http status code 200 with Error Code other than "0000" in
-                the response body would indicate there is a failure in the API
-                call.
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v2/customer/pricelist')
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
-            .header_param(Parameter()
-                          .key('RequestId')
-                          .value(request_id))
-            .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
-            .body_param(Parameter()
-                        .value(body))
-            .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CustomerPriceListResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
-        ).execute()
-
-    def accounts(self,
-                 apikey,
-                 request_id,
-                 body=None):
-        """Does a POST request to /fleetmanagement/v1/customer/accounts.
+    def post_card_accounts(self,
+                           request_id,
+                           body):
+        """Does a POST request to /customer-management/v1/accounts.
 
         This API allows querying the customer account details from the Shell
-        Cards Platform. 
-        It provides a flexible search criterion and supports paging".
+        Cards Platform. It provides a flexible search criterion and supports
+        pagination.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (AccountRequest, optional): The request body parameter.
+            body (AccountReq): The request body parameter.
 
         Returns:
-            AccountResponse: Response from the API. List of fuel cards. The
-                http status code 200 and the Error.Code "0000" in the response
-                body would indicate the API call is successful. The http
-                status code 200 with Error Code other than "0000" in the
-                response body would indicate there is a failure in the API
-                call.
+            AccountRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -345,11 +233,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/customer/accounts')
+            .path('/customer-management/v1/accounts')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -362,41 +247,37 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AccountResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(AccountRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
-    def card_type(self,
-                  apikey,
-                  request_id,
-                  body=None):
-        """Does a POST request to /fleetmanagement/v2/customer/cardtype.
+    def customercardtypev(self,
+                          request_id,
+                          body):
+        """Does a POST request to /customer-management/v1/cardtype.
 
-        This operation allows querying card types that are associated to the
-        given account and are allowed to be shown to users.
+        This API provides allows querying the active card types that are
+        associated to the given account. 
+
+        The API returns the card type configurations, purchase categories
+        associated with the card type and the card type restriction limits.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (CardTypeRequest, optional): Get CardType Request Body
+            body (CardTypeReq): The request body parameter.
 
         Returns:
-            CardTypeResponse: Response from the API. The http status code 200
-                and the Error.Code "0000" in the response body would indicate
-                the API call is successful. The http status code 200 with
-                Error Code other than "0000" in the response body would
-                indicate there is a failure in the API call.
+            CardTypeRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -408,11 +289,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v2/customer/cardtype')
+            .path('/customer-management/v1/cardtype')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -425,50 +303,44 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardTypeResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(CardTypeRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
-    def card_groups(self,
-                    apikey,
-                    request_id,
-                    body=None):
-        """Does a POST request to /fleetmanagement/v1/customer/cardgroups.
+    def cardgroups(self,
+                   request_id,
+                   body):
+        """Does a POST request to /customer-management/v1/cardgroups.
 
-        This operation allows querying the card group details . It provides
-        flexible search criteria and supports paging.\
-        When the card group type is configured as ‘Vertical’ in cards
-        platform, this operation will return all card groups from the given
-        account or if no account is passed in the input, then will return card
-        groups from all the accounts under the payer.
-        When the card group type is configured as ‘Horizontal’ in cards
-        platform, this API will return all card groups configured directly
-        under the payer.
-        Accounts with cancelled status will not be considered for cardgroups
-        search for the configured (E.g., SFH) set of client apps.
+        This API allows querying the card group details from the Shell Cards
+        Platform. It provides flexible search criteria and supports paging. 
+        When the account is not passed in the input and card group type is
+        configured as
+        â€˜Verticalâ€™ in the cards platform, this API will return all card
+        groups from 
+        the payer as well as from all the accounts under the payer. 
+        When the account is not passed in the input and card group type is
+        configured as
+        â€˜Horizontalâ€™ in cards platform, this API will return all card
+        groups
+        configured directly under the payer.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (CardGroupRequest, optional): Request Body
+            body (CardGroupReq): The request body parameter.
 
         Returns:
-            CardGroupResponse: Response from the API. The http status code 200
-                and the Error.Code "0000" in the response body would indicate
-                the API call is successful. The http status code 200 with
-                Error Code other than "0000" in the response body would
-                indicate there is a failure in the API call.
+            CardGroupRes: Response from the API. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -480,11 +352,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/customer/cardgroups')
+            .path('/customer-management/v1/cardgroups')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -497,23 +366,22 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardGroupResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .deserialize_into(CardGroupRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
         ).execute()
 
     def audit_report(self,
-                     apikey,
                      request_id,
                      body=None):
-        """Does a POST request to /fleetmanagement/v1/customer/auditreport.
+        """Does a POST request to /customer-management/v1/auditreport.
 
         This operation allows users to fetch audit data of account or card
         operations performed by users of a given customer
@@ -531,18 +399,15 @@ class CustomerController(BaseController):
         * BCOSummary 
         * BCOMultiAccountSummary 
         * BCBSummary 
-        * Mobile Payment 
-        * Registration 
+        * Mobile Payment Registration 
         * Fund Transfer (Scheduled & Realtime) 
         * Delivery Address Update.
 
         Args:
-            apikey (str): This is the API key of the specific environment
-                which needs to be passed by the client.
             request_id (str): Mandatory UUID (according to RFC 4122 standards)
                 for requests and responses. This will be played back in the
                 response from the request.
-            body (AuditRequest, optional): request body
+            body (AuditReq, optional): request body
 
         Returns:
             AuditResponse: Response from the API. The http status code 200 and
@@ -561,11 +426,8 @@ class CustomerController(BaseController):
 
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.SHELL)
-            .path('/fleetmanagement/v1/customer/auditreport')
+            .path('/customer-management/v1/auditreport')
             .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                          .key('apikey')
-                          .value(apikey))
             .header_param(Parameter()
                           .key('RequestId')
                           .value(request_id))
@@ -578,14 +440,82 @@ class CustomerController(BaseController):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single('BearerToken'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AuditResponse.from_dictionary)
-            .local_error('400', 'The server cannot or will not process the request  due to something that is perceived to be a client\r\n error (e.g., malformed request syntax, invalid \r\n request message framing, or deceptive request routing).', DefaultErrorException)
-            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', DefaultErrorException)
-            .local_error('403', 'The server understood the request but refuses to authorize it.', ErrorUserAccessError1Exception)
-            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', DefaultErrorException)
-            .local_error('500', 'The server encountered an unexpected condition the prevented it from fulfilling the request.', DefaultErrorException)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).\n', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.\n', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.\n', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.\n', ErrorObjectException)
+        ).execute()
+
+    def customer_price_list(self,
+                            request_id,
+                            body=None):
+        """Does a POST request to /customer-management/v1/pricelist.
+
+        - This operation fetches the International and National Price List and
+        discount values set on pump prices & List Prices
+        - It allows searching price list and discount values set on pump
+        prices that are applicable for a given customer 
+        **Note**: Accounts with cancelled status will not be considered for
+        this operation for the configured 
+        - When the search is based on customer specific price list then the
+        customer price list is returned based on the associated pricing
+        customer.
+        - The discount values set on pump prices, which are returned by the
+        operation are always customer specific values based on the customer
+        associated price rules.
+
+        Args:
+            request_id (str): Mandatory UUID (according to RFC 4122 standards)
+                for requests and responses. This will be played back in the
+                response from the request.
+            body (CustomerPriceListReq, optional): Customerdetails request body
+
+        Returns:
+            CustomerPriceListRes: Response from the API. List of fuel cards.
+                The http status code 200 and the Error.Code "0000" in the
+                response body would indicate the API call is successful. The
+                http status code 200 with Error Code other than "0000" in the
+                response body would indicate there is a failure in the API
+                call.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.SHELL)
+            .path('/customer-management/v1/pricelist')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('RequestId')
+                          .value(request_id))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('BearerToken'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CustomerPriceListRes.from_dictionary)
+            .local_error('400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).', ErrorObjectException)
+            .local_error('401', 'The request has not been applied because it lacks valid  authentication credentials for the target resource.', ErrorObjectException)
+            .local_error('403', 'Forbidden', ErrorObjectException)
+            .local_error('404', 'The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists.', ErrorObjectException)
+            .local_error('500', 'The server encountered an unexpected condition that  prevented it from fulfilling the request.', ErrorObjectException)
         ).execute()

@@ -33,14 +33,14 @@ class AuditRequest(object):
             Optional if ColCoCode is passed else Mandatory.  Example:  1 for
             Philippines  5 for UK
         accounts (Accounts): The model property of type Accounts.
-        page_size (int): Page Size – Number of records to show on a page
-            Optional Default value 50
-        requested_operation (List[str]): To search for requests submitted
-            until this date.  Optional   Format: yyyyMMdd   Example: 20200130 
-            If ToDate is not provided and FromDate is provided, then ToDate
-            will be considered as current date or 30 days from FromDate,
-            whichever is earlier. However, when both FromDate and ToDate is
-            not provided then last 30 days will be considered for filtering.
+        requested_operation (List[str]): Type of requests to be fetched.
+            Optional Allowed values: •    OrderCard •    CreateCardGroup •   
+            PINReminder •    MoveCard •    UpdateCardStatus •   
+            UpdateCardGroup •    AutoRenew •    BulkCardOrder •   
+            BulkCardBlock •    BulkCardOrderMultiAccount •   
+            MobilePaymentRegistration •    UpdateCompanyInfo •    BCOSummary •
+            BCOMultiAccountSummary •    BCBSummary •    FundTransfer •   
+            DeliveryAddressUpdate
         sort_order (str): Allowed Sorting Options:  1.   
             SubmittedDateDescending  2.    SubmittedDateAscending   3.   
             AccountNumberAscending  4.    AccountNumberDescending  Optional:
@@ -50,8 +50,6 @@ class AuditRequest(object):
             Else, an error (0007) will be returned. When valid text is
             provided, MS will return all the records that contains the Search
             Text within any of the look up fields
-        current_page (int): Page Number (as shown to the users) Optional
-            Default value 1
         from_date (str): To search for requests submitted from this date.
             Optional Maximum of X days duration allowed per search. The X
             value is configurable and initially set to 180 days. Format:
@@ -77,11 +75,9 @@ class AuditRequest(object):
         "col_co_code": 'ColCoCode',
         "col_co_id": 'ColCoId',
         "accounts": 'Accounts',
-        "page_size": 'PageSize',
         "requested_operation": 'RequestedOperation',
         "sort_order": 'SortOrder',
         "search_text": 'SearchText',
-        "current_page": 'CurrentPage',
         "from_date": 'FromDate',
         "to_date": 'ToDate'
     }
@@ -94,11 +90,9 @@ class AuditRequest(object):
         'col_co_code',
         'col_co_id',
         'accounts',
-        'page_size',
         'requested_operation',
         'sort_order',
         'search_text',
-        'current_page',
         'from_date',
         'to_date',
     ]
@@ -111,7 +105,6 @@ class AuditRequest(object):
         'col_co_id',
         'sort_order',
         'search_text',
-        'current_page',
         'from_date',
         'to_date',
     ]
@@ -124,11 +117,9 @@ class AuditRequest(object):
                  col_co_code=APIHelper.SKIP,
                  col_co_id=APIHelper.SKIP,
                  accounts=APIHelper.SKIP,
-                 page_size=APIHelper.SKIP,
                  requested_operation=APIHelper.SKIP,
                  sort_order=APIHelper.SKIP,
                  search_text=APIHelper.SKIP,
-                 current_page=APIHelper.SKIP,
                  from_date=APIHelper.SKIP,
                  to_date=APIHelper.SKIP):
         """Constructor for the AuditRequest class"""
@@ -148,16 +139,12 @@ class AuditRequest(object):
             self.col_co_id = col_co_id 
         if accounts is not APIHelper.SKIP:
             self.accounts = accounts 
-        if page_size is not APIHelper.SKIP:
-            self.page_size = page_size 
         if requested_operation is not APIHelper.SKIP:
             self.requested_operation = requested_operation 
         if sort_order is not APIHelper.SKIP:
             self.sort_order = sort_order 
         if search_text is not APIHelper.SKIP:
             self.search_text = search_text 
-        if current_page is not APIHelper.SKIP:
-            self.current_page = current_page 
         if from_date is not APIHelper.SKIP:
             self.from_date = from_date 
         if to_date is not APIHelper.SKIP:
@@ -189,11 +176,9 @@ class AuditRequest(object):
         col_co_code = dictionary.get("ColCoCode") if "ColCoCode" in dictionary.keys() else APIHelper.SKIP
         col_co_id = dictionary.get("ColCoId") if "ColCoId" in dictionary.keys() else APIHelper.SKIP
         accounts = Accounts.from_dictionary(dictionary.get('Accounts')) if 'Accounts' in dictionary.keys() else APIHelper.SKIP
-        page_size = dictionary.get("PageSize") if dictionary.get("PageSize") else APIHelper.SKIP
         requested_operation = dictionary.get("RequestedOperation") if dictionary.get("RequestedOperation") else APIHelper.SKIP
         sort_order = dictionary.get("SortOrder") if "SortOrder" in dictionary.keys() else APIHelper.SKIP
         search_text = dictionary.get("SearchText") if "SearchText" in dictionary.keys() else APIHelper.SKIP
-        current_page = dictionary.get("CurrentPage") if "CurrentPage" in dictionary.keys() else APIHelper.SKIP
         from_date = dictionary.get("FromDate") if "FromDate" in dictionary.keys() else APIHelper.SKIP
         to_date = dictionary.get("ToDate") if "ToDate" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
@@ -204,11 +189,9 @@ class AuditRequest(object):
                    col_co_code,
                    col_co_id,
                    accounts,
-                   page_size,
                    requested_operation,
                    sort_order,
                    search_text,
-                   current_page,
                    from_date,
                    to_date)
 
@@ -221,11 +204,9 @@ class AuditRequest(object):
                 f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!r}, '
                 f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!r}, '
                 f'accounts={(self.accounts if hasattr(self, "accounts") else None)!r}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r}, '
                 f'requested_operation={(self.requested_operation if hasattr(self, "requested_operation") else None)!r}, '
                 f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r}, '
                 f'search_text={(self.search_text if hasattr(self, "search_text") else None)!r}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
                 f'from_date={(self.from_date if hasattr(self, "from_date") else None)!r}, '
                 f'to_date={(self.to_date if hasattr(self, "to_date") else None)!r})')
 
@@ -238,10 +219,8 @@ class AuditRequest(object):
                 f'col_co_code={(self.col_co_code if hasattr(self, "col_co_code") else None)!s}, '
                 f'col_co_id={(self.col_co_id if hasattr(self, "col_co_id") else None)!s}, '
                 f'accounts={(self.accounts if hasattr(self, "accounts") else None)!s}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s}, '
                 f'requested_operation={(self.requested_operation if hasattr(self, "requested_operation") else None)!s}, '
                 f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s}, '
                 f'search_text={(self.search_text if hasattr(self, "search_text") else None)!s}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
                 f'from_date={(self.from_date if hasattr(self, "from_date") else None)!s}, '
                 f'to_date={(self.to_date if hasattr(self, "to_date") else None)!s})')

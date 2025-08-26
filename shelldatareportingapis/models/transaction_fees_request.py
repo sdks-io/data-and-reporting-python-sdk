@@ -70,8 +70,6 @@ class TransactionFeesRequest(object):
         sort_order (str): Allowed Sorting Options: •    FeeDateAscending •   
             FeeDateDescending •    NetAmountAscending •    NetAmountDescending
             Optional. Default: 1
-        current_page (int): Page Number
-        page_size (int): Page Size – Number of records to show on a page
 
     """
 
@@ -94,9 +92,7 @@ class TransactionFeesRequest(object):
         "product_id": 'ProductId',
         "product_code": 'ProductCode',
         "line_item_description": 'LineItemDescription',
-        "sort_order": 'SortOrder',
-        "current_page": 'CurrentPage',
-        "page_size": 'PageSize'
+        "sort_order": 'SortOrder'
     }
 
     _optionals = [
@@ -118,8 +114,6 @@ class TransactionFeesRequest(object):
         'product_code',
         'line_item_description',
         'sort_order',
-        'current_page',
-        'page_size',
     ]
 
     _nullables = [
@@ -140,8 +134,6 @@ class TransactionFeesRequest(object):
         'product_code',
         'line_item_description',
         'sort_order',
-        'current_page',
-        'page_size',
     ]
 
     def __init__(self,
@@ -162,9 +154,7 @@ class TransactionFeesRequest(object):
                  product_id=APIHelper.SKIP,
                  product_code=APIHelper.SKIP,
                  line_item_description=APIHelper.SKIP,
-                 sort_order=APIHelper.SKIP,
-                 current_page=APIHelper.SKIP,
-                 page_size=APIHelper.SKIP):
+                 sort_order=APIHelper.SKIP):
         """Constructor for the TransactionFeesRequest class"""
 
         # Initialize members of the class
@@ -204,10 +194,6 @@ class TransactionFeesRequest(object):
             self.line_item_description = line_item_description 
         if sort_order is not APIHelper.SKIP:
             self.sort_order = sort_order 
-        if current_page is not APIHelper.SKIP:
-            self.current_page = current_page 
-        if page_size is not APIHelper.SKIP:
-            self.page_size = page_size 
 
     @classmethod
     def from_dictionary(cls,
@@ -250,8 +236,6 @@ class TransactionFeesRequest(object):
         product_code = dictionary.get("ProductCode") if "ProductCode" in dictionary.keys() else APIHelper.SKIP
         line_item_description = dictionary.get("LineItemDescription") if "LineItemDescription" in dictionary.keys() else APIHelper.SKIP
         sort_order = dictionary.get("SortOrder") if "SortOrder" in dictionary.keys() else APIHelper.SKIP
-        current_page = dictionary.get("CurrentPage") if "CurrentPage" in dictionary.keys() else APIHelper.SKIP
-        page_size = dictionary.get("PageSize") if "PageSize" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(col_co_id,
                    col_co_code,
@@ -270,9 +254,7 @@ class TransactionFeesRequest(object):
                    product_id,
                    product_code,
                    line_item_description,
-                   sort_order,
-                   current_page,
-                   page_size)
+                   sort_order)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
@@ -293,9 +275,7 @@ class TransactionFeesRequest(object):
                 f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
                 f'product_code={(self.product_code if hasattr(self, "product_code") else None)!r}, '
                 f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!r}, '
-                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!r})')
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
@@ -316,6 +296,4 @@ class TransactionFeesRequest(object):
                 f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
                 f'product_code={(self.product_code if hasattr(self, "product_code") else None)!s}, '
                 f'line_item_description={(self.line_item_description if hasattr(self, "line_item_description") else None)!s}, '
-                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
-                f'page_size={(self.page_size if hasattr(self, "page_size") else None)!s})')
+                f'sort_order={(self.sort_order if hasattr(self, "sort_order") else None)!s})')

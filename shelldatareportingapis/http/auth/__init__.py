@@ -1,4 +1,3 @@
 __all__ = [
-    'basic_auth',
-    'bearer_token',
+    'o_auth_2',
 ]

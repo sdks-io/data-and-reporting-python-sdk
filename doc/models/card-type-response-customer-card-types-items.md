@@ -34,7 +34,7 @@
 | `token_type_id` | `int` | Optional | Token type identifier. |
 | `token_type_name` | `str` | Optional | Token Type Name. |
 | `usage_restrictions` | [`CardUsageRestrictions`](../../doc/models/card-usage-restrictions.md) | Optional | - |
-| `emv_contactless` | `bool` | Optional | Is Europay, MasterCard, and Visa Contactless enabled or not |
+| `emv_contactless` | `bool` | Optional | Is Europay, MasterCard, and Visa Contactless enabled or not. |
 | `rfid` | `bool` | Optional | Whether the card type is enabled for RFID (Radio Frequency Identification) |
 | `pin_change_supported` | `bool` | Optional | PIN change supported or not. |
 | `require_pin` | `bool` | Optional | Whether a PIN is mandatory for the cards of this card type. |

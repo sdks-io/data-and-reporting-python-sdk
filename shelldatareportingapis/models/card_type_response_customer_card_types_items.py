@@ -54,7 +54,7 @@ class CardTypeResponseCustomerCardTypesItems(object):
         usage_restrictions (CardUsageRestrictions): The model property of type
             CardUsageRestrictions.
         emv_contactless (bool): Is Europay, MasterCard, and Visa Contactless
-            enabled or not
+            enabled or not.
         rfid (bool): Whether the card type is enabled for RFID (Radio
             Frequency Identification)
         pin_change_supported (bool): PIN change supported or not.

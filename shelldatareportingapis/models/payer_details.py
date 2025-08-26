@@ -10,7 +10,7 @@ from shelldatareportingapis.api_helper import APIHelper
 from shelldatareportingapis.models.address import Address
 from shelldatareportingapis.models.bank_account import BankAccount
 from shelldatareportingapis.models.customer_contract import CustomerContract
-from shelldatareportingapis.models.finance_currency import FinanceCurrency
+from shelldatareportingapis.models.finance_currency_2 import FinanceCurrency2
 from shelldatareportingapis.models.invoice_distribution_method import InvoiceDistributionMethod
 
 
@@ -190,9 +190,8 @@ class PayerDetails(object):
             current date, else false. This field is returned only when
             IncludeBonusParameters is set to True in the request. Else set to
             null.
-        finance_currency (FinanceCurrency): This entity will not be present in
-            the response if the ‘IncludeFinanceCurrency’ flag in the request
-            is ‘false’
+        finance_currency (FinanceCurrency2): The model property of type
+            FinanceCurrency2.
         tolls_customer_id (str): Customer id in e-TM system This field will
             have value only when ReturnTollsCustomerId is set to true in the
             request else set to null or empty.
@@ -955,7 +954,7 @@ class PayerDetails(object):
         has_active_vol_based_pricing = dictionary.get("HasActiveVolBasedPricing") if "HasActiveVolBasedPricing" in dictionary.keys() else APIHelper.SKIP
         has_active_vol_based_bonus = dictionary.get("HasActiveVolBasedBonus") if "HasActiveVolBasedBonus" in dictionary.keys() else APIHelper.SKIP
         has_active_vol_based_association_bonus = dictionary.get("HasActiveVolBasedAssociationBonus") if "HasActiveVolBasedAssociationBonus" in dictionary.keys() else APIHelper.SKIP
-        finance_currency = FinanceCurrency.from_dictionary(dictionary.get('FinanceCurrency')) if 'FinanceCurrency' in dictionary.keys() else APIHelper.SKIP
+        finance_currency = FinanceCurrency2.from_dictionary(dictionary.get('FinanceCurrency')) if 'FinanceCurrency' in dictionary.keys() else APIHelper.SKIP
         tolls_customer_id = dictionary.get("TollsCustomerId") if "TollsCustomerId" in dictionary.keys() else APIHelper.SKIP
         tolls_colco_country_type_id = dictionary.get("TollsColcoCountryTypeId") if "TollsColcoCountryTypeId" in dictionary.keys() else APIHelper.SKIP
         contracts = None

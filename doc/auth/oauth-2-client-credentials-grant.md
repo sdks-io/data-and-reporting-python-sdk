@@ -18,7 +18,7 @@ Documentation for accessing and setting credentials for BearerToken.
 
 
 
-**Note:** Auth credentials can be set using `BearerTokenCredentials` object, passed in as named parameter `bearer_token_credentials` in the client initialization.
+**Note:** Auth credentials can be set using `ClientCredentialsAuthCredentials` object, passed in as named parameter `client_credentials_auth_credentials` in the client initialization.
 
 ## Usage Example
 
@@ -27,8 +27,11 @@ Documentation for accessing and setting credentials for BearerToken.
 You must initialize the client with *OAuth 2.0 Client Credentials Grant* credentials as shown in the following code snippet. This will fetch the OAuth token automatically when any of the endpoints, requiring *OAuth 2.0 Client Credentials Grant* authentication, are called.
 
 ```python
+from shelldatareportingapis.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
+from shelldatareportingapis.shelldatareportingapis_client import ShelldatareportingapisClient
+
 client = ShelldatareportingapisClient(
-    bearer_token_credentials=BearerTokenCredentials(
+    client_credentials_auth_credentials=ClientCredentialsAuthCredentials(
         o_auth_client_id='OAuthClientId',
         o_auth_client_secret='OAuthClientSecret'
     )
@@ -37,15 +40,18 @@ client = ShelldatareportingapisClient(
 
 
 
-Your application can also manually provide an OAuthToken using the setter `o_auth_token` in `BearerTokenCredentials` object. This function takes in an instance of OAuthToken containing information for authorizing client requests and refreshing the token itself.
+Your application can also manually provide an OAuthToken using the setter `o_auth_token` in `ClientCredentialsAuthCredentials` object. This function takes in an instance of OAuthToken containing information for authorizing client requests and refreshing the token itself.
 
 ### Adding OAuth Token Update Callback
 
 Whenever the OAuth Token gets updated, the provided callback implementation will be executed. For instance, you may use it to store your access token whenever it gets updated.
 
 ```python
+from shelldatareportingapis.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
+from shelldatareportingapis.shelldatareportingapis_client import ShelldatareportingapisClient
+
 client = ShelldatareportingapisClient(
-    bearer_token_credentials=BearerTokenCredentials(
+    client_credentials_auth_credentials=ClientCredentialsAuthCredentials(
         o_auth_client_id='OAuthClientId',
         o_auth_client_secret='OAuthClientSecret',
         o_auth_on_token_update=(lambda o_auth_token:
@@ -58,9 +64,12 @@ client = ShelldatareportingapisClient(
 
 ### Adding Custom OAuth Token Provider
 
-To authorize a client using a stored access token, set up the `o_auth_token_provider` in `BearerTokenCredentials` along with the other auth parameters before creating the client:
+To authorize a client using a stored access token, set up the `o_auth_token_provider` in `ClientCredentialsAuthCredentials` along with the other auth parameters before creating the client:
 
 ```python
+from shelldatareportingapis.http.auth.o_auth_2 import ClientCredentialsAuthCredentials
+from shelldatareportingapis.shelldatareportingapis_client import ShelldatareportingapisClient
+
 def _o_auth_token_provider(last_oauth_token, auth_manager):
     # Add the callback handler to provide a new OAuth token
     # It will be triggered whenever the last provided o_auth_token is null or expired
@@ -71,7 +80,7 @@ def _o_auth_token_provider(last_oauth_token, auth_manager):
 
 
 client = ShelldatareportingapisClient(
-    bearer_token_credentials=BearerTokenCredentials(
+    client_credentials_auth_credentials=ClientCredentialsAuthCredentials(
         o_auth_client_id='OAuthClientId',
         o_auth_client_secret='OAuthClientSecret',
         o_auth_token_provider=_o_auth_token_provider

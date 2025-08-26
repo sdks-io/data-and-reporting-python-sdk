@@ -12,8 +12,7 @@ from apimatic_core.decorators.lazy_property import LazyProperty
 from shelldatareportingapis.configuration import Configuration
 from shelldatareportingapis.controllers.base_controller import BaseController
 from shelldatareportingapis.configuration import Environment
-from shelldatareportingapis.http.auth.basic_auth import BasicAuth
-from shelldatareportingapis.http.auth.bearer_token import BearerToken
+from shelldatareportingapis.http.auth.o_auth_2 import OAuth2
 from shelldatareportingapis.controllers.customer_controller\
     import CustomerController
 from shelldatareportingapis.controllers.transaction_controller\
@@ -49,8 +48,8 @@ class ShelldatareportingapisClient(object):
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None,
-                 environment=Environment.SIT, basic_auth_credentials=None,
-                 bearer_token_credentials=None, config=None):
+                 environment=Environment.SIT,
+                 client_credentials_auth_credentials=None, config=None):
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
@@ -58,18 +57,16 @@ class ShelldatareportingapisClient(object):
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             environment=environment,
-            basic_auth_credentials=basic_auth_credentials,
-            bearer_token_credentials=bearer_token_credentials)
+            client_credentials_auth_credentials=client_credentials_auth_credentials)
 
         self.global_configuration = GlobalConfiguration(self.config)\
             .global_errors(BaseController.global_errors())\
             .base_uri_executor(self.config.get_base_uri)\
             .user_agent(BaseController.user_agent(), BaseController.user_agent_parameters())
 
-        self.auth_managers = {key: None for key in ['BasicAuth', 'BearerToken']}
-        self.auth_managers['BasicAuth'] = BasicAuth(
-            self.config.basic_auth_credentials)
-        self.auth_managers['BearerToken'] = BearerToken(
-            self.config.bearer_token_credentials, self.global_configuration)
+        self.auth_managers = {key: None for key in ['BearerToken']}
+        self.auth_managers['BearerToken'] = OAuth2(
+            self.config.client_credentials_auth_credentials,
+            self.global_configuration)
         self.global_configuration = self.global_configuration.auth_managers(self.auth_managers)
 

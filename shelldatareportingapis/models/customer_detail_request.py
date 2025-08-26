@@ -14,7 +14,7 @@ class CustomerDetailRequest(object):
     """Implementation of the 'CustomerDetailRequest' model.
 
     Attributes:
-        col_co_id (int): Collecting Company Id (in GFN) of the selected payer.
+        col_co_id (int): Collecting Company Id of the selected payer.  
             Optional if ColCoCode is passed else Mandatory.  Example: 
             1-Philippines  5-UK
         col_co_code (int): Collecting Company Code (Shell Code) of the
@@ -25,7 +25,7 @@ class CustomerDetailRequest(object):
             H3 Cards Platform) of the selected payer. Optional if PayerNumber
             is passed else Mandatory Example: 123456
         payer_number (str): Payer Number of the selected payer. Optional if
-            PayerId is passed else Mandatory Example: GB000000123
+            PayerId is passed else Mandatory Example: DE00001067
         account_id (int): Account ID of the customer. Optional if
             AccountNumber is passed else Mandatory.
         account_number (str): Account Number of the customer. Optional if

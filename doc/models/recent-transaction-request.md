@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page_size` | `int` | Required | Specify the number of records to returned; Max 1000<br>**Constraints**: `>= 1`, `<= 1000` |
-| `page` | `int` | Required | Specify the page of results to be returned.<br>**Constraints**: `<= 1` |
+| `page_size` | `int` | Required | Specify the number of records to returned; Max 1000<br><br>**Constraints**: `>= 1`, `<= 1000` |
+| `page` | `int` | Required | Specify the page of results to be returned.<br><br>**Constraints**: `<= 1` |
 | `filters` | [`RecentTransactionReq`](../../doc/models/recent-transaction-req.md) | Required | - |
 
 ## Example (as JSON)

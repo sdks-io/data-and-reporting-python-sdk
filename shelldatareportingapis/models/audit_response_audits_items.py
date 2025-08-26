@@ -72,6 +72,10 @@ class AuditResponseAuditsItems(object):
         user_display_name (str): Display name of the user who submitted this
             request. It will be the Display Name of the Driver in the case of
             “MobilePaymentRegistration” in the below format:
+        panid (str): PAN ID of the card. This will be null when the PAN is not
+            available in the request.
+        masked_pan (str): Masked PAN of the card. This will be null when the
+            Masked PAN is not available in the request.
 
     """
 
@@ -107,7 +111,9 @@ class AuditResponseAuditsItems(object):
         "status": 'Status',
         "submitted_on": 'SubmittedOn',
         "sub_request_reference": 'SubRequestReference',
-        "user_display_name": 'UserDisplayName'
+        "user_display_name": 'UserDisplayName',
+        "panid": 'PANID',
+        "masked_pan": 'MaskedPAN'
     }
 
     _optionals = [
@@ -142,6 +148,8 @@ class AuditResponseAuditsItems(object):
         'submitted_on',
         'sub_request_reference',
         'user_display_name',
+        'panid',
+        'masked_pan',
     ]
 
     _nullables = [
@@ -175,6 +183,8 @@ class AuditResponseAuditsItems(object):
         'submitted_on',
         'sub_request_reference',
         'user_display_name',
+        'panid',
+        'masked_pan',
     ]
 
     def __init__(self,
@@ -208,7 +218,9 @@ class AuditResponseAuditsItems(object):
                  status=APIHelper.SKIP,
                  submitted_on=APIHelper.SKIP,
                  sub_request_reference=APIHelper.SKIP,
-                 user_display_name=APIHelper.SKIP):
+                 user_display_name=APIHelper.SKIP,
+                 panid=APIHelper.SKIP,
+                 masked_pan=APIHelper.SKIP):
         """Constructor for the AuditResponseAuditsItems class"""
 
         # Initialize members of the class
@@ -274,6 +286,10 @@ class AuditResponseAuditsItems(object):
             self.sub_request_reference = sub_request_reference 
         if user_display_name is not APIHelper.SKIP:
             self.user_display_name = user_display_name 
+        if panid is not APIHelper.SKIP:
+            self.panid = panid 
+        if masked_pan is not APIHelper.SKIP:
+            self.masked_pan = masked_pan 
 
     @classmethod
     def from_dictionary(cls,
@@ -325,6 +341,8 @@ class AuditResponseAuditsItems(object):
         submitted_on = dictionary.get("SubmittedOn") if "SubmittedOn" in dictionary.keys() else APIHelper.SKIP
         sub_request_reference = dictionary.get("SubRequestReference") if "SubRequestReference" in dictionary.keys() else APIHelper.SKIP
         user_display_name = dictionary.get("UserDisplayName") if "UserDisplayName" in dictionary.keys() else APIHelper.SKIP
+        panid = dictionary.get("PANID") if "PANID" in dictionary.keys() else APIHelper.SKIP
+        masked_pan = dictionary.get("MaskedPAN") if "MaskedPAN" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(account_id,
                    account_number,
@@ -356,7 +374,9 @@ class AuditResponseAuditsItems(object):
                    status,
                    submitted_on,
                    sub_request_reference,
-                   user_display_name)
+                   user_display_name,
+                   panid,
+                   masked_pan)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
@@ -390,7 +410,9 @@ class AuditResponseAuditsItems(object):
                 f'status={(self.status if hasattr(self, "status") else None)!r}, '
                 f'submitted_on={(self.submitted_on if hasattr(self, "submitted_on") else None)!r}, '
                 f'sub_request_reference={(self.sub_request_reference if hasattr(self, "sub_request_reference") else None)!r}, '
-                f'user_display_name={(self.user_display_name if hasattr(self, "user_display_name") else None)!r})')
+                f'user_display_name={(self.user_display_name if hasattr(self, "user_display_name") else None)!r}, '
+                f'panid={(self.panid if hasattr(self, "panid") else None)!r}, '
+                f'masked_pan={(self.masked_pan if hasattr(self, "masked_pan") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
@@ -424,4 +446,6 @@ class AuditResponseAuditsItems(object):
                 f'status={(self.status if hasattr(self, "status") else None)!s}, '
                 f'submitted_on={(self.submitted_on if hasattr(self, "submitted_on") else None)!s}, '
                 f'sub_request_reference={(self.sub_request_reference if hasattr(self, "sub_request_reference") else None)!s}, '
-                f'user_display_name={(self.user_display_name if hasattr(self, "user_display_name") else None)!s})')
+                f'user_display_name={(self.user_display_name if hasattr(self, "user_display_name") else None)!s}, '
+                f'panid={(self.panid if hasattr(self, "panid") else None)!s}, '
+                f'masked_pan={(self.masked_pan if hasattr(self, "masked_pan") else None)!s})')

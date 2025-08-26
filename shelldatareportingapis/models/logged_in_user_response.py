@@ -10,7 +10,6 @@ from shelldatareportingapis.api_helper import APIHelper
 from shelldatareportingapis.models.account_access import AccountAccess
 from shelldatareportingapis.models.col_co_access import ColCoAccess
 from shelldatareportingapis.models.eid_access import EIDAccess
-from shelldatareportingapis.models.error_status import ErrorStatus
 from shelldatareportingapis.models.payer_access import PayerAccess
 from shelldatareportingapis.models.role import Role
 
@@ -76,8 +75,6 @@ class LoggedInUserResponse(object):
         card_count (int): Count of cards at the time when the user was created
             or last updated.  Note:   Count may vary based on customer
             operations hence it may not be an up to date value.
-        error (ErrorStatus): The model property of type ErrorStatus.
-        request_id (str): Request Id of the API call
 
     """
 
@@ -105,9 +102,7 @@ class LoggedInUserResponse(object):
         "user_classification_by_shell": 'UserClassificationByShell',
         "payer_count": 'PayerCount',
         "account_count": 'AccountCount',
-        "card_count": 'CardCount',
-        "error": 'Error',
-        "request_id": 'RequestId'
+        "card_count": 'CardCount'
     }
 
     _optionals = [
@@ -134,8 +129,6 @@ class LoggedInUserResponse(object):
         'payer_count',
         'account_count',
         'card_count',
-        'error',
-        'request_id',
     ]
 
     _nullables = [
@@ -179,9 +172,7 @@ class LoggedInUserResponse(object):
                  user_classification_by_shell=APIHelper.SKIP,
                  payer_count=APIHelper.SKIP,
                  account_count=APIHelper.SKIP,
-                 card_count=APIHelper.SKIP,
-                 error=APIHelper.SKIP,
-                 request_id=APIHelper.SKIP):
+                 card_count=APIHelper.SKIP):
         """Constructor for the LoggedInUserResponse class"""
 
         # Initialize members of the class
@@ -228,10 +219,6 @@ class LoggedInUserResponse(object):
             self.account_count = account_count 
         if card_count is not APIHelper.SKIP:
             self.card_count = card_count 
-        if error is not APIHelper.SKIP:
-            self.error = error 
-        if request_id is not APIHelper.SKIP:
-            self.request_id = request_id 
 
     @classmethod
     def from_dictionary(cls,
@@ -295,8 +282,6 @@ class LoggedInUserResponse(object):
         payer_count = dictionary.get("PayerCount") if "PayerCount" in dictionary.keys() else APIHelper.SKIP
         account_count = dictionary.get("AccountCount") if "AccountCount" in dictionary.keys() else APIHelper.SKIP
         card_count = dictionary.get("CardCount") if "CardCount" in dictionary.keys() else APIHelper.SKIP
-        error = ErrorStatus.from_dictionary(dictionary.get('Error')) if 'Error' in dictionary.keys() else APIHelper.SKIP
-        request_id = dictionary.get("RequestId") if dictionary.get("RequestId") else APIHelper.SKIP
         # Return an object of this model
         return cls(user_name,
                    display_name,
@@ -320,9 +305,7 @@ class LoggedInUserResponse(object):
                    user_classification_by_shell,
                    payer_count,
                    account_count,
-                   card_count,
-                   error,
-                   request_id)
+                   card_count)
 
     def __repr__(self):
         return (f'{self.__class__.__name__}('
@@ -348,9 +331,7 @@ class LoggedInUserResponse(object):
                 f'user_classification_by_shell={(self.user_classification_by_shell if hasattr(self, "user_classification_by_shell") else None)!r}, '
                 f'payer_count={(self.payer_count if hasattr(self, "payer_count") else None)!r}, '
                 f'account_count={(self.account_count if hasattr(self, "account_count") else None)!r}, '
-                f'card_count={(self.card_count if hasattr(self, "card_count") else None)!r}, '
-                f'error={(self.error if hasattr(self, "error") else None)!r}, '
-                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+                f'card_count={(self.card_count if hasattr(self, "card_count") else None)!r})')
 
     def __str__(self):
         return (f'{self.__class__.__name__}('
@@ -376,6 +357,4 @@ class LoggedInUserResponse(object):
                 f'user_classification_by_shell={(self.user_classification_by_shell if hasattr(self, "user_classification_by_shell") else None)!s}, '
                 f'payer_count={(self.payer_count if hasattr(self, "payer_count") else None)!s}, '
                 f'account_count={(self.account_count if hasattr(self, "account_count") else None)!s}, '
-                f'card_count={(self.card_count if hasattr(self, "card_count") else None)!s}, '
-                f'error={(self.error if hasattr(self, "error") else None)!s}, '
-                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')
+                f'card_count={(self.card_count if hasattr(self, "card_count") else None)!s})')
